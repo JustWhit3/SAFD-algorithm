@@ -8,7 +8,6 @@ BUILD_DIR := bin
 SRC_DIR := src
 TEST_DIR := test
 OBJ_DIR := obj
-TEST_DIR := test
 
 #====================================================
 #     SOURCE FILES
