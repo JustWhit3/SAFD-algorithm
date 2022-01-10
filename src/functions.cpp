@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <stdexcept>
+#include <complex>
 
 #include "../include/utils.hpp"
 #include "../include/functions.hpp"
@@ -34,7 +35,7 @@ double Leg_func( int b, int a, double x )
   if( x < -1 || x > 1 ) throw std::runtime_error( "Legendre associated function variable should stay in interval [-1,1]!" );
   else
    {
-    if( a < b || b < 0 ) throw std::runtime_error( "Legendre associated function indexes a and b should satisfy the relation a >= b >= 0" );
+    if( ( a < b || b < 0 ) || b < 0 ) throw std::runtime_error( "Legendre associated function indexes a and b should satisfy the relation: a >= b >= 0" );
     else
      {
       double first_term = pow( ( 1 - pow( x, 2 ) ), static_cast<double>( b ) / 2 );
@@ -49,10 +50,18 @@ double Leg_func( int b, int a, double x )
 //     "sph_arm" function definition
 //============================================
 //Function used to calculate spherical armonics with indexes "m" and "l" and variables "theta" and "phi".
-double sph_arm( int m, int l, double theta, double phi )
+//This function works well until m = 4/5. This is probably due to Leg_func function.
+//NB: in the calculator, pi = 3.14, theta = 180.
+cmplx sph_arm( int m, int l, double theta, double phi )
  {
-  int sign_1 = pow( -1, ( m + abs( m ) ) / 2 );
-  //int sign_2 = sqrt( ( ( 2*l + 1 ) * factorial( l - abs( m ) ) ) / () );
+  if( ( l < m || l < 0 ) || m < 0 ) throw std::runtime_error( "Quantum numbers l and m should satisfy the relation: l >= abs( m ) >= 0" );
+  else
+   {
+    double sign_1 = pow( -1, ( m + abs( m ) ) / 2 );
+    double sign_2 = sqrt( ( ( 2*l + 1 ) * factorial( l - abs( m ) ) ) / ( M_PI*4 * factorial( l + abs( m ) ) ) );
+    double pol = Leg_func( abs( m ), l, cos( theta ) );
+    cmplx result ( sign_1 * sign_2 * pol * cos( m*( phi + M_PI ) ), sign_1 * sign_2 * pol * sin( m*( phi + M_PI ) ) );
   
-  //return ;
+    return result;
+   }
  }
