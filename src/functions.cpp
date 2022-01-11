@@ -30,6 +30,7 @@ double Leg_pol( int a, double x )
 //     "Leg_func" function definition
 //============================================
 //Function used to calculate Legendre associated functions with indexes "a" and "b" and variable "x".
+//NB: works well until m = l and | m - l | = 1.
 double Leg_func( int b, int a, double x )
  {
   if( x < -1 || x > 1 ) throw std::runtime_error( "Legendre associated function variable should stay in interval [-1,1]!" );
@@ -50,7 +51,6 @@ double Leg_func( int b, int a, double x )
 //     "sph_arm" function definition
 //============================================
 //Function used to calculate spherical armonics with indexes "m" and "l" and variables "theta" and "phi".
-//This function works well until m = 4/5. This is probably due to Leg_func function.
 //NB: in the calculator, pi = 3.14, theta = 180.
 cmplx sph_arm( int m, int l, double theta, double phi )
  {
