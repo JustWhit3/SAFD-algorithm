@@ -19,6 +19,6 @@ extern double Leg_pol( int a, double x );
 extern double Leg_func( int b, int a, double x );
 
 //Spherical armonics function:
-extern std::complex<double> sph_arm( int m, int l, double theta, double phi );
+extern cmplx sph_arm( int m, int l, double theta, double phi );
 
 #endif

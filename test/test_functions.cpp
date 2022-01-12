@@ -40,12 +40,13 @@ TEST_CASE( "Testing the Leg_func function" ) // 100% working
     CHECK_EQ( round_var( Leg_func( 3, 4, 0.9 ) * 100.0 ) / 100.0, -7.83 - 0.01 );
     CHECK_EQ( round_var( Leg_func( 2, 2, 0.5 ) * 100.0 ) / 100.0, 2.25 );
    }
-  SUBCASE( "Testing for b >= 4 and 0 <= |b-a| <= 1" )
+  SUBCASE( "Testing for b >= 4 and |b-a| <= 1" )
    {
     CHECK( IsInBounds( Leg_func( 4, 5, 0.5 ), 260.0, 270.0 ) );
     CHECK( IsInBounds( Leg_func( 6, 6, 0.005 ), 10380.0, 10400.0 ) );
     CHECK( IsInBounds( Leg_func( 7, 8, 0.5 ), -370000.0, -369800.0 ) );
     CHECK( IsInBounds( Leg_func( 10, 11, 0.5 ), 1631080449.0, 1638080449.0 ) );
+    CHECK( IsInBounds( Leg_func( -2, 3, 0.5 ), 0.045, 0.047 ) );
    }
   SUBCASE( "Testing for b >= 4 and |b-a| > 1" ) //***** TODO ***** 
    {
@@ -131,8 +132,8 @@ TEST_CASE( "Testing the sph_arm function" ) // 100% working
    }
   SUBCASE( "Testing exceptions" )
    {
-  CHECK_THROWS_AS( sph_arm( 7, 2, M_PI/6, M_PI/3), runtime_error );
-  CHECK_THROWS_AS( sph_arm( 1, -1, M_PI/6, M_PI/3), runtime_error );
-  CHECK_THROWS_AS( sph_arm( -1, 1, M_PI/6, M_PI/3), runtime_error );
+    CHECK_THROWS_AS( sph_arm( 7, 2, M_PI/6, M_PI/3), runtime_error );
+    CHECK_THROWS_AS( sph_arm( 1, -1, M_PI/6, M_PI/3), runtime_error );
+    CHECK_THROWS_AS( sph_arm( -1, 1, M_PI/6, M_PI/3), runtime_error );
    }
  }

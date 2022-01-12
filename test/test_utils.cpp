@@ -10,12 +10,12 @@ using namespace std;
 
 #define rda 3.456234         \
 
-//============================================
-//     "n_derivative" function testing
-//============================================
 double func( int a, double x ) { return sin( x ) - cos( x ); }
 double gunc( int a, double x ) { return 5*pow( x, 5 ) + pow( x, 4 ); }
 
+//============================================
+//     "n_derivative" function testing
+//============================================
 TEST_CASE( "Testing the n_derivative function" )
  {
   SUBCASE( "Testing the 1-derivative" )
@@ -37,7 +37,7 @@ TEST_CASE( "Testing the n_derivative function" )
    }
   SUBCASE( "Testing higher orders derivatives" ) //***** TODO ***** 
    {
-   //CHECK_EQ( round_var( n_derivative( gunc, 3, 4, 4 ) * 100.0 ) / 100.0, 1823.91 );
+   CHECK_EQ( round_var( n_derivative( gunc, 3, 4, 4 ) * 100.0 ) / 100.0, 1823.91 );
    //CHECK_EQ( round_var( n_derivative( func, M_PI/3, 4, 8 ) * 100.0 ) / 100.0, 0.37 );
    //CHECK_EQ( round_var( n_derivative( func, M_PI/3, 4, 10 ) * 100.0 ) / 100.0, -0.37 );
    }
