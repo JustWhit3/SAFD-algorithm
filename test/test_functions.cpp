@@ -46,7 +46,6 @@ TEST_CASE( "Testing the Leg_func function" ) // 100% working
     CHECK( IsInBounds( Leg_func( 6, 6, 0.005 ), 10380.0, 10400.0 ) );
     CHECK( IsInBounds( Leg_func( 7, 8, 0.5 ), -370000.0, -369800.0 ) );
     CHECK( IsInBounds( Leg_func( 10, 11, 0.5 ), 1631080449.0, 1638080449.0 ) );
-    CHECK( IsInBounds( Leg_func( -2, 3, 0.5 ), 0.045, 0.047 ) );
    }
   SUBCASE( "Testing for b >= 4 and |b-a| > 1" ) //***** TODO ***** 
    {

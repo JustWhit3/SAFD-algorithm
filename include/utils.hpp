@@ -5,8 +5,8 @@
 //     Global variables declaration
 //============================================
 extern const double STEP_SIZE;
-extern const double x_0_int, x_1_int, x_2_int, x_3_int, x_4_int, h_x;
-extern const double y_0_int, y_1_int, y_2_int, y_3_int, x_4_int, h_y;
+extern const double x_in, x_fin, h_x;
+extern const double y_in, y_fin, y_x;
 
 //============================================
 //     Functions declaration

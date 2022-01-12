@@ -21,4 +21,10 @@ extern double Leg_func( int b, int a, double x );
 //Spherical armonics function:
 extern cmplx sph_arm( int m, int l, double theta, double phi );
 
+//Parsed function:
+extern double parsed_f( double theta, double phi );
+
+//f(theta,phi) final function (which will be integrated):
+extern cmplx f_theta_phi( int m, int l, double theta, double phi );
+
 #endif

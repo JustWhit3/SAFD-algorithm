@@ -70,3 +70,27 @@ cmplx sph_arm( int m, int l, double theta, double phi )
     return result;
    }
  }
+
+ //============================================
+//     "parsed_f" function definition
+//============================================
+
+//Function f(theta,phi) obtained with parsing:
+double parsed_f( double theta, double phi )
+ {
+  // return ...
+ }
+
+//============================================
+//     "f_theta_phi" function definition
+//============================================
+
+//This function defines: f(theta,phi) * conjugate( sph_arm(m,l,theta,phi) ) * sin(theta).
+cmplx f_theta_phi( int m, int l, double theta, double phi )
+ {
+  double real_part = parsed_f( theta, phi ) * sin( theta ) * sph_arm( m, l, theta, phi ).real();
+  double imag_part = parsed_f( theta, phi ) * sin( theta ) * conj( sph_arm( m, l, theta, phi ) ).imag();
+  cmplx result( real_part, imag_part );
+
+  return result;
+ }
