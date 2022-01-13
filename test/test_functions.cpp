@@ -136,3 +136,13 @@ TEST_CASE( "Testing the sph_arm function" ) // 100% working
     CHECK_THROWS_AS( sph_arm( -1, 1, M_PI/6, M_PI/3), runtime_error );
    }
  }
+
+//============================================
+//     "sph_arm" function testing
+//============================================
+TEST_CASE( "Testing the parsed_f function" ) // 100% working
+ {
+  CHECK_EQ( parsed_f( "th + phi", 1, 2 ), 3 );
+  CHECK_EQ( parsed_f( "cos( th ) - sin( phi )", M_PI, M_PI/2 ), -2 );
+  CHECK_EQ( parsed_f( "3*( cos( th ) - sin( phi ) )", M_PI, M_PI/2 ), -6 );
+ }

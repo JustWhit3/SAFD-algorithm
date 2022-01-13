@@ -2,9 +2,22 @@
 #include <cmath>
 #include <stdexcept>
 #include <complex>
+#include <string>
+#include <exprtk.hpp>
 
 #include "../include/utils.hpp"
 #include "../include/functions.hpp"
+
+//============================================
+//     "Leg_pol" function definition
+//============================================
+
+//Useful definitions for the exprtk.hpp package.
+typedef exprtk::symbol_table<double> symbol_table_t;
+typedef exprtk::expression<double>     expression_t;
+typedef exprtk::parser<double>             parser_t;
+
+exprtk::rtl::io::file::package<double> fileio_package;
 
 //============================================
 //     "Leg_pol" function definition
@@ -71,14 +84,28 @@ cmplx sph_arm( int m, int l, double theta, double phi )
    }
  }
 
- //============================================
+//============================================
 //     "parsed_f" function definition
 //============================================
 
 //Function f(theta,phi) obtained with parsing:
-double parsed_f( double theta, double phi )
+double parsed_f( const std::string expr, double theta, double phi )
  {
-  // return ...
+  symbol_table_t symbol_table;
+  symbol_table.add_variable( "th", theta );
+  symbol_table.add_variable( "phi",phi );
+
+  expression_t foo;
+  foo.register_symbol_table( symbol_table );
+
+  parser_t parser;
+  if ( !parser.compile( expr, foo ) )
+   {
+    // Error in expression...
+    return 0;
+   }
+  
+  return foo.value();
  }
 
 //============================================
@@ -86,11 +113,11 @@ double parsed_f( double theta, double phi )
 //============================================
 
 //This function defines: f(theta,phi) * conjugate( sph_arm(m,l,theta,phi) ) * sin(theta).
-cmplx f_theta_phi( int m, int l, double theta, double phi )
+/*cmplx f_theta_phi( int m, int l, double theta, double phi )
  {
-  double real_part = parsed_f( theta, phi ) * sin( theta ) * sph_arm( m, l, theta, phi ).real();
-  double imag_part = parsed_f( theta, phi ) * sin( theta ) * conj( sph_arm( m, l, theta, phi ) ).imag();
+  double real_part = parsed_f( expression, theta, phi ) * sin( theta ) * sph_arm( m, l, theta, phi ).real();
+  double imag_part = parsed_f( expression, theta, phi ) * sin( theta ) * conj( sph_arm( m, l, theta, phi ) ).imag();
   cmplx result( real_part, imag_part );
 
   return result;
- }
+ }*/

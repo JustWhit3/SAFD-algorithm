@@ -120,7 +120,6 @@ double integral( double ( *f )( int, int, double, double ), int m, int l )
      }
     ax[i] *= ( h_y / 3 );
    }
-
   res = 0;
 
   //Calculating the final integral value using the integral obtained in the above step:
@@ -130,7 +129,6 @@ double integral( double ( *f )( int, int, double, double ), int m, int l )
     else if ( i % 2 == 0 ) res += 2 * ax[i];
     else res += 4 * ax[i];
    }
-
   res *= ( h_x / 3 );
 
   return res;
