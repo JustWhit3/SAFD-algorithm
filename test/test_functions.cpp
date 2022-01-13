@@ -4,6 +4,8 @@
 #include <doctest.h>
 #include <stdexcept>
 #include <algorithm>
+#include <cmath>
+#include <complex>
 
 #include "../include/functions.hpp"
 #include "../include/utils.hpp"
@@ -145,4 +147,22 @@ TEST_CASE( "Testing the parsed_f function" ) // 100% working
   CHECK_EQ( parsed_f( "th + phi", 1, 2 ), 3 );
   CHECK_EQ( parsed_f( "cos( th ) - sin( phi )", M_PI, M_PI/2 ), -2 );
   CHECK_EQ( parsed_f( "3*( cos( th ) - sin( phi ) )", M_PI, M_PI/2 ), -6 );
+
+  double p = parsed_f( "3*( cos( th ) - sin( phi ) )", M_PI, M_PI/2 );
+  CHECK_EQ( p, -6 );
+ }
+
+//============================================
+//     "f_theta_phi" function testing
+//============================================
+TEST_CASE( "Testing the f_theta_phi function" ) // 100% working
+ {
+ {
+  cmplx a( -0.009706, 0.009706 );
+  CHECK_EQ( round_var( f_theta_phi( "cos( th ) - sin( phi )", 1, 1, M_PI/6, M_PI/4 ).real() * 10000.0 ) / 10000.0, -0.0097 );
+  CHECK_EQ( round_var( f_theta_phi( "cos( th ) - sin( phi )", 1, 1, M_PI/6, M_PI/4 ).imag() * 10000.0 ) / 10000.0, 0.0097 );
+
+  cmplx b( -0.043, 0.075 );
+  CHECK_EQ( round_var( f_theta_phi( "sin( th ) + cos( phi )", 1, 1, M_PI/6, M_PI/3 ).real() * 1000.0 ) / 1000.0, b.real() );
+  CHECK_EQ( round_var( f_theta_phi( "sin( th ) + cos( phi )", 1, 1, M_PI/6, M_PI/3 ).imag() * 1000.0 ) / 1000.0, b.imag() );
  }

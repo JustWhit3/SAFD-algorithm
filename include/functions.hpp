@@ -5,11 +5,6 @@
 #include <string>
 
 //============================================
-//     Global variables definition
-//============================================
-//extern std::string expression;
-
-//============================================
 //     Aliases definition
 //============================================
 using cmplx = std::complex<double>;
@@ -31,6 +26,6 @@ extern cmplx sph_arm( int m, int l, double theta, double phi );
 extern double parsed_f( const std::string expr, double theta, double phi );
 
 //f(theta,phi) final function (which will be integrated):
-extern cmplx f_theta_phi( int m, int l, double theta, double phi );
+extern cmplx f_theta_phi( std::string expr, int m, int l, double theta, double phi );
 
 #endif

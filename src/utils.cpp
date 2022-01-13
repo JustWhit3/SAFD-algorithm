@@ -2,6 +2,7 @@
 #include <cmath>
 #include <stdexcept>
 #include <array>
+#include <string>
 
 #include "../include/utils.hpp"
 
@@ -89,7 +90,7 @@ template bool IsInBounds <double> ( const double& value, const double& low, cons
 //============================================
 
 //Function used to integrate a function f(x,y), depending on two indexes m and l, in x = theta and y = phi.
-double integral( double ( *f )( int, int, double, double ), int m, int l )
+double integral( double ( *f )( std::string, int, int, double, double ), std::string expr, int m, int l )
  {
   double res;
   std::array< std::array<double, 50>, 50> tab; //Stores the table.
@@ -104,7 +105,7 @@ double integral( double ( *f )( int, int, double, double ), int m, int l )
    {
     for ( int j = 0; j < ny; ++j ) 
      {
-      tab[i][j] = f( m, l, x_in + i * h_x, y_in + j * h_y );
+      tab[i][j] = f( expr, m, l, x_in + i * h_x, y_in + j * h_y );
      }
    }
 

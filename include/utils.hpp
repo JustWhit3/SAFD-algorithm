@@ -1,6 +1,8 @@
 #ifndef UTILS_HPP
 #define UTILS_HPP
 
+#include <string>
+
 //============================================
 //     Global variables declaration
 //============================================
@@ -22,7 +24,7 @@ extern double round_var( double val );
 extern unsigned int factorial( unsigned int n );
 
 //Function to calculate the 2-dim integral:
-extern double integral( double ( *f )( int, int, double, double ), int m, int l );
+extern double integral( double ( *f )( std::string, int, int, double, double ), std::string expr, int m, int l );
 
 //============================================
 //     Template functions declaration

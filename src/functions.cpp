@@ -9,10 +9,8 @@
 #include "../include/functions.hpp"
 
 //============================================
-//     "Leg_pol" function definition
+//     Aliases definition (exprtk library)
 //============================================
-
-//Useful definitions for the exprtk.hpp package.
 typedef exprtk::symbol_table<double> symbol_table_t;
 typedef exprtk::expression<double>     expression_t;
 typedef exprtk::parser<double>             parser_t;
@@ -101,8 +99,7 @@ double parsed_f( const std::string expr, double theta, double phi )
   parser_t parser;
   if ( !parser.compile( expr, foo ) )
    {
-    // Error in expression...
-    return 0;
+    throw std::runtime_error( "Error in the inserted expression!" );
    }
   
   return foo.value();
@@ -113,11 +110,14 @@ double parsed_f( const std::string expr, double theta, double phi )
 //============================================
 
 //This function defines: f(theta,phi) * conjugate( sph_arm(m,l,theta,phi) ) * sin(theta).
-/*cmplx f_theta_phi( int m, int l, double theta, double phi )
- {
-  double real_part = parsed_f( expression, theta, phi ) * sin( theta ) * sph_arm( m, l, theta, phi ).real();
-  double imag_part = parsed_f( expression, theta, phi ) * sin( theta ) * conj( sph_arm( m, l, theta, phi ) ).imag();
-  cmplx result( real_part, imag_part );
+cmplx f_theta_phi( std::string expr, int m, int l, double theta, double phi )
+ { 
+  cmplx result;
+
+  double real_part = parsed_f( expr, theta, phi ) * sin( theta ) * sph_arm( m, l, theta, phi ).real();
+  double imag_part = parsed_f( expr, theta, phi ) * sin( theta ) * conj( sph_arm( m, l, theta, phi ) ).imag();
+  result.real( real_part );
+  result.imag( imag_part );
 
   return result;
- }*/
+ }
