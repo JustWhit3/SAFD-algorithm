@@ -25,7 +25,7 @@ namespace safd
   using cmplx_const = const std::complex<double>;
   
   //============================================
-  //     Aliases for exprtk library
+  //     Typedefs for exprtk library
   //============================================
   typedef exprtk::symbol_table<double> symbol_table_t;
   typedef exprtk::expression<double>     expression_t;

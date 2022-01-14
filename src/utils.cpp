@@ -43,10 +43,10 @@ namespace safd
       if ( n < 4 && n > 0 ) h = STEP_SIZE * x_0;
       else h = n; //Condition for Legendre associated functions.
   
-      double x_1 = x_0 - h;
-      double x_2 = x_0 + h;
-      double first_term = n_derivative( f, x_2, a, n - 1 );
-      double second_term = n_derivative( f, x_1, a, n - 1);
+      d_const x_1 = x_0 - h;
+      d_const x_2 = x_0 + h;
+      d_const first_term = n_derivative( f, x_2, a, n - 1 );
+      d_const second_term = n_derivative( f, x_1, a, n - 1);
   
       return ( first_term - second_term ) / ( x_2 - x_1 );
      }
@@ -101,8 +101,8 @@ namespace safd
     std::array<double, 50> ax;   //Stores the integral wrt y
   
     //Calculating the number of points in x and y integral:
-    double nx = ( x_fin - x_in ) / h_x + 1;
-    double ny = ( y_fin - y_in ) / h_y + 1;
+    d_const nx = ( x_fin - x_in ) / h_x + 1;
+    d_const ny = ( y_fin - y_in ) / h_y + 1;
   
     //Calculating the values of the table:
     for( int i = 0; i < nx; ++i ) 

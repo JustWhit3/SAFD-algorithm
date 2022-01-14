@@ -31,10 +31,9 @@ namespace safd
     else if( a < 0 ) throw std::runtime_error( "Legendre polynomials index should be greater or equal than 0!" );
     else 
      {
-      double first_term = ( 2.0 * static_cast<double>( a ) - 1.0) * x * Leg_pol( a-1, x );
-      double second_term = ( static_cast<double>( a ) - 1.0 ) * Leg_pol( a-2, x );
-      double diff = first_term - second_term;
-      diff /= static_cast<double>( a );
+      d_const first_term = ( 2.0 * static_cast<double>( a ) - 1.0) * x * Leg_pol( a-1, x );
+      d_const second_term = ( static_cast<double>( a ) - 1.0 ) * Leg_pol( a-2, x );
+      d_const diff = ( first_term - second_term ) / static_cast<double>( a );
   
       return diff;
      }
@@ -56,8 +55,8 @@ namespace safd
       //else if( a < 0 ) ...
       else
        {
-        double first_term = pow( ( 1 - pow( x, 2 ) ), static_cast<double>( b ) / 2 );
-        double second_term = n_derivative( Leg_pol, x, a, b );
+        d_const first_term = pow( ( 1 - pow( x, 2 ) ), static_cast<double>( b ) / 2 );
+        d_const second_term = n_derivative( Leg_pol, x, a, b );
     
         return pow( -1, b ) * first_term * second_term;
        }
@@ -75,10 +74,10 @@ namespace safd
     if( ( l < m || l < 0 ) || m < 0 ) throw std::runtime_error( "Quantum numbers l and m should satisfy the relation: l >= abs( m ) >= 0" );
     else
      {
-      double sign_1 = pow( -1, ( m + abs( m ) ) / 2 );
-      double sign_2 = sqrt( ( ( 2*l + 1 ) * factorial( l - abs( m ) ) ) / ( M_PI*4 * factorial( l + abs( m ) ) ) );
-      double pol = Leg_func( abs( m ), l, cos( theta ) );
-      cmplx result ( sign_1 * sign_2 * pol * cos( m*( phi + M_PI ) ), sign_1 * sign_2 * pol * sin( m*( phi + M_PI ) ) );
+      d_const sign_1 = pow( -1, ( m + abs( m ) ) / 2 );
+      d_const sign_2 = sqrt( ( ( 2*l + 1 ) * factorial( l - abs( m ) ) ) / ( M_PI*4 * factorial( l + abs( m ) ) ) );
+      d_const pol = Leg_func( abs( m ), l, cos( theta ) );
+      cmplx_const result ( sign_1 * sign_2 * pol * cos( m*( phi + M_PI ) ), sign_1 * sign_2 * pol * sin( m*( phi + M_PI ) ) );
     
       return result;
      }
@@ -131,12 +130,11 @@ namespace safd
    {
     cmplx coefficient;
   
-    double real_part = integral( f_theta_phi_real, expr, m, l );
-    double imag_part = integral( f_theta_phi_imag, expr, m, l );
+    d_const real_part = integral( f_theta_phi_real, expr, m, l );
+    d_const imag_part = integral( f_theta_phi_imag, expr, m, l );
     coefficient.real( real_part );
     coefficient.imag( imag_part );
   
     return coefficient;
    }
-  
  }

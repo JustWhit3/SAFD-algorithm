@@ -100,7 +100,7 @@ inline d_const hunc( string s, int m, int l, double x, double y ) { return pow( 
 inline d_const hunc_2( string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ) + pow( cos( x ), 2 ); }
 inline d_const hunc_3( string s, int m, int l, double x, double y ) { return pow( cos( x + y ), 3 ) + cos( x ) * pow( sin( x ), 5 ) + 5 + sin( y - x ); }
 
-//inline double spherical( int m, int l, double x, double y ) { return pow( abs( sph_arm( m, l, x, y ) ), 2 ); }
+//inline d_const spherical( int m, int l, double x, double y ) { return pow( abs( sph_arm( m, l, x, y ) ), 2 ); }
 
 TEST_CASE( "Testing the integral function" ) // 100% working
  {
