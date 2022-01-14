@@ -1,16 +1,22 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
 
-#include <doctest.h>
+//STD headers
 #include <stdexcept>
 #include <algorithm>
 #include <cmath>
 #include <complex>
 
+//Extra headers
+#include <doctest.h>
+
+//My headers
 #include "../include/functions.hpp"
 #include "../include/utils.hpp"
 
+//Namespaces
 using namespace std;
+using namespace safd;
 
 //============================================
 //     "Leg_pol" function testing
@@ -157,12 +163,31 @@ TEST_CASE( "Testing the parsed_f function" ) // 100% working
 //============================================
 TEST_CASE( "Testing the f_theta_phi function" ) // 100% working
  {
- {
-  cmplx a( -0.009706, 0.009706 );
-  CHECK_EQ( round_var( f_theta_phi( "cos( th ) - sin( phi )", 1, 1, M_PI/6, M_PI/4 ).real() * 10000.0 ) / 10000.0, -0.0097 );
-  CHECK_EQ( round_var( f_theta_phi( "cos( th ) - sin( phi )", 1, 1, M_PI/6, M_PI/4 ).imag() * 10000.0 ) / 10000.0, 0.0097 );
+  CHECK_EQ( round_var( f_theta_phi_real( "cos( th ) - sin( phi )", 1, 1, M_PI/6, M_PI/4 ) * 10000.0 ) / 10000.0, -0.0097 );
+  CHECK_EQ( round_var( f_theta_phi_imag( "cos( th ) - sin( phi )", 1, 1, M_PI/6, M_PI/4 ) * 10000.0 ) / 10000.0, 0.0097 );
 
-  cmplx b( -0.043, 0.075 );
-  CHECK_EQ( round_var( f_theta_phi( "sin( th ) + cos( phi )", 1, 1, M_PI/6, M_PI/3 ).real() * 1000.0 ) / 1000.0, b.real() );
-  CHECK_EQ( round_var( f_theta_phi( "sin( th ) + cos( phi )", 1, 1, M_PI/6, M_PI/3 ).imag() * 1000.0 ) / 1000.0, b.imag() );
+  CHECK_EQ( round_var( f_theta_phi_real( "sin( th ) + cos( phi )", 1, 1, M_PI/6, M_PI/3 ) * 1000.0 ) / 1000.0, -0.043 );
+  CHECK_EQ( round_var( f_theta_phi_imag( "sin( th ) + cos( phi )", 1, 1, M_PI/6, M_PI/3 ) * 1000.0 ) / 1000.0, 0.075 );
+ }
+
+//============================================
+//     "f_m_l" function testing
+//============================================
+TEST_CASE( "Testing the f_m_l function" )  
+ {
+  SUBCASE( "Testing for m = 0" ) // ***** TODO ***** 
+   {
+    CHECK_EQ( round_var( f_m_l( "cos( th )", 0, 0 ).real() * 100.0 ) / 100.0, 0.0 );
+    CHECK_EQ( round_var( f_m_l( "cos( th )", 0, 0 ).imag() * 100.0 ) / 100.0, 0.0 );
+    
+    CHECK( IsInBounds( f_m_l( "cos( th )", 0, 1 ).real(),  2.04, 2.065 ) );
+    CHECK_EQ( round_var( f_m_l( "cos( th )", 0, 1 ).imag() * 100.0 ) / 100.0, 0.0 );
+
+    CHECK( IsInBounds( f_m_l( "pow( cos( th ), 3 )", 0, 1 ).real(),  1.21, 1.24 ) );
+    CHECK_EQ( round_var( f_m_l( "pow( cos( th ), 3 )", 0, 1 ).imag() * 100.0 ) / 100.0, 0.0 );
+   }
+  SUBCASE( "Testing for m > 0" ) // ***** TODO ***** 
+   {
+
+   }
  }

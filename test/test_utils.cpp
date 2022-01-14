@@ -1,21 +1,30 @@
 #define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
 
-#include <doctest.h>
+//STD headers
 #include <stdexcept>
 #include <string>
 
+//Extra headers
+#include <doctest.h>
+
+//My headers
 #include "../include/functions.hpp"
 #include "../include/utils.hpp"
 
+//Namespaces
 using namespace std;
+using namespace safd;
 
+//============================================
+//     Global variables
+//============================================
 #define rda 3.456234         \
 
 //============================================
 //     "n_derivative" function testing
 //============================================
-inline double func( int a, double x ) { return sin( x ) - cos( x ); }
-inline double gunc( int a, double x ) { return 5*pow( x, 5 ) + pow( x, 4 ); }
+inline d_const func( int a, double x ) { return sin( x ) - cos( x ); }
+inline d_const gunc( int a, double x ) { return 5*pow( x, 5 ) + pow( x, 4 ); }
 
 TEST_CASE( "Testing the n_derivative function" )
  {
@@ -78,18 +87,18 @@ TEST_CASE( "Testing the IsInBounds function" ) // 100% working
 //============================================
 //     "integral" function testing
 //============================================
-inline double huncx( string s, int m, int l, double x, double y ) { return sin( x ) - cos( x ); }
-inline double huncx_2( string s, int m, int l, double x, double y ) { return pow( sin( x ), 2 ) - cos( x ); }
-inline double huncx_3( string s, int m, int l, double x, double y ) { return pow( sin( x ), 3 ) - cos( x ); }
+inline d_const huncx( string s, int m, int l, double x, double y ) { return sin( x ) - cos( x ); }
+inline d_const huncx_2( string s, int m, int l, double x, double y ) { return pow( sin( x ), 2 ) - cos( x ); }
+inline d_const huncx_3( string s, int m, int l, double x, double y ) { return pow( sin( x ), 3 ) - cos( x ); }
 
-inline double huncy( string s, int m, int l, double x, double y ) { return sin( y ) - cos( y ); }
-inline double huncy_2( string s, int m, int l, double x, double y ) { return pow( sin( y ), 2 ) - cos( y ); }
-inline double huncy_3( string s, int m, int l, double x, double y ) { return pow( sin( y ), 8 ) - pow( cos( y ), 3 ); }
-inline double huncy_4( string s, int m, int l, double x, double y ) { return pow( sin( y ), 4 ) + pow( cos( y ), 9 ) - pow( cos( y ), 3 ); }
+inline d_const huncy( string s, int m, int l, double x, double y ) { return sin( y ) - cos( y ); }
+inline d_const huncy_2( string s, int m, int l, double x, double y ) { return pow( sin( y ), 2 ) - cos( y ); }
+inline d_const huncy_3( string s, int m, int l, double x, double y ) { return pow( sin( y ), 8 ) - pow( cos( y ), 3 ); }
+inline d_const huncy_4( string s, int m, int l, double x, double y ) { return pow( sin( y ), 4 ) + pow( cos( y ), 9 ) - pow( cos( y ), 3 ); }
 
-inline double hunc( string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ); }
-inline double hunc_2( string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ) + pow( cos( x ), 2 ); }
-inline double hunc_3( string s, int m, int l, double x, double y ) { return pow( cos( x + y ), 3 ) + cos( x ) * pow( sin( x ), 5 ) + 5 + sin( y - x ); }
+inline d_const hunc( string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ); }
+inline d_const hunc_2( string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ) + pow( cos( x ), 2 ); }
+inline d_const hunc_3( string s, int m, int l, double x, double y ) { return pow( cos( x + y ), 3 ) + cos( x ) * pow( sin( x ), 5 ) + 5 + sin( y - x ); }
 
 //inline double spherical( int m, int l, double x, double y ) { return pow( abs( sph_arm( m, l, x, y ) ), 2 ); }
 

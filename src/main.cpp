@@ -1,15 +1,19 @@
+//STD headers
 #include <iostream>
 #include <complex>
 
+//My headers
 #include "../include/functions.hpp"
-#include "../include/utils.hpp"
 
+//Namespaces
 using namespace std;
+using namespace safd;
 
+//============================================
+//     "main" function
+//============================================
 int main()
  {
-  cout << parsed_f( "cos( th ) - sin( phi )", M_PI/6, M_PI/4 ) << endl;
-  cout << sin( M_PI/6 ) << endl;
-  cout << sph_arm( 1, 1, M_PI/6, M_PI/4 ).imag() <<endl;
+  cout << f_m_l( "pow( cos( th ), 3 )", 0, 1 ).real() << endl;
  }
  
