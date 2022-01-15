@@ -32,7 +32,13 @@ namespace SphArmFuncDev
   
   //Function to calculate the 2-dim integral:
   extern d_const integral( four_param_func f, s_const expr, i_const m, i_const l );
-  
+
+  //Function used to initialize values of main program input:
+  extern void initializer( std::string& equation, int& m, int& l);
+
+  //Function to modify an input and return it:
+  extern c_const abort_this( char letter );
+
   //============================================
   //     Template functions declaration
   //============================================

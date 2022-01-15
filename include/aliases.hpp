@@ -16,6 +16,7 @@ namespace SphArmFuncDev
   using d_const = const double;
   using i_const = const int;
   using ui_const = const unsigned int;
+  using c_const = const char;
   
   //============================================
   //     Aliases for STD types

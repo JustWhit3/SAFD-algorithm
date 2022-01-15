@@ -155,5 +155,36 @@ namespace SphArmFuncDev
     res *= ( h_x / 3 );
   
     return res;
-   } 
+   }
+
+  //============================================
+  //     "initializer" function definition
+  //============================================
+  
+  //Function used to initialize values of main program input.
+  //NB: used in main program only.
+  void initializer( std::string& equation, int& m, int& l)
+   {
+    std::cout << "Enter the f(th,phi) equation shape (avoid backspaces): ";
+    std::cin >> equation;
+    std::cout << "Enter the value of m: ";
+    std::cin >> m;
+    std::cout << "Enter the value of l: ";
+    std::cin >> l;
+    std::cout << std::endl;
+   }
+
+  //============================================
+  //     "letter" function definition
+  //============================================
+  
+  //Function to modify an input and return it.
+  //NB: used in main program only.
+  c_const abort_this( char letter )
+   {
+    std::cout << "Compute another coefficient (enter \"y\" or \"n\")?: ";
+    std::cin >> letter;
+    std::cout << std::endl;
+    return letter;
+   }
  }

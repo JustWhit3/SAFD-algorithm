@@ -37,6 +37,9 @@ namespace SphArmFuncDev
   
   //f_m_l coefficients representation:
   extern cmplx_const f_m_l( s_const expr, i_const m, i_const l );
+
+  //Function used to display the final result of the main program:
+  extern void displayer( std::string& equation, int& m, int& l );
  }
   
 #endif

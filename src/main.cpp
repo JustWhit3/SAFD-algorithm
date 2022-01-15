@@ -10,34 +10,8 @@ using namespace osm;
 
 //My headers
 #include "../include/functions.hpp"
+#include "../include/utils.hpp"
 using namespace SphArmFuncDev;
-
-void initializer( string& equation, int& m, int& l)
- {
-  cout << "Enter the f(th,phi) equation shape (avoid backspaces): ";
-  cin >> equation;
-  cout << "Enter the value of m: ";
-  cin >> m;
-  cout << "Enter the value of l: ";
-  cin >> l;
-  cout << endl;
- }
-
-void displayer( string& equation, int& m, int& l )
- {
-  cout << "f(" << m << "," << l << ") = "
-       << feat( col, "green" ) << f_m_l( equation, m, l ).real() << reset( "color" ) << " + "
-       << feat( col, "green" ) << f_m_l( equation, m, l ).imag() << reset( "color" )
-       << feat( col, "lt blue" ) << "i" << reset( "color" ) << endl;
- }
-
-char abort_this( char letter )
- {
-  cout << "Compute another coefficient (enter \"y\" or \"n\")?: ";
-  cin >> letter;
-  cout << endl;
-  return letter;
- }
 
 //============================================
 //     "main" function
