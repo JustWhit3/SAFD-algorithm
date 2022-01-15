@@ -8,7 +8,7 @@
 //Extra headers
 #include <exprtk.hpp>
 
-namespace safd
+namespace SphArmFuncDev
  {
   //============================================
   //     Aliases for normal types
@@ -23,6 +23,8 @@ namespace safd
   using s_const = const std::string;
   using cmplx = std::complex<double>;
   using cmplx_const = const std::complex<double>;
+  using two_param_func = std::function<d_const( int, double )>;
+  using four_param_func = std::function<d_const( std::string, int, int, double, double )>;
   
   //============================================
   //     Typedefs for exprtk library

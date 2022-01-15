@@ -3,11 +3,12 @@
 
 //STD headers
 #include <string>
+#include <functional>
 
 //My headers
 #include "aliases.hpp"
 
-namespace safd
+namespace SphArmFuncDev
  {
   //============================================
   //     Global variables declaration
@@ -19,9 +20,8 @@ namespace safd
   //============================================
   //     Functions declaration
   //============================================
-  
   //N-th derivative function:
-  extern d_const n_derivative( d_const ( *f )( int, double ), d_const x_0, i_const a, i_const n );
+  extern d_const n_derivative( two_param_func f, d_const x_0, i_const a, i_const n );
   
   //Function to round double variables:
   extern d_const round_var( d_const val );
@@ -30,7 +30,7 @@ namespace safd
   extern ui_const factorial( ui_const n );
   
   //Function to calculate the 2-dim integral:
-  extern d_const integral( d_const ( *f )( std::string, int, int, double, double ), s_const expr, i_const m, i_const l );
+  extern d_const integral( four_param_func f, s_const expr, i_const m, i_const l );
   
   //============================================
   //     Template functions declaration

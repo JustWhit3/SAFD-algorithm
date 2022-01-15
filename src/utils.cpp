@@ -4,11 +4,12 @@
 #include <stdexcept>
 #include <array>
 #include <string>
+#include <functional>
 
 //My headers
 #include "../include/utils.hpp"
 
-namespace safd
+namespace SphArmFuncDev
  {
   //============================================
   //     Global variables definition
@@ -33,7 +34,7 @@ namespace safd
   
   //Function used to calculate the "n"-th derivative of a function "f" in a point "x_0", which depends on an index "a". 
   //NB: Works well until n = 3/4. 
-  d_const n_derivative( d_const ( *f )( int, double ), d_const x_0, i_const a, i_const n )
+  d_const n_derivative( two_param_func f, d_const x_0, i_const a, i_const n )
    {
     if( n == 0 ) return f( a, x_0 );
     else if( n < 0 ) throw std::runtime_error( "Derivative cannot be calculated for order less than 0!" );
@@ -94,7 +95,7 @@ namespace safd
   //============================================
   
   //Function used to integrate a function f(x,y), depending on two indexes m and l, in x = theta and y = phi.
-  d_const integral( d_const ( *f )( std::string, int, int, double, double ), s_const expr, i_const m, i_const l )
+  d_const integral( four_param_func f, s_const expr, i_const m, i_const l )
    {
     double res;
     std::array< std::array<double, 50>, 50> tab; //Stores the table.

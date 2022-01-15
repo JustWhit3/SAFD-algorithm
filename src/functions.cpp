@@ -12,7 +12,7 @@
 #include "../include/utils.hpp"
 #include "../include/functions.hpp"
 
-namespace safd
+namespace SphArmFuncDev
  {
   //============================================
   //     Global variables definition
@@ -56,7 +56,7 @@ namespace safd
       else
        {
         d_const first_term = pow( ( 1 - pow( x, 2 ) ), static_cast<double>( b ) / 2 );
-        d_const second_term = n_derivative( Leg_pol, x, a, b );
+        d_const second_term = n_derivative( &Leg_pol, x, a, b );
     
         return pow( -1, b ) * first_term * second_term;
        }
@@ -130,8 +130,8 @@ namespace safd
    {
     cmplx coefficient;
   
-    d_const real_part = integral( f_theta_phi_real, expr, m, l );
-    d_const imag_part = integral( f_theta_phi_imag, expr, m, l );
+    d_const real_part = integral( &f_theta_phi_real, expr, m, l );
+    d_const imag_part = integral( &f_theta_phi_imag, expr, m, l );
     coefficient.real( real_part );
     coefficient.imag( imag_part );
   

@@ -11,7 +11,7 @@
 //My headers
 #include "aliases.hpp"
 
-namespace safd
+namespace SphArmFuncDev
  {
   //============================================
   //     Functions declaration

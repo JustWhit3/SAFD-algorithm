@@ -13,7 +13,7 @@
 
 //Namespaces
 using namespace std;
-using namespace safd;
+using namespace SphArmFuncDev;
 
 //============================================
 //     Global variables
@@ -30,30 +30,30 @@ TEST_CASE( "Testing the n_derivative function" )
  {
   SUBCASE( "Testing the 1-derivative" )
    {
-    CHECK_EQ( round_var( n_derivative( Leg_pol, 1, 1, 1 )  * 100.0 ) / 100.0, 1);
-    CHECK_EQ( round_var( n_derivative( Leg_pol, 1, 0, 1 )  * 100.0 ) / 100.0, 0);
+    CHECK_EQ( round_var( n_derivative( &Leg_pol, 1, 1, 1 )  * 100.0 ) / 100.0, 1);
+    CHECK_EQ( round_var( n_derivative( &Leg_pol, 1, 0, 1 )  * 100.0 ) / 100.0, 0);
    }
   SUBCASE( "Testing the 2-derivative" )
    {
-    CHECK_EQ( round_var( n_derivative( Leg_pol, 2, 3, 2 )  * 100.0 ) / 100.0, 30 );
-    CHECK_EQ( round_var( n_derivative( Leg_pol, -2, 3, 2 )  * 100.0 ) / 100.0, -30 );
-    CHECK_EQ( round_var( n_derivative( Leg_pol, 0.3, 3, 2 )  * 100.0 ) / 100.0, 4.5 );
+    CHECK_EQ( round_var( n_derivative( &Leg_pol, 2, 3, 2 )  * 100.0 ) / 100.0, 30 );
+    CHECK_EQ( round_var( n_derivative( &Leg_pol, -2, 3, 2 )  * 100.0 ) / 100.0, -30 );
+    CHECK_EQ( round_var( n_derivative( &Leg_pol, 0.3, 3, 2 )  * 100.0 ) / 100.0, 4.5 );
    }
   SUBCASE( "Testing the 3-derivative" )
    {
-    CHECK_EQ( round_var( n_derivative( Leg_pol, 1, 3, 3 )  * 1.0 ) / 1.0, 15 );
-    CHECK_EQ( round_var( n_derivative( func, M_PI/3, 4, 3 ) * 10.0 ) / 10.0, -1.4 );
-    CHECK_EQ( round_var( n_derivative( gunc, 3, 4, 3 ) * 1.0 ) / 1.0, 2772 - 1 );
+    CHECK_EQ( round_var( n_derivative( &Leg_pol, 1, 3, 3 )  * 1.0 ) / 1.0, 15 );
+    CHECK_EQ( round_var( n_derivative( &func, M_PI/3, 4, 3 ) * 10.0 ) / 10.0, -1.4 );
+    CHECK_EQ( round_var( n_derivative( &gunc, 3, 4, 3 ) * 1.0 ) / 1.0, 2772 - 1 );
    }
   SUBCASE( "Testing higher orders derivatives" ) //***** TODO ***** 
    {
-   CHECK_EQ( round_var( n_derivative( gunc, 3, 4, 4 ) * 100.0 ) / 100.0, 1823.91 );
-   //CHECK_EQ( round_var( n_derivative( func, M_PI/3, 4, 8 ) * 100.0 ) / 100.0, 0.37 );
-   //CHECK_EQ( round_var( n_derivative( func, M_PI/3, 4, 10 ) * 100.0 ) / 100.0, -0.37 );
+   CHECK_EQ( round_var( n_derivative( &gunc, 3, 4, 4 ) * 100.0 ) / 100.0, 1823.91 );
+   //CHECK_EQ( round_var( n_derivative( &func, M_PI/3, 4, 8 ) * 100.0 ) / 100.0, 0.37 );
+   //CHECK_EQ( round_var( n_derivative( &func, M_PI/3, 4, 10 ) * 100.0 ) / 100.0, -0.37 );
    }
   SUBCASE( "Testing exceptions" )
    {
-    CHECK_THROWS_AS( round_var( n_derivative( Leg_pol, 1, 1, -1 ) * 100.0 ) / 100.0, runtime_error );
+    CHECK_THROWS_AS( round_var( n_derivative( &Leg_pol, 1, 1, -1 ) * 100.0 ) / 100.0, runtime_error );
    }
  }
 
@@ -106,26 +106,26 @@ TEST_CASE( "Testing the integral function" ) // 100% working
  {
   SUBCASE( "Testing for x variable only" )
    {
-    CHECK( IsInBounds( integral( huncx, "", 0, 0 ), 12.0, 13.1 ) );
-    CHECK( IsInBounds( integral( huncx_2, "", 0, 0 ), 9.2, 10.5 ) );
-    CHECK( IsInBounds( integral( huncx_3, "", 0, 0 ), 8.30, 8.90 ) );
+    CHECK( IsInBounds( integral( &huncx, "", 0, 0 ), 12.0, 13.1 ) );
+    CHECK( IsInBounds( integral( &huncx_2, "", 0, 0 ), 9.2, 10.5 ) );
+    CHECK( IsInBounds( integral( &huncx_3, "", 0, 0 ), 8.30, 8.90 ) );
    }
   SUBCASE( "Testing for y variable only" )
    {
-    CHECK( IsInBounds( integral( huncy, "", 0, 0 ), -0.3, 0.3 ) );
-    CHECK( IsInBounds( integral( huncy_2, "", 0, 0 ), 9.80, 9.90 ) );
-    CHECK( IsInBounds( integral( huncy_3, "", 0, 0 ), 5.2, 5.4 ) );
-    CHECK( IsInBounds( integral( huncy_4, "", 0, 0 ), 7.30, 7.60 ) );
+    CHECK( IsInBounds( integral( &huncy, "", 0, 0 ), -0.3, 0.3 ) );
+    CHECK( IsInBounds( integral( &huncy_2, "", 0, 0 ), 9.80, 9.90 ) );
+    CHECK( IsInBounds( integral( &huncy_3, "", 0, 0 ), 5.2, 5.4 ) );
+    CHECK( IsInBounds( integral( &huncy_4, "", 0, 0 ), 7.30, 7.60 ) );
    }
   SUBCASE( "Testing for 2 variables" )
    {
-    CHECK( IsInBounds( integral( hunc, "", 0, 0 ), 7.00, 7.20 ) );
-    CHECK( IsInBounds( integral( hunc_2, "", 0, 0 ), 17.2, 17.6 ) );
-    CHECK( IsInBounds( integral( hunc_3, "", 0, 0 ), 96.5, 101.5 ) );
+    CHECK( IsInBounds( integral( &hunc, "", 0, 0 ), 7.00, 7.20 ) );
+    CHECK( IsInBounds( integral( &hunc_2, "", 0, 0 ), 17.2, 17.6 ) );
+    CHECK( IsInBounds( integral( &hunc_3, "", 0, 0 ), 96.5, 101.5 ) );
    }
   /*SUBCASE( "Testing for spherical armonics function" )
    {
-    //CHECK( IsInBounds( integral( spherical, 0, 0 ), 0.90, 1.00 ) );
-    CHECK_EQ( round_var( integral( spherical, 5, 5 ) * 100.0 ) / 100.0, 0.90 );
+    //CHECK( IsInBounds( integral( &spherical, 0, 0 ), 0.90, 1.00 ) );
+    CHECK_EQ( round_var( integral( &spherical, 5, 5 ) * 100.0 ) / 100.0, 0.90 );
    }*/
  }

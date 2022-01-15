@@ -7,7 +7,7 @@
 
 //Namespaces
 using namespace std;
-using namespace safd;
+using namespace SphArmFuncDev;
 
 //============================================
 //     "main" function

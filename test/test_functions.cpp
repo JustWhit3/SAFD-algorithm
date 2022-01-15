@@ -16,7 +16,7 @@
 
 //Namespaces
 using namespace std;
-using namespace safd;
+using namespace SphArmFuncDev;
 
 //============================================
 //     "Leg_pol" function testing
