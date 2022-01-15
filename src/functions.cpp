@@ -147,9 +147,17 @@ namespace SphArmFuncDev
   //NB: used in main program only.
   void displayer( std::string& equation, int& m, int& l )
    {
-    std::cout << "f(" << m << "," << l << ") = "
-              << osm::feat( osm::col, "green" ) << f_m_l( equation, m, l ).real() << osm::reset( "color" ) << " + "
-              << osm::feat( osm::col, "green" ) << f_m_l( equation, m, l ).imag() << osm::reset( "color" )
-              << osm::feat( osm::col, "lt blue" ) << "i" << osm::reset( "color" ) << std::endl;
+    try 
+     {
+      std::cout << "f(" << m << "," << l << ") = "
+                << osm::feat( osm::col, "green" ) << f_m_l( equation, m, l ).real() << osm::reset( "color" ) << " + "
+                << osm::feat( osm::col, "green" ) << f_m_l( equation, m, l ).imag() << osm::reset( "color" )
+                << osm::feat( osm::col, "lt blue" ) << "i" << osm::reset( "color" ) << std::endl;
+     }
+    catch( std::runtime_error const & exception )
+     {
+      std::cerr << osm::feat( osm::sty, "italics" ) << osm::feat( osm::col, "red" ) << "not computable!" 
+                << osm::reset( "all" ) << std::endl << std::endl << exception.what() << std::endl;
+     }
    }
  }

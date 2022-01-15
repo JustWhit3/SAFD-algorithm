@@ -117,5 +117,5 @@ int main()
       cerr << feat( col, "red" ) << "Invalid option!" << reset( "color" ) 
            << endl <<endl;
      }
-   }
+    }
  }
