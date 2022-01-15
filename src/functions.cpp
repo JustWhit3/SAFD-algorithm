@@ -28,7 +28,7 @@ namespace SphArmFuncDev
    {
     if( a == 0 ) return 1.0;
     else if( a == 1 ) return x;
-    else if( a < 0 ) throw std::runtime_error( "Legendre polynomials index should be greater or equal than 0!" );
+    else if( a < 0 ) throw runtime_thrower( "Legendre polynomials index should be greater or equal than 0!" );
     else 
      {
       d_const first_term = ( 2.0 * static_cast<double>( a ) - 1.0) * x * Leg_pol( a-1, x );
@@ -47,10 +47,10 @@ namespace SphArmFuncDev
   //NB: works well until m = l and | m - l | = 1.
   d_const Leg_func( i_const b, i_const a, d_const x )
    {
-    if( x < -1 || x > 1 ) throw std::runtime_error( "Legendre associated functions variable should lie in interval [-1,1]!" );
+    if( x < -1 || x > 1 ) throw runtime_thrower( "Legendre associated functions variable should lie in interval [-1,1]!" );
     else
      {
-      if( a < abs( b ) ) throw std::runtime_error( "Legendre associated function indexes a and b should satisfy the relation: a >= b >= 0" );
+      if( a < abs( b ) ) throw runtime_thrower( "Legendre associated function indexes a and b should satisfy the relation: a >= b >= 0" );
       //else if( b < 0 ) return pow( -1, b ) * ( factorial( a - b ) / factorial( a + b ) ) * Leg_func( b, a, x );
       //else if( a < 0 ) ...
       else
@@ -71,7 +71,7 @@ namespace SphArmFuncDev
   //NB: in the calculator, pi = 3.14, theta = 180.
   cmplx_const sph_arm( i_const m, i_const l, d_const theta, d_const phi )
    {
-    if( ( l < m || l < 0 ) || m < 0 ) throw std::runtime_error( "Quantum numbers l and m should satisfy the relation: l >= abs( m ) >= 0" );
+    if( ( l < m || l < 0 ) || m < 0 ) throw runtime_thrower( "Quantum numbers l and m should satisfy the relation: l >= abs( m ) >= 0" );
     else
      {
       d_const sign_1 = pow( -1, ( m + abs( m ) ) / 2 );
@@ -100,7 +100,7 @@ namespace SphArmFuncDev
     parser_t parser;
     if ( !parser.compile( expr, foo ) )
      {
-      throw std::runtime_error( "Error in the inserted expression!" );
+      throw runtime_thrower( "Error in the inserted expression!" );
      }
     
     return foo.value();

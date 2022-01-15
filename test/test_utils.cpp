@@ -7,6 +7,8 @@ using namespace std;
 
 //Extra headers
 #include <doctest.h>
+#include <osmanip.h>
+using namespace osm;
 
 //My headers
 #include "../include/functions.hpp"
@@ -16,7 +18,18 @@ using namespace SphArmFuncDev;
 //============================================
 //     Global variables
 //============================================
-#define rda 3.456234         \
+#define rda 3.456234                            \
+
+#define test_string "This is a test string"     \
+
+//============================================
+//     "runtim_thrower" function testing
+//============================================
+TEST_CASE( "Testing the runtime_thrower function" ) // 100% working
+ {
+  CHECK_THROWS_AS( throw runtime_thrower( test_string ), runtime_error );
+  CHECK_THROWS_MESSAGE( throw runtime_thrower( test_string ), feat( col, "red" ) + test_string + reset( "color" ) );
+ }
 
 //============================================
 //     "n_derivative" function testing

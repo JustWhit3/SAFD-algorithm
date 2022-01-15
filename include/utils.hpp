@@ -4,6 +4,7 @@
 //STD headers
 #include <string>
 #include <functional>
+#include <stdexcept>
 
 //My headers
 #include "aliases.hpp"
@@ -39,6 +40,10 @@ namespace SphArmFuncDev
   //Function to check if a variable is in a bound:
   template <typename T>
   extern bool IsInBounds( const T value, const T low, const T high );
+
+  //Function used to return customized runtime error.
+  template <typename T>
+  std::runtime_error runtime_thrower( T phrase );
  }
   
 #endif

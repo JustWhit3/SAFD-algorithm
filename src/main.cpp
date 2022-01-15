@@ -47,18 +47,29 @@ int main()
   int choice, m, l;
   char letter, letter_r;
   string equation;
+  
   cout << endl
        << "//////////////////////////////////////////////////" << endl
        << "///                                            ///" << endl
-       << "///         _____         ______ _____         ///" << endl
-       << "///        / ____|  /\\   |  ____|  __ \\        ///" << endl
-       << "///       | (___   /  \\  | |__  | |  | |       ///" << endl
-       << "///        \\___ \\ / /\\ \\ |  __| | |  | |       ///" << endl
-       << "///        ____) / ____ \\| |    | |__| |       ///" << endl
-       << "///       |_____/_/    \\_\\_|    |_____/        ///" << endl
+       << "///" << feat( col, "green" ) << "         _____         ______ _____         " 
+       << reset( "color" ) << "///" << endl
+       << "///" << feat( col, "green" ) << "        / ____|  /\\   |  ____|  __ \\        " 
+       << reset( "color" ) << "///" << endl
+       << "///" << feat( col, "green" ) << "       | (___   /  \\  | |__  | |  | |       " 
+       << reset( "color" ) << "///" << endl
+       << "///" << feat( col, "green" ) << "        \\___ \\ / /\\ \\ |  __| | |  | |       " 
+       << reset( "color" ) << "///" << endl
+       << "///" << feat( col, "green" ) << "        ____) / ____ \\| |    | |__| |       " 
+       << reset( "color" ) << "///" << endl
+       << "///" << feat( col, "green" ) << "       |_____/_/    \\_\\_|    |_____/        " 
+       << reset( "color" ) << "///" << endl
        << "///                                            ///" << endl
        << "///                                            ///" << endl
-       << "//////////////////////////////////////////////////" << endl << endl;
+       << "//////////////////////////////////////////////////" << endl << endl
+       << feat( col, "cyan" ) << feat( sty, "italics" ) 
+       << "Welcome to SAFD: a program to compute the coefficients f(m,l) of a " 
+       << "function f(th,phi) development in a spherical armonics convergent serie. " 
+       << reset( "all" ) << endl << endl;
 
   while( true )
    {

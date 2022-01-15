@@ -6,6 +6,9 @@
 #include <string>
 #include <functional>
 
+//Extra headers
+#include <osmanip.h>
+
 //My headers
 #include "../include/utils.hpp"
 
@@ -27,6 +30,20 @@ namespace SphArmFuncDev
   d_const y_in = 0;
   d_const y_fin = M_PI*2;
   d_const h_y = 0.15;
+
+  //============================================
+  //     "runtime_thrower" function definition
+  //============================================
+  
+  //Function used to return customized runtime error.
+  template <typename T>
+  std::runtime_error runtime_thrower( T phrase )
+   { 
+    return std::runtime_error( osm::feat( osm::col, "red" ) + phrase + osm::reset( "color" ) );
+   }
+  
+  template std::runtime_error runtime_thrower <s_const> ( s_const phrase );
+  template std::runtime_error runtime_thrower <const char*> ( const char* phrase );
   
   //============================================
   //     "n_derivative" function definition
@@ -37,7 +54,7 @@ namespace SphArmFuncDev
   d_const n_derivative( two_param_func f, d_const x_0, i_const a, i_const n )
    {
     if( n == 0 ) return f( a, x_0 );
-    else if( n < 0 ) throw std::runtime_error( "Derivative cannot be calculated for order less than 0!" );
+    else if( n < 0 ) throw runtime_thrower( "Derivative cannot be calculated for order less than 0!" );
     else 
      {
       double h;
