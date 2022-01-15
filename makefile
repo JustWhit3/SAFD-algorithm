@@ -22,8 +22,9 @@ TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 #====================================================
 DEPS := $(OBJ:.o=.d)
 INC_DIR := $(shell find $(SRC_DIR) -type d)
+LDFLAGS := -L/usr/local/lib -losmanip -static
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
-CPPFLAGS := -g $(INC_FLAGS) -MMD -MP
+CPPFLAGS := -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
 
 #====================================================
 #     ALIASES

@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <cmath>
 #include <complex>
+using namespace std;
 
 //Extra headers
 #include <doctest.h>
@@ -13,9 +14,6 @@
 //My headers
 #include "../include/functions.hpp"
 #include "../include/utils.hpp"
-
-//Namespaces
-using namespace std;
 using namespace SphArmFuncDev;
 
 //============================================

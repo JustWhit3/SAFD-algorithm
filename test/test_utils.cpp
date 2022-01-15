@@ -3,6 +3,7 @@
 //STD headers
 #include <stdexcept>
 #include <string>
+using namespace std;
 
 //Extra headers
 #include <doctest.h>
@@ -10,9 +11,6 @@
 //My headers
 #include "../include/functions.hpp"
 #include "../include/utils.hpp"
-
-//Namespaces
-using namespace std;
 using namespace SphArmFuncDev;
 
 //============================================
