@@ -16,10 +16,6 @@ namespace SphArmFuncDev
   //============================================
   //     Global variables declaration
   //============================================
-  extern symbol_table_t symbol_table;
-  extern expression_t foo;
-  extern parser_t parser;
-  extern exprtk::rtl::io::file::package<double> fileio_package;
   extern cmplx coefficient;
 
   //============================================

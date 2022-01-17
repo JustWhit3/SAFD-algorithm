@@ -18,14 +18,7 @@ namespace SphArmFuncDev
   //============================================
   //     Global variables definition
   //============================================
-
-  //Variables for parsing:
-  symbol_table_t symbol_table;
-  expression_t foo;
-  parser_t parser;
   exprtk::rtl::io::file::package<double> fileio_package;
-
-  //Other variables:
   cmplx coefficient;
   
   //============================================
@@ -99,10 +92,14 @@ namespace SphArmFuncDev
   //Function f(theta,phi) obtained with parsing:
   d_const parsed_f( s_const expr, double theta, double phi )
    {
+    symbol_table_t symbol_table;
     symbol_table.add_variable( "th", theta );
     symbol_table.add_variable( "phi",phi );
+  
+    expression_t foo;
     foo.register_symbol_table( symbol_table );
   
+    parser_t parser;
     if ( !parser.compile( expr, foo ) )
      {
       throw runtime_thrower( "Error in the inserted expression!" );

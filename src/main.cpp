@@ -2,6 +2,7 @@
 #include <iostream>
 #include <complex>
 #include <string>
+#include <limits>
 using namespace std;
 
 //Extra headers
@@ -114,6 +115,9 @@ int main()
      }
     else
      {
+      cin.clear();
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      
       cerr << feat( col, "red" ) << "Invalid option!" << reset( "color" ) 
            << endl <<endl;
      }
