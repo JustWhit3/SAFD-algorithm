@@ -12,19 +12,24 @@
 - [Algorithm explanation](#algorithm-explanation)
   - [Phisical background](#phisical-background)
   - [Algorithm description](#algorithm-description)
-- [Examples](#examples)
+- [How to use](#how-to-use)
 
 ## Introduction
 
-This program computes the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients of a function <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> development in a spherical harmonics convergent series, by using a standard mathematical [algorithm](#algorithm-description).
+This program computes the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients of a function <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> development in a spherical harmonics convergent series, by using a standard mathematical [algorithm](#algorithm-explanation).
 
-> **NOTE**: equations are displayed in green color in order to be correctly visualized in normal and dark mode.
+When running the program, you have simply to input the generic shape of the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> equation and the values of m and l and the coefficients will be calculated.
 
-> **NOTE 2**: the current version of the algorithm works well for values of m = 4/5
+Some program features:
+ - Can calculate <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients for any generic <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> function, entered by the user during the program running.
+ - <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients are expressed as complex numbers.
+ - It works well for each negative or positive value of m (with almost 99% accuracy for m < 5).
+
+> **NOTE**: equations are displayed in green color in order to be correctly visualized in both normal and dark mode.
 
 ## Repository structure
 
-Here is shown the diagram structure of the repository:
+Here the diagram structure of the repository:
 
 ```txt
 SAFD-agorithm/
@@ -42,9 +47,10 @@ SAFD-agorithm/
 │   ├── test_utils.cpp
 │   ├── test_functions.cpp
 │── README.md
-│── License
-│── .gitignore
+│── LICENSE
 │── CITATION.cff
+│── .gitignore
+│── .valgrindrc
 │── makefile
 ```
 
@@ -77,12 +83,12 @@ make bin/main
 
 to compile the source code.
 
-> **NOTE**: the compilation will be a bit slow, due to the use of the parsing commands, taken from the [`exprtk`](https://github.com/ArashPartow/exprtk) library.
+> **NOTE**: the compilation will be a bit slow, due to the use of the parsing instructions of the [`exprtk`](https://github.com/ArashPartow/exprtk) library.
 
-Optionally, you can compile also the test code with this command:
+Optionally you can compile also the test code with this command:
 
 ```shell
-make bin/main
+make bin/test
 ```
 
 If you want to compile both them in one step:
@@ -91,27 +97,49 @@ If you want to compile both them in one step:
 make
 ```
 
-This compilation step should be performed only once.
+This compilation steps should be performed only once.
 ### Running
 
 To run the code you can simply enter this command in the shell:
 
 ```shell
-./bin/main
+./bin/main.exe
 ```
 
-Extra information about how to move inside the command line, once you have ran the code can be found in the [Examples](#examples) section.
+Extra information about how to move inside the command line once you have ran the code can be found in the [How to run](#how-to-run) section.
 
-If you want to run the tests also, you have to enter:
+If you want to run the tests you have to type:
 
 ```shell
-./bin/test
+./bin/test.exe
 ```
 
-There is also an extra script to debug the code using [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck), which can be used with this command:
+There is also an extra script to debug the code using [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck), which can be used with some instructions.
+
+You can run Valgrind debugging tools with a specific executable:
 
 ```shell
-./script/debug.sh
+./scripts/debug.sh [valgrind-tool-name] [executable-name]
+```
+
+> **NOTE**: where `[tool-name]` is the Valgrind tool name and `[executable-name]` is the executable name (you have to indicate also the path to it).
+
+Or you can run them for all the executables of the repository:
+
+```shell
+./scripts/debug.sh [valgrind-tool-name] all
+```
+
+You can also run Cppcheck tool for a specific source code directory:
+
+```shell
+./scripts/debug.sh cppcheck [source-code-dir]
+```
+
+Or for a .cpp file only:
+
+```shell
+./scripts/debug.sh cppcheck [file.cpp]
 ```
 
 > **NOTE**: pay attention when running this script with `memcheck` tool, since it may produce fake errors related to the included libraries. In this case you should prepare a suppression file before running it.
@@ -134,13 +162,15 @@ where the <img src="https://render.githubusercontent.com/render/math?math=\color
 
 and the spherical harmonics <img src="https://render.githubusercontent.com/render/math?math=\color{green}{Y^{m}_{l}(\theta,\phi)}"> are defined as follows:
 
-<img src="https://latex.codecogs.com/svg.image?\color{DarkGreen}&space;(3)&space;\hspace{1cm}&space;Y^{m}_{l}(\theta,\phi)&space;=&space;(-1)^{\frac{m&plus;&space;\left|&space;m&space;\right|}{2}&space;}&space;\cdot&space;\sqrt{\frac{(2l&plus;1)\cdot&space;(l-&space;\left|&space;m&space;\right|)!}{4&space;\pi&space;\cdot&space;(l&plus;&space;\left|&space;m&space;\right|)!}}&space;\cdot&space;P^{\left|&space;m&space;\right|}_{l}(\cos\theta)&space;\cdot&space;\exp(im\phi)" title="\color{DarkGreen} (3) \hspace{1cm} Y^{m}_{l}(\theta,\phi) = (-1)^{\frac{m+ \left| m \right|}{2} } \cdot \sqrt{\frac{(2l+1)\cdot (l- \left| m \right|)!}{4 \pi \cdot (l+ \left| m \right|)!}} \cdot P^{\left| m \right|}_{l}(\cos\theta) \cdot \exp(im\phi)" />
+<img src="https://latex.codecogs.com/svg.image?\color{DarkGreen}&space;(3)&space;\hspace{1cm}&space;Y^{m}_{l}(\theta,\phi)&space;=&space;(-1)^{\frac{m&plus;&space;\left|&space;m&space;\right|}{2}&space;}&space;\cdot&space;\sqrt{\frac{(2l&plus;1)\cdot&space;(l-&space;\left|&space;m&space;\right|)!}{4&space;\pi&space;\cdot&space;(l&plus;&space;\left|&space;m&space;\right|)!}}&space;\cdot&space;P^{\left|&space;m&space;\right|}_{l}(\cos\theta)&space;\cdot&space;\exp(im\phi&space;&plus;&space;\pi)" title="\color{DarkGreen} (3) \hspace{1cm} Y^{m}_{l}(\theta,\phi) = (-1)^{\frac{m+ \left| m \right|}{2} } \cdot \sqrt{\frac{(2l+1)\cdot (l- \left| m \right|)!}{4 \pi \cdot (l+ \left| m \right|)!}} \cdot P^{\left| m \right|}_{l}(\cos\theta) \cdot \exp(im\phi + \pi)" />
 
-where *i* is the imaginary unit and <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P^{\left| m \right|}_{l}}"> are the **Legendre associated functions**, defined in the interval *[-1,1]* for the *x* variable:
+where *i* is the imaginary unit and <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P^{\left| m \right|}_{l}}"> are the **Legendre associated functions**, defined in the interval *[-1,1]* (for the *x* variable):
 
-<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;(4)&space;\hspace{1cm}&space;P_{\alpha}^{\beta}(x)=(1-x^2)^{\frac{\beta}{2}}\frac{d^\beta}{dx^\beta}P_\alpha&space;(x)}" title="{\color{DarkGreen} (4) \hspace{1cm} P_{\alpha}^{\beta}(x)=(1-x^2)^{\frac{\beta}{2}}\frac{d^\beta}{dx^\beta}P_\alpha (x)}" />
+<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;(4)&space;\hspace{1cm}&space;P_{\alpha}^{\beta}(x)=(-1)^m\cdot(1-x^2)^{\frac{\beta}{2}}\frac{d^\beta}{dx^\beta}P_\alpha&space;(x)}" title="{\color{DarkGreen} (4) \hspace{1cm} P_{\alpha}^{\beta}(x)=(-1)^m\cdot(1-x^2)^{\frac{\beta}{2}}\frac{d^\beta}{dx^\beta}P_\alpha (x)}" />
 
-with <img src="https://render.githubusercontent.com/render/math?math=\color{green}{\alpha \geq \beta \geq 0}">. The <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P_{\alpha}}"> polynomials are called **Legendre polynomials** and are given by the following recursive relation:
+with <img src="https://render.githubusercontent.com/render/math?math=\color{green}{\alpha \geq \beta \geq 0}">.
+
+The <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P_{\alpha}}"> polynomials are called **Legendre polynomials** and are given by the following recursive relation:
 
 <img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;(5)&space;\hspace{1cm}&space;P_{\alpha&space;&plus;1}(x)=\frac{2\alpha&plus;1}{\alpha&plus;1}xP_{\alpha}(x)-\frac{\alpha}{\alpha&plus;1}P_{\alpha-1}(x)}" title="{\color{DarkGreen} (5) \hspace{1cm} P_{\alpha +1}(x)=\frac{2\alpha+1}{\alpha+1}xP_{\alpha}(x)-\frac{\alpha}{\alpha+1}P_{\alpha-1}(x)}" />
 
@@ -148,8 +178,90 @@ they are also defined in *[-1,1]* and have <img src="https://render.githubuserco
 
 ### Algorithm description
 
-The algorithm starts from the computation of the Legendre polynomials, in which
+The algorithm starts from the computation of the Legendre polynomials, for which has been created a function `Leg_pol` which reproduces the equation (5) (see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/functions.cpp#:~:text=cmplx%20coefficient%3B-,//%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D,%7D,-//%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D)). So, nothing special for this one.
 
-Il codice va bene fino a m = 4/5
+To compute the Legendre associated functions of equation (4) it has been firstly defined an `n_derivative` function to compute the n-th derivative of a real given function, using this relation:
 
-## Examples
+<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;f^{n}(x_0)\approx\frac{f^{n-1}(x&plus;h)-f^{n-1}(x-h)}{2h}}" title="{\color{DarkGreen} f^{n}(x_0)\approx\frac{f^{n-1}(x+h)-f^{n-1}(x-h)}{2h}}" />
+
+(see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/utils.cpp#:~:text=//%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D-,//Function%20used%20to%20calculate%20the%20%22n%22%2Dth%20derivative%20of%20a,%7D,-//%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D)).
+
+The derivative step-size *h* has been defined as:
+
+```C++
+const double h = 2 * cbrt( __DBL_EPSILON__ ) * x_0;
+```
+
+for derivative of order n < 4, and:
+
+```C++
+const double h = n;
+```
+
+for higher order derivatives.
+
+This derivation algorithm is not optimal, in fact the calculation diverges for n > 5, this is the motivation for which the computation of the equation (2) is accurate until m = 5.
+
+Finally, the Legendre associated functions has been computed writing a new function `Leg_func`, using the equation (4) and the previously defined derivative (see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/functions.cpp#:~:text=d_const%20Leg_func(%20i_const%20b%2C%20i_const%20a%2C%20d_const%20x%20))).
+
+Then, to compute the spherical harmonics defined in (3) it has been simply implemented a complex function `sph_arm` (see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/functions.cpp#:~:text=cmplx_const%20sph_arm(%20i_const%20m%2C%20i_const%20l%2C%20d_const%20theta%2C%20d_const%20phi%20))).
+
+Next step has been the one of writing an `integral` function to compute the double-integral of equation (2). For this, it has been used the **Simpson 1/3 rule**:
+
+<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;\int^a_bf(x)dx&space;\approx\frac{b-a}{6}\left[&space;f(a)&space;&plus;&space;4f\left(\frac{a&plus;b}{2}&space;\right&space;)&plus;f(b)&space;\right&space;]}" title="{\color{DarkGreen} \int^a_bf(x)dx \approx\frac{b-a}{6}\left[ f(a) + 4f\left(\frac{a+b}{2} \right )+f(b) \right ]}" />
+
+which has been extended to two-dimensions.
+
+The integration step size for x and y variables has been defined as:
+
+```C++
+double const h_x = 0.07;
+double const h_y = 0.15;
+```
+
+A table of the values of the function <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(x,y)}"> for all possible combinations of all x and y points has been created and the Simpson rule has been applied on each row to find integral with reference to y at each x and store the values in an array. Finally, the rule has been again applied on the values of the array to calculate the integral with reference to x (see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/utils.cpp#:~:text=d_const%20integral(%20four_param_func%20f%2C%20s_const%20expr%2C%20i_const%20m%2C%20i_const%20l%20))).
+
+Another function `f_m_l` has been then created to compute the final resulting coefficients of equation (2), bu using the integral algorithm defined previously.
+
+At the end, a main program has been provided, in order to run all the necessary code and to parse the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> function from input, by simply entering its shape during the running of the whole program. This final feature was possible thanks to the [`exprtk`](https://github.com/ArashPartow/exprtk) library tools.
+
+## How to use
+
+When running the program, some options are displayed:
+
+```Shell
+Available options:
+   1. Display the single value of a f(m,l) coefficient.
+   2. Display all the values of f(m,l) coefficients from m to 0 and from l to 0.
+   3. Quit the program. 
+
+Option choice: 
+```
+
+The first one is used to compute a single value of the coefficient <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> for a certain m and l.
+
+The second one is used, instead, to compute all the values of <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> from m to 0 and from l to 0.
+
+Third option explanation is trivial.
+
+When one of the options has been chosen, an output like this will be displayed:
+
+```Shell
+Option choice: 1
+
+Enter the f(th,phi) equation shape (avoid backspaces): 
+```
+
+You can enter the function <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> shape and the values of m and l. For example:
+
+```Shell
+Enter the f(th,phi) equation shape (avoid backspaces): 3*cos(th)+pow(sin(phi),5)
+Enter the value of m: 2
+Enter the value of l: 3
+```
+
+and the final result is displayed with both real and imaginary parts:
+
+```Shell
+f(2,3) = 0.0546019 + -0.00160564i
+```
