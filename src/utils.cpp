@@ -36,7 +36,7 @@ namespace SphArmFuncDev
 
   //Integral variables:
   double res;
-  std::array< std::array<double, 50>, 50> tab;  //Stores the table.
+  std::array< std::array<double, 50>, 50> tab; //Stores the table.
   std::array<double, 50> ax;  //Stores the integral wrt y
 
   //============================================

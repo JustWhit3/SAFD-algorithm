@@ -106,6 +106,12 @@ TEST_CASE( "Testing the sph_arm function" ) // 100% working
     CHECK_EQ( round_var( sph_arm( 1, 1, M_PI/6, M_PI/3 ).real() * 100.0 ) / 100.0, f.real() );
     CHECK_EQ( round_var( sph_arm( 1, 1, M_PI/6, M_PI/3 ).imag() * 100.0 ) / 100.0, f.imag() );
    }
+  SUBCASE( "Testing for m == -1, l == 1, Theta = 30 and Phi = 60" )
+   {
+    cmplx f_n( 0.09, -0.15 );
+    CHECK_EQ( round_var( sph_arm( -1, 1, M_PI/6, M_PI/3 ).real() * 100.0 ) / 100.0, f_n.real() );
+    CHECK_EQ( round_var( sph_arm( -1, 1, M_PI/6, M_PI/3 ).imag() * 100.0 ) / 100.0, f_n.imag() );
+   }
   SUBCASE( "Testing for m == 2, l == 2, Theta = 30 and Phi = 60" )
    {
     cmplx g( -0.05, 0.08 );
@@ -139,7 +145,7 @@ TEST_CASE( "Testing the sph_arm function" ) // 100% working
    {
     CHECK_THROWS_AS( sph_arm( 7, 2, M_PI/6, M_PI/3), runtime_error );
     CHECK_THROWS_AS( sph_arm( 1, -1, M_PI/6, M_PI/3), runtime_error );
-    CHECK_THROWS_AS( sph_arm( -1, 1, M_PI/6, M_PI/3), runtime_error );
+    CHECK_THROWS_AS( sph_arm( -6, 5, M_PI/6, M_PI/3), runtime_error );
    }
  }
 

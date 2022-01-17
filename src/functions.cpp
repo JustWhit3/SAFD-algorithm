@@ -53,8 +53,6 @@ namespace SphArmFuncDev
     else
      {
       if( a < abs( b ) ) throw runtime_thrower( "Legendre associated function indexes a and b should satisfy the relation: a >= b >= 0" );
-      //else if( b < 0 ) return pow( -1, b ) * ( factorial( a - b ) / factorial( a + b ) ) * Leg_func( b, a, x );
-      //else if( a < 0 ) ...
       else
        {
         d_const first_term = pow( ( 1 - pow( x, 2 ) ), static_cast<double>( b ) / 2 );
@@ -73,7 +71,7 @@ namespace SphArmFuncDev
   //NB: in the calculator, pi = 3.14, theta = 180.
   cmplx_const sph_arm( i_const m, i_const l, d_const theta, d_const phi )
    {
-    if( ( l < m || l < 0 ) || m < 0 ) throw runtime_thrower( "Quantum numbers l and m should satisfy the relation: l >= abs( m ) >= 0" );
+    if( abs( m ) > l || l < 0 ) throw runtime_thrower( "Quantum numbers l and m should satisfy the relation: l >= abs(m) >= 0" );
     else
      {
       d_const sign_1 = pow( -1, ( m + abs( m ) ) / 2 );
