@@ -16,7 +16,7 @@
 
 ## Introduction
 
-This program reproduces an algorithm capable to compute the https://render.githubusercontent.com/render/math?math=f_m,l coefficients of a function f(θ,φ) development in a spherical harmonics convergent series. 
+This program reproduces an algorithm capable to compute the <img src="https://render.githubusercontent.com/render/math?math=f_{m,l}"> coefficients of a function f(θ,φ) development in a spherical harmonics convergent series. 
 
 ## Repository structure
 
