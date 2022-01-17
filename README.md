@@ -130,7 +130,7 @@ They can construct an orthonormal basis for any other function depending on the 
 
 where the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients can be written as:
 
-<img src="https://render.githubusercontent.com/render/math?math=\color{green}{\begin{equation} f_{m,l}=\int^{2\pi}_{0}\int^{\pi}_{0}f(\theta, \phi) \cdot \bar{Y}^{m}_{l}(\theta,\phi) \cdot \sin(\theta) \ d\theta d\phi \end{equation}}">
+<img src="https://latex.codecogs.com/svg.latex?;\color{green}{f_{m,l}=\int^{2\pi}_{0}\int^{\pi}_{0}f(\theta, \phi) \cdot \bar{Y}^{m}_{l}(\theta,\phi) \cdot \sin(\theta) \ d\theta d\phi}">
 
 
 ### Algorithm description
