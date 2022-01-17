@@ -1,0 +1,8 @@
+--memcheck:leak-check=full
+--memcheck:show-leak-kinds=all
+--memcheck:gen-suppressions=yes
+--memcheck:track-origins=yes
+--memcheck:gen-suppressions=all
+--memcheck:error-limit=no
+--memcheck:log-file=valgrind.log
+--callgrind:show-perc=yes
