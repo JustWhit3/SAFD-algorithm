@@ -138,11 +138,11 @@ and the spherical harmonics <img src="https://render.githubusercontent.com/rende
 
 where *i* is the imaginary unit and <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P^{\left| m \right|}_{l}}"> are the **Legendre associated functions**, defined in the interval *[-1,1]* for the *x* variable:
 
-<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}(4) \hspace{1cm} P_{\alpha}^{\beta}(x)=(1-x^2)^{\frac{\beta}{2}}\frac{d^\beta}{dx^\beta}P_\alpha&space;(x)}" title="{\color{DarkGreen}P_{\alpha}^{\beta}(x)=(1-x^2)^{\frac{\beta}{2}}\frac{d^\beta}{dx^\beta}P_\alpha (x)}" />
+<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;(4)&space;\hspace{1cm}&space;P_{\alpha}^{\beta}(x)=(1-x^2)^{\frac{\beta}{2}}\frac{d^\beta}{dx^\beta}P_\alpha&space;(x)}" title="{\color{DarkGreen} (4) \hspace{1cm} P_{\alpha}^{\beta}(x)=(1-x^2)^{\frac{\beta}{2}}\frac{d^\beta}{dx^\beta}P_\alpha (x)}" />
 
 with <img src="https://render.githubusercontent.com/render/math?math=\color{green}{\alpha \geq \beta \geq 0}">. The <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P_{\alpha}}"> polynomials are called **Legendre polynomials** and are given by the following recursive relation:
 
-<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;(5) \hspace{1cm} P_{\alpha&space;&plus;1}(x)=\frac{2\alpha&plus;1}{\alpha&plus;1}xP_{\alpha}(x)-\frac{\alpha}{\alpha&plus;1} P_{\alpha-1}(x)}" title="{\color{DarkGreen} P_{\alpha +1}(x)=\frac{2\alpha+1}{\alpha+1}xP_{\alpha}(x)-\frac{\alpha}{\alpha+1}P_{\alpha-1}(x)}" />
+<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;(5)&space;\hspace{1cm}&space;P_{\alpha&space;&plus;1}(x)=\frac{2\alpha&plus;1}{\alpha&plus;1}xP_{\alpha}(x)-\frac{\alpha}{\alpha&plus;1}P_{\alpha-1}(x)}" title="{\color{DarkGreen} (5) \hspace{1cm} P_{\alpha +1}(x)=\frac{2\alpha+1}{\alpha+1}xP_{\alpha}(x)-\frac{\alpha}{\alpha+1}P_{\alpha-1}(x)}" />
 
 they are also defined in *[-1,1]* and have <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P_{0}(x)=1}">.
 
