@@ -16,7 +16,7 @@
 
 ## Introduction
 
-This program compute the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients of a function <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f({\theta,\phi}}}"> development in a spherical harmonics convergent series, by a standard mathematical algorithm.
+This program compute the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients of a function <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f({&#952,&#966}}}"> development in a spherical harmonics convergent series, by a standard mathematical algorithm.
 
 > **NOTE**: equations are displayed in green color in order to be correctly visualized in normal and dark mode.
 
