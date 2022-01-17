@@ -126,12 +126,25 @@ They are a family of infinite functions, called <img src="https://render.githubu
 
 They can construct an orthonormal basis for any other function depending on the same variables; this means that each function <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> can be developed into a spherical harmonics convergent series:
 
-<img src="https://render.githubusercontent.com/render/math?math=\color{green}{\begin{equation} f(\theta,\phi)=\sum^{\infty}_{l=0}\sum^{l}_{m=-l} f_{m,l} \cdot Y^{m}_{l}(\theta,\phi) \end{equation}}">
+<img src="https://latex.codecogs.com/svg.image?\color{DarkGreen}f(\theta,\phi)=\sum^{\infty}_{l=0}\sum^{l}_{m=-l}&space;f_{m,l}&space;\cdot&space;Y^{m}_{l}(\theta,\phi)" title="\color{DarkGreen}f(\theta,\phi)=\sum^{\infty}_{l=0}\sum^{l}_{m=-l} f_{m,l} \cdot Y^{m}_{l}(\theta,\phi)" />
 
 where the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients can be written as:
 
-<img src="https://latex.codecogs.com/svg.latex?;\color{green}{f_{m,l}=\int^{2\pi}_{0}\int^{\pi}_{0}f(\theta, \phi) \cdot \bar{Y}^{m}_{l}(\theta,\phi) \cdot \sin(\theta) \ d\theta d\phi}">
+<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}f_{m,l}=\int^{2\pi}_{0}\int^{\pi}_{0}f(\theta,&space;\phi)&space;\cdot&space;\bar{Y}^{m}_{l}(\theta,\phi)&space;\cdot&space;\sin(\theta)&space;\&space;d\theta&space;d\phi}" title="{\color{DarkGreen}f_{m,l}=\int^{2\pi}_{0}\int^{\pi}_{0}f(\theta, \phi) \cdot \bar{Y}^{m}_{l}(\theta,\phi) \cdot \sin(\theta) \ d\theta d\phi}" />
 
+Where the spherical harmonics <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> are defined as follows:
+
+<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;Y^{m}_{l}(\theta,\phi)&space;=&space;-1^{\frac{m&plus;&space;\left|&space;m&space;\right|}{2}&space;}&space;\cdot&space;\sqrt{\frac{(2l&plus;1)\cdot&space;(l-&space;\left|&space;m&space;\right|)!}{4&space;\pi&space;\cdot&space;(l&plus;&space;\left|&space;m&space;\right|)!}}&space;\cdot&space;P^{\left|&space;m&space;\right|}_{l}(\cos\theta)&space;\cdot&space;\exp(im\phi)}" title="{\color{DarkGreen} Y^{m}_{l}(\theta,\phi) = -1^{\frac{m+ \left| m \right|}{2} } \cdot \sqrt{\frac{(2l+1)\cdot (l- \left| m \right|)!}{4 \pi \cdot (l+ \left| m \right|)!}} \cdot P^{\left| m \right|}_{l}(\cos\theta) \cdot \exp(im\phi)}" />
+
+where *i* is the imaginary unit and <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P^{\left| m \right|}_{l}}"> are the **Legendre associated functions**, defined in the interval *[-1,1]* for the *x* variable:
+
+<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}P_{\alpha}^{\beta}(x)=(1-x^2)^{\frac{\beta}{2}}\frac{d^\beta}{dx^\beta}P_\alpha&space;(x)}" title="{\color{DarkGreen}P_{\alpha}^{\beta}(x)=(1-x^2)^{\frac{\beta}{2}}\frac{d^\beta}{dx^\beta}P_\alpha (x)}" />
+
+with <img src="https://render.githubusercontent.com/render/math?math=\color{green}{\alpha \geq \beta \geq 0}">. The <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P_{\alpha}}"> polynomials are called **Legendre polynomials** and are defined by the following recursive relation:
+
+<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;P_{\alpha&space;&plus;1}(x)=\frac{2\alpha&plus;1}{\alpha&plus;1}xP_{\alpha}(x)-\frac{\alpha}{\alpha&plus;1}P_{\alpha-1}(x)}" title="{\color{DarkGreen} P_{\alpha +1}(x)=\frac{2\alpha+1}{\alpha+1}xP_{\alpha}(x)-\frac{\alpha}{\alpha+1}P_{\alpha-1}(x)}" />
+
+they are also defined in *[-1,1]* and have <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P_{0}(x)=1}">.
 
 ### Algorithm description
 
