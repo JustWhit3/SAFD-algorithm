@@ -20,6 +20,9 @@ namespace SphArmFuncDev
   
   //Derivative constants:
   d_const STEP_SIZE = 2 * cbrt( __DBL_EPSILON__ );
+
+  //Derivative variables:
+  double h;
   
   //Integral constants (x):
   d_const x_in = 0;
@@ -30,6 +33,11 @@ namespace SphArmFuncDev
   d_const y_in = 0;
   d_const y_fin = M_PI*2;
   d_const h_y = 0.15;
+
+  //Integral variables:
+  double res;
+  std::array< std::array<double, 50>, 50> tab;  //Stores the table.
+  std::array<double, 50> ax;  //Stores the integral wrt y
 
   //============================================
   //     "runtime_thrower" function definition
@@ -57,7 +65,6 @@ namespace SphArmFuncDev
     else if( n < 0 ) throw runtime_thrower( "Derivative cannot be calculated for order less than 0!" );
     else 
      {
-      double h;
       if ( n < 4 && n > 0 ) h = STEP_SIZE * x_0;
       else h = n; //Condition for Legendre associated functions.
   
@@ -113,11 +120,7 @@ namespace SphArmFuncDev
   
   //Function used to integrate a function f(x,y), depending on two indexes m and l, in x = theta and y = phi.
   d_const integral( four_param_func f, s_const expr, i_const m, i_const l )
-   {
-    double res;
-    std::array< std::array<double, 50>, 50> tab; //Stores the table.
-    std::array<double, 50> ax;   //Stores the integral wrt y
-  
+   {  
     //Calculating the number of points in x and y integral:
     d_const nx = ( x_fin - x_in ) / h_x + 1;
     d_const ny = ( y_fin - y_in ) / h_y + 1;

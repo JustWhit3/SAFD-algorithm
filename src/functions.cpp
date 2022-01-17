@@ -18,7 +18,15 @@ namespace SphArmFuncDev
   //============================================
   //     Global variables definition
   //============================================
+
+  //Variables for parsing:
+  symbol_table_t symbol_table;
+  expression_t foo;
+  parser_t parser;
   exprtk::rtl::io::file::package<double> fileio_package;
+
+  //Other variables:
+  cmplx coefficient;
   
   //============================================
   //     "Leg_pol" function definition
@@ -91,14 +99,10 @@ namespace SphArmFuncDev
   //Function f(theta,phi) obtained with parsing:
   d_const parsed_f( s_const expr, double theta, double phi )
    {
-    symbol_table_t symbol_table;
     symbol_table.add_variable( "th", theta );
     symbol_table.add_variable( "phi",phi );
-  
-    expression_t foo;
     foo.register_symbol_table( symbol_table );
   
-    parser_t parser;
     if ( !parser.compile( expr, foo ) )
      {
       throw runtime_thrower( "Error in the inserted expression!" );
@@ -128,9 +132,7 @@ namespace SphArmFuncDev
   
   //This function returns the final f_m_l coefficients.
   cmplx_const f_m_l( s_const expr, i_const m, i_const l )
-   {
-    cmplx coefficient;
-  
+   {  
     d_const real_part = integral( &f_theta_phi_real, expr, m, l );
     d_const imag_part = integral( &f_theta_phi_imag, expr, m, l );
     coefficient.real( real_part );
