@@ -17,7 +17,6 @@ namespace SphArmFuncDev
   extern d_const STEP_SIZE;
   extern d_const x_in, x_fin, h_x;
   extern d_const y_in, y_fin, y_x;
-  extern double h;
   extern double res;
   extern std::array< std::array<double, 50>, 50> tab;
   extern std::array<double, 50> ax;
@@ -27,6 +26,9 @@ namespace SphArmFuncDev
   //============================================
   //N-th derivative function:
   extern d_const n_derivative( two_param_func f, d_const x_0, i_const a, i_const n );
+ 
+  //Step-size function:
+  extern d_const h( i_const n, d_const x_0 );
   
   //Function to round double variables:
   extern d_const round_var( d_const val );

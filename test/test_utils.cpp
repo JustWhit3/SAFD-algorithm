@@ -32,6 +32,15 @@ TEST_CASE( "Testing the runtime_thrower function" ) // 100% working
  }
 
 //============================================
+//     "h" function testing
+//============================================
+TEST_CASE( "Testing the h function" ) // 100% working
+ {
+  CHECK_EQ( h( 2, 0.5 ), STEP_SIZE * 0.5 );
+  CHECK_EQ( h( 7, 0.5 ), 7 * 0.09 );
+ }
+
+//============================================
 //     "n_derivative" function testing
 //============================================
 inline d_const func( int a, double x ) { return sin( x ) - cos( x ); }
@@ -56,11 +65,9 @@ TEST_CASE( "Testing the n_derivative function" )
     CHECK_EQ( round_var( n_derivative( &func, M_PI/3, 4, 3 ) * 10.0 ) / 10.0, -1.4 );
     CHECK_EQ( round_var( n_derivative( &gunc, 3, 4, 3 ) * 1.0 ) / 1.0, 2772 - 1 );
    }
-  SUBCASE( "Testing higher orders derivatives" ) //***** TODO ***** 
+  SUBCASE( "Testing higher orders derivatives" ) 
    {
-   CHECK_EQ( round_var( n_derivative( &gunc, 3, 4, 4 ) * 100.0 ) / 100.0, 1823.91 );
-   //CHECK_EQ( round_var( n_derivative( &func, M_PI/3, 4, 8 ) * 100.0 ) / 100.0, 0.37 );
-   //CHECK_EQ( round_var( n_derivative( &func, M_PI/3, 4, 10 ) * 100.0 ) / 100.0, -0.37 );
+   CHECK_EQ( round_var( n_derivative( &gunc, 3, 4, 4 ) * 100.0 ) / 100.0, 1825.41 );
    }
   SUBCASE( "Testing exceptions" )
    {
@@ -111,8 +118,6 @@ inline d_const hunc( string s, int m, int l, double x, double y ) { return pow( 
 inline d_const hunc_2( string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ) + pow( cos( x ), 2 ); }
 inline d_const hunc_3( string s, int m, int l, double x, double y ) { return pow( cos( x + y ), 3 ) + cos( x ) * pow( sin( x ), 5 ) + 5 + sin( y - x ); }
 
-//inline d_const spherical( int m, int l, double x, double y ) { return pow( abs( sph_arm( m, l, x, y ) ), 2 ); }
-
 TEST_CASE( "Testing the integral function" ) // 100% working
  {
   SUBCASE( "Testing for x variable only" )
@@ -134,9 +139,4 @@ TEST_CASE( "Testing the integral function" ) // 100% working
     CHECK( IsInBounds( integral( &hunc_2, "", 0, 0 ), 17.2, 17.6 ) );
     CHECK( IsInBounds( integral( &hunc_3, "", 0, 0 ), 96.5, 101.5 ) );
    }
-  /*SUBCASE( "Testing for spherical armonics function" )
-   {
-    //CHECK( IsInBounds( integral( &spherical, 0, 0 ), 0.90, 1.00 ) );
-    CHECK_EQ( round_var( integral( &spherical, 5, 5 ) * 100.0 ) / 100.0, 0.90 );
-   }*/
  }

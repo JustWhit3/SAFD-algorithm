@@ -23,7 +23,7 @@ When running the program, you have simply to input the generic shape of the <img
 Some program features:
  - Can calculate <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients for any generic <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> function, entered by the user during the program running.
  - <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients are expressed as complex numbers.
- - It works well for each negative or positive value of m (with almost 99% accuracy for m < 5).
+ - It works well for each negative or positive value of m, with very good accuracy until m < 5. For higher m values, the accuracy gradually decrease.
 
 > **NOTE**: equations are displayed in green color in order to be correctly visualized in both normal and dark mode.
 
@@ -180,27 +180,25 @@ they are also defined in *[-1,1]* and have <img src="https://render.githubuserco
 
 The algorithm starts from the computation of the Legendre polynomials, for which has been created a function `Leg_pol` which reproduces the equation (5) (see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/functions.cpp#:~:text=cmplx%20coefficient%3B-,//%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D,%7D,-//%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D)). So, nothing special for this one.
 
-To compute the Legendre associated functions of equation (4) it has been firstly defined an `n_derivative` function to compute the n-th derivative of a real given function, using this relation:
+To compute the Legendre associated functions of equation (4) it has been firstly defined an `n_derivative` function to compute the n-th derivative of a real given function, using this recursive relation:
 
 <img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}&space;f^{n}(x_0)\approx\frac{f^{n-1}(x&plus;h)-f^{n-1}(x-h)}{2h}}" title="{\color{DarkGreen} f^{n}(x_0)\approx\frac{f^{n-1}(x+h)-f^{n-1}(x-h)}{2h}}" />
 
 (see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/utils.cpp#:~:text=//%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D-,//Function%20used%20to%20calculate%20the%20%22n%22%2Dth%20derivative%20of%20a,%7D,-//%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D)).
 
-The derivative step-size *h* has been defined as:
+The derivative step-size *h* has been defined with this function:
 
 ```C++
-const double h = 2 * cbrt( __DBL_EPSILON__ ) * x_0;
-```
+const double STEP_SIZE = 2 * cbrt( __DBL_EPSILON__ );
 
-for derivative of order n < 4, and:
+d_const h( i_const n, d_const x_0 )
+ {
+  if ( n < 4 && n > 0 ) return STEP_SIZE * x_0;
+  else return n * 0.09;
+ }
+ ```
 
-```C++
-const double h = n;
-```
-
-for higher order derivatives.
-
-This derivation algorithm is not optimal, in fact the calculation diverges for n > 5, this is the motivation for which the computation of the equation (2) is accurate until m = 5.
+This derivation algorithm is not optimal, in fact the calculation is not too much accurate for n > 5, but should work not so bad for higher values of n. This is the motivation for which the computation of the equation (2) is precise until m = 5.
 
 Finally, the Legendre associated functions has been computed writing a new function `Leg_func`, using the equation (4) and the previously defined derivative (see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/functions.cpp#:~:text=d_const%20Leg_func(%20i_const%20b%2C%20i_const%20a%2C%20d_const%20x%20))).
 

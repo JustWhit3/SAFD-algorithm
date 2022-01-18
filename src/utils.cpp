@@ -5,6 +5,7 @@
 #include <array>
 #include <string>
 #include <functional>
+#include <limits>
 
 //Extra headers
 #include <osmanip.h>
@@ -20,9 +21,6 @@ namespace SphArmFuncDev
   
   //Derivative constants:
   d_const STEP_SIZE = 2 * cbrt( __DBL_EPSILON__ );
-
-  //Derivative variables:
-  double h;
   
   //Integral constants (x):
   d_const x_in = 0;
@@ -52,6 +50,17 @@ namespace SphArmFuncDev
   
   template std::runtime_error runtime_thrower <s_const> ( s_const phrase );
   template std::runtime_error runtime_thrower <const char*> ( const char* phrase );
+
+  //============================================
+  //     "h" function definition
+  //============================================
+  
+  //Function used to return the derivative step-size.
+  d_const h( i_const n, d_const x_0 )
+   {
+    if ( n < 4 && n > 0 ) return STEP_SIZE * x_0;
+    else return n * 0.09;
+   }
   
   //============================================
   //     "n_derivative" function definition
@@ -65,15 +74,16 @@ namespace SphArmFuncDev
     else if( n < 0 ) throw runtime_thrower( "Derivative cannot be calculated for order less than 0!" );
     else 
      {
-      if ( n < 4 && n > 0 ) h = STEP_SIZE * x_0;
-      else h = n; //Condition for Legendre associated functions.
-  
-      d_const x_1 = x_0 - h;
-      d_const x_2 = x_0 + h;
-      d_const first_term = n_derivative( f, x_2, a, n - 1 );
-      d_const second_term = n_derivative( f, x_1, a, n - 1);
-  
-      return ( first_term - second_term ) / ( x_2 - x_1 );
+      if ( fabs( x_0 ) >= __DBL_MIN__ && std::isfinite( x_0 ) )
+       {
+        d_const x_1 = x_0 - h( n, x_0 );
+        d_const x_2 = x_0 + h( n, x_0 );
+        d_const first_term = n_derivative( f, x_2, a, n - 1 );
+        d_const second_term = n_derivative( f, x_1, a, n - 1);
+    
+        return ( first_term - second_term ) / ( x_2 - x_1 );
+       }
+      else throw runtime_thrower( "Derivative cannot be calculated in this x_0 value (too much small or big)!" );
      }
    }
   
