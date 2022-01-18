@@ -162,7 +162,7 @@ where the <img src="https://render.githubusercontent.com/render/math?math=\color
 
 and the spherical harmonics <img src="https://render.githubusercontent.com/render/math?math=\color{green}{Y^{m}_{l}(\theta,\phi)}"> are defined as follows:
 
-<img src="https://latex.codecogs.com/svg.image?\color{DarkGreen}&space;(3)&space;\hspace{1cm}&space;Y^{m}_{l}(\theta,\phi)&space;=&space;(-1)^{\frac{m&plus;&space;\left|&space;m&space;\right|}{2}&space;}&space;\cdot&space;\sqrt{\frac{(2l&plus;1)\cdot&space;(l-&space;\left|&space;m&space;\right|)!}{4&space;\pi&space;\cdot&space;(l&plus;&space;\left|&space;m&space;\right|)!}}&space;\cdot&space;P^{\left|&space;m&space;\right|}_{l}(\cos\theta)&space;\cdot&space;\exp(im\phi&space;&plus;&space;\pi)" title="\color{DarkGreen} (3) \hspace{1cm} Y^{m}_{l}(\theta,\phi) = (-1)^{\frac{m+ \left| m \right|}{2} } \cdot \sqrt{\frac{(2l+1)\cdot (l- \left| m \right|)!}{4 \pi \cdot (l+ \left| m \right|)!}} \cdot P^{\left| m \right|}_{l}(\cos\theta) \cdot \exp(im\phi + \pi)" />
+<img src="https://latex.codecogs.com/svg.image?\color{DarkGreen}&space;(3)&space;\hspace{1cm}&space;Y^{m}_{l}(\theta,\phi)&space;=&space;(-1)^{\frac{m&plus;&space;\left|&space;m&space;\right|}{2}&space;}&space;\sqrt{\frac{(2l&plus;1)\cdot&space;(l-&space;\left|&space;m&space;\right|)!}{4&space;\pi&space;\cdot&space;(l&plus;&space;\left|&space;m&space;\right|)!}}&space;\cdot&space;P^{\left|&space;m&space;\right|}_{l}(\cos\theta)&space;\cdot&space;e^{im(\phi&space;&plus;&space;\pi)}" title="\color{DarkGreen} (3) \hspace{1cm} Y^{m}_{l}(\theta,\phi) = (-1)^{\frac{m+ \left| m \right|}{2} } \sqrt{\frac{(2l+1)\cdot (l- \left| m \right|)!}{4 \pi \cdot (l+ \left| m \right|)!}} \cdot P^{\left| m \right|}_{l}(\cos\theta) \cdot e^{im(\phi + \pi)}" />
 
 where *i* is the imaginary unit and <img src="https://render.githubusercontent.com/render/math?math=\color{green}{P^{\left| m \right|}_{l}}"> are the **Legendre associated functions**, defined in the interval *[-1,1]* (for the *x* variable):
 
@@ -221,9 +221,9 @@ double const h_y = 0.15;
 
 A table of the values of the function <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(x,y)}"> for all possible combinations of all x and y points has been created and the Simpson rule has been applied on each row to find integral with reference to y at each x and store the values in an array. Finally, the rule has been again applied on the values of the array to calculate the integral with reference to x (see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/utils.cpp#:~:text=d_const%20integral(%20four_param_func%20f%2C%20s_const%20expr%2C%20i_const%20m%2C%20i_const%20l%20))).
 
-Another function `f_m_l` has been then created to compute the final resulting coefficients of equation (2), bu using the integral algorithm defined previously.
+Another function `f_m_l` has been then created to compute the final resulting coefficients of equation (2), bu using the integral algorithm defined previously (see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/functions.cpp#:~:text=cmplx_const%20f_m_l(%20s_const%20expr%2C%20i_const%20m%2C%20i_const%20l%20))).
 
-At the end, a main program has been provided, in order to run all the necessary code and to parse the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> function from input, by simply entering its shape during the running of the whole program. This final feature was possible thanks to the [`exprtk`](https://github.com/ArashPartow/exprtk) library tools.
+At the end, a main program has been provided, in order to run all the necessary code and to parse the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> function from input, by simply entering its shape during the running of the whole program (see [here](https://github.com/JustWhit3/SAFD-algorithm/blob/main/src/main.cpp)). This final feature was possible thanks to the [`exprtk`](https://github.com/ArashPartow/exprtk) library tools.
 
 ## How to use
 
