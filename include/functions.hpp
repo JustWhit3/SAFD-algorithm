@@ -17,6 +17,7 @@ namespace SphArmFuncDev
   //     Global variables declaration
   //============================================
   extern cmplx coefficient;
+  extern d_const reciprocalPi;
 
   //============================================
   //     Functions declaration

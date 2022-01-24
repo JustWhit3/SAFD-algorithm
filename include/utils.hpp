@@ -33,9 +33,6 @@ namespace SphArmFuncDev
   //Function to round double variables:
   extern d_const round_var( d_const val );
   
-  //Function to find factorial of a variable:
-  extern ui_const factorial( ui_const n );
-  
   //Function to calculate the 2-dim integral:
   extern d_const integral( four_param_func f, s_const expr, i_const m, i_const l );
 

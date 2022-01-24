@@ -84,17 +84,6 @@ TEST_CASE( "Testing the round function" ) // 100% working
  }
 
 //============================================
-//     "factorial" function testing
-//============================================
-TEST_CASE( "Testing the factorial function" ) // 100% working
- {
-  CHECK_EQ( factorial( 0 ), 1 );
-  CHECK_EQ( factorial( 1 ), 1 );
-  CHECK_EQ( factorial( 3 ), 6 );
-  CHECK_EQ( factorial( 5 ), 120 );
- }
-
-//============================================
 //     "IsInBounds" function testing
 //============================================
 TEST_CASE( "Testing the IsInBounds function" ) // 100% working

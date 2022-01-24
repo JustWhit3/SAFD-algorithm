@@ -20,6 +20,7 @@ namespace SphArmFuncDev
   //============================================
   exprtk::rtl::io::file::package<double> fileio_package;
   cmplx coefficient;
+  d_const reciprocalPi = sqrt(1 / (M_PI*4));
   
   //============================================
   //     "Leg_pol" function definition
@@ -75,7 +76,18 @@ namespace SphArmFuncDev
     else
      {
       d_const sign_1 = pow( -1, ( m + abs( m ) ) / 2 );
-      d_const sign_2 = sqrt( ( ( 2*l + 1 ) * factorial( l - abs( m ) ) ) / ( M_PI*4 * factorial( l + abs( m ) ) ) );
+      d_const dividedFactorial = [ l, m ]
+       {
+        double result = 1; 
+        const int multmin = l - abs( m ) + 1; 
+        const int multmax = l + abs( m ); 
+        for( int currval = multmin; currval <= multmax ; ++currval ) 
+         {
+          result *= currval; 
+         }; 
+        return result;
+       }(); 
+      d_const sign_2 = reciprocalPi * sqrt( ( 2*l + 1 ) / dividedFactorial );
       d_const pol = Leg_func( abs( m ), l, cos( theta ) );
       cmplx_const result ( sign_1 * sign_2 * pol * cos( m*( phi + M_PI ) ), sign_1 * sign_2 * pol * sin( m*( phi + M_PI ) ) );
     
