@@ -100,17 +100,6 @@ namespace SphArmFuncDev
    }
   
   //============================================
-  //     "factorial" function definition
-  //============================================
-  
-  //Function to find factorial of a variable "n".
-  ui_const factorial( ui_const n  )
-   {
-    if (n == 0) return 1;
-    else return n * factorial( n - 1 );
-  }
-  
-  //============================================
   //     "IsInBounds" function definition
   //============================================
   
