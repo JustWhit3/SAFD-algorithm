@@ -49,6 +49,7 @@ SAFD-agorithm/
 │── README.md
 │── LICENSE
 │── CITATION.cff
+│── CREDITS.md
 │── .gitignore
 │── .valgrindrc
 │── makefile
