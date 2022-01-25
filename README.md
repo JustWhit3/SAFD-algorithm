@@ -1,8 +1,18 @@
-# SAFD (Spherical Armonics Function Developer)
+<p align="center"><img src="https://github.com/JustWhit3/SAFD-algorithm/blob/main/img/logo.svg" height=220></p>
+
+<h3 align="center">An algorithm to compute the coefficients of a function development in a spherical harmonics convergent series</h3>
+<p align="center">
+    <img title="v1.0" alt="v1.0" src="https://img.shields.io/badge/version-v1.0-informational?style=flat-square"
+    <a href="LICENSE">
+        <img title="MIT License" alt="license" src="https://img.shields.io/badge/license-MIT-informational?style=flat-square">
+    </a>
+	<img title="C++17" alt="C++17" src="https://img.shields.io/badge/c++-17-informational?style=flat-square">
+    </a>
+</p>
 
 ## Table of contents
 
-- [Introduction](#Introduction)
+- [Introduction](#introduction)
 - [Repository structure](#repository-structure)
 - [Run the program](#run-the-program)
   - [Download](#download)
