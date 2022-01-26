@@ -30,6 +30,8 @@ Some program features:
 
 > **NOTE**: equations are displayed in green color in order to be correctly visualized in both normal and dark mode.
 
+Output example:
+
 <img src="https://github.com/JustWhit3/SAFD-algorithm/blob/main/img/SAFD.gif">
 
 The software is and will stay **free**, but if you want to support me with a donation it would be really appreciated!
