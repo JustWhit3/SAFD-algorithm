@@ -43,7 +43,7 @@ int main()
        << "//////////////////////////////////////////////////" << endl << endl
        << feat( col, "cyan" ) << feat( sty, "italics" ) 
        << "Welcome to SAFD: a program to compute the coefficients f(m,l) of a " 
-       << "function f(th,phi) development in a spherical armonics convergent serie. " 
+       << "function f(th,phi)\ndevelopment in a spherical armonics convergent serie. " 
        << reset( "all" ) << endl << endl;
 
   while( true )
