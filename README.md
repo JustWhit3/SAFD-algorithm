@@ -19,7 +19,7 @@
 
 ## Introduction
 
-This program computes the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients of a function <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> development in a spherical harmonics convergent series, by using a standard mathematical [algorithm](#algorithm-explanation).
+This program computes the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients of a function <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> development in a spherical harmonics convergent series, by using a standard mathematical [algorithm](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/algorithm_explanation.md).
 
 When running the program, you have simply to input the generic shape of the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> equation and the values of m and l and the coefficients will be calculated.
 
