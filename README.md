@@ -60,6 +60,7 @@ SAFD-agorithm/
 ├── test/
 │   ├── test_utils.cpp
 │   ├── test_functions.cpp
+├── img/
 │── README.md
 │── LICENSE
 │── CITATION.cff
