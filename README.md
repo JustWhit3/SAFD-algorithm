@@ -72,7 +72,7 @@ SAFD-agorithm/
 Extra documentation is available in the [doc](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc) folder:
 
 - [Download, compile and run](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/download_and_run.md): contains documentation about how to download, compile and run the program as well as a complete list of prerequisites.
-- [Algorithm explanation and physical background](algorithm_explanation): contains information about the mathematical and physical explanation related to the coefficients computation and a detailed description of the used algorithm.
+- [Algorithm explanation and physical background](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/algorithm_explanation.pdf): contains information about the mathematical and physical explanation related to the coefficients computation and a detailed description of the used algorithm.
 
 ## How to use
 
