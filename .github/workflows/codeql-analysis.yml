@@ -32,7 +32,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'C++' ]
+        language: [ 'cpp' ]
         # Learn more about CodeQL language support at https://git.io/codeql-language-support
 
     steps:
@@ -61,9 +61,9 @@ jobs:
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
 
-    - run: |
-       make bootstrap
-       make release
+    #- run: |
+    #   make bootstrap
+    #   make release
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
