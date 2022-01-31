@@ -45,8 +45,9 @@ int main()
        << "Welcome to SAFD: a program to compute the coefficients f(m,l) of a " 
        << "function f(th,phi)\ndevelopment in a spherical armonics convergent serie. " 
        << reset( "all" ) << endl << endl;
-
-  while( true )
+  
+  bool loop_break = false;
+  while( !loop_break )
    {
     cout << "Available options:" << endl
          << "   1. Display the single value of a f(m,l) coefficient." << endl
@@ -56,38 +57,22 @@ int main()
   
     cin >> choice;
     cout << endl;
-  
-    if( choice == 3 ) 
-     {
-      cout << feat( col, "green" ) << "Program exited successfully." << reset( "color" ) 
-           << endl << endl;
-      break;
-     }
-    else if( choice == 1 )
-     {
-      initializer( equation, m, l );
-      cout << "Value of the coefficient is (real + imaginary part):" << endl << endl;
-      displayer( equation, m, l );
-      cout << endl;
 
-      letter_r = abort_this( letter );
-      if ( letter_r == 'n' )
-       {
-        cout << feat( col, "green" ) << "Program exited successfully." << reset( "color" ) 
-             << endl << endl;
-        break;
-       }
-      else if( letter_r == 'y' ) { continue; }
-      else
-       {
-        cerr << feat( col, "red" ) << "Inserted answer is not correct. Automatically aborting the program!" 
-             << reset( "color" ) << endl <<endl; 
-        break;
-       }
-     }
-    else if( choice == 2 )
-     {
-      initializer( equation, m, l );
+    switch (choice)
+    {
+    case 3:
+          cout << feat( col, "green" ) << "Program exited successfully." << reset( "color" )  << endl << endl;
+          loop_break = true;
+          break;
+     case 1:
+          initializer( equation, m, l );
+          cout << "Value of the coefficient is (real + imaginary part):" << endl << endl;
+          displayer( equation, m, l );
+          cout << endl;
+          loop_break = true;
+          break
+     case 2:
+     initializer( equation, m, l );
       cout << "Value of the coefficients is (real + imaginary part):" << endl << endl;
       for( int a = 0; a < m + 1; a++ )
        {
@@ -96,30 +81,27 @@ int main()
           if( a > b ) continue;
           displayer( equation, a, b ); cout << endl;
          }
-       }
-
-      letter_r = abort_this( letter );
-      if ( letter_r == 'n' )
-       {
-        cout << feat( col, "green" ) << "Program exited successfully." << reset( "color" ) 
-             << endl << endl;
-        break;
-       }
-      else if( letter_r == 'y' ) { continue; }
-      else
-       {
-        cerr << feat( col, "red" ) << "Inserted answer is not correct. Automatically aborting the program!" 
-             << reset( "color" ) << endl <<endl; 
-        break;
-       }
-     }
-    else
-     {
-      cin.clear();
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
-      
-      cerr << feat( col, "red" ) << "Invalid option!" << reset( "color" ) 
-           << endl <<endl;
-     }
+          letter_r = abort_this( letter );
+          if ( letter_r == 'n' )
+          {
+          cout << feat( col, "green" ) << "Program exited successfully." << reset( "color" ) 
+               << endl << endl;
+          break;
+          }
+          else if( letter_r == 'y' ) { continue; }
+          else
+          {
+          cerr << feat( col, "red" ) << "Inserted answer is not correct. Automatically aborting the program!" 
+               << reset( "color" ) << endl <<endl;
+          loop_break = true; 
+          break;
+          }         
+    default:
+          cin.clear();
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          cerr << feat( col, "red" ) << "Invalid option!" << reset( "color" ) << endl <<endl;
+          
+         break;
+    }
     }
  }
