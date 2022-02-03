@@ -57,6 +57,10 @@ SAFD-agorithm/
 ├── test/
 │   ├── test_utils.cpp
 │   ├── test_functions.cpp
+├── doc/
+│   ├── algorithm_explanation.md
+│   ├── download_and_run.md
+│   ├── CREDITS.md
 ├── img/
 │── README.md
 │── LICENSE
@@ -73,6 +77,7 @@ Extra documentation is available in the [doc](https://github.com/JustWhit3/SAFD-
 
 - [Download, compile and run](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/download_and_run.md): contains documentation about how to download, compile and run the program as well as a complete list of prerequisites.
 - [Algorithm explanation and physical background](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/algorithm_explanation.md): contains information about the mathematical and physical explanation related to the coefficients computation and a detailed description of the used algorithm.
+- [Credits](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/CREDITS.md): contains a list of all the people who contributed to this project.
 
 ## How to use
 
