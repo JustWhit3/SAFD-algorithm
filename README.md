@@ -68,6 +68,7 @@ SAFD-agorithm/
 │── CREDITS.md
 │── .gitignore
 │── .valgrindrc
+│── .all-contributorsrc
 │── makefile
 ```
 
