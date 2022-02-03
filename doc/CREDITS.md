@@ -1,9 +1,11 @@
 # Credits
 
-## Main authors
+List of the people who contributed to this project:
 
-- [Gianluca Bianco](https://github.com/JustWhit3)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-## Minor contributors
+<!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
-- [adnukator](https://www.reddit.com/user/adnukator): commit [ca1f75f](https://github.com/JustWhit3/SAFD-algorithm/commit/ca1f75f264aebd1f3b38d2313b45f985e78d0020)
+Other people:
+
+- [adnukator](https://www.reddit.com/user/adnukator).
