@@ -7,7 +7,7 @@
 
 //Extra headers
 #include <exprtk.hpp>
-#include <osmanip.h>
+#include <osmanip.hpp>
 
 //My headers
 #include "../include/utils.hpp"
@@ -20,23 +20,23 @@ namespace SphArmFuncDev
   //============================================
   exprtk::rtl::io::file::package<double> fileio_package;
   cmplx coefficient;
-  d_const reciprocalPi = sqrt(1 / (M_PI*4));
+  const double reciprocalPi = sqrt(1 / (M_PI*4));
   
   //============================================
   //     "Leg_pol" function definition
   //============================================
   
   //Function used to calculate Legendre polynomials with index "a" and variable "x".  
-  d_const Leg_pol( i_const a, d_const x ) 
+  const double Leg_pol( const int a, const double x ) 
    {
     if( a == 0 ) return 1.0;
     else if( a == 1 ) return x;
     else if( a < 0 ) throw runtime_thrower( "Legendre polynomials index should be greater or equal than 0!" );
     else 
      {
-      d_const first_term = ( 2.0 * static_cast<double>( a ) - 1.0) * x * Leg_pol( a-1, x );
-      d_const second_term = ( static_cast<double>( a ) - 1.0 ) * Leg_pol( a-2, x );
-      d_const diff = ( first_term - second_term ) / static_cast<double>( a );
+      const double first_term = ( 2.0 * static_cast<double>( a ) - 1.0) * x * Leg_pol( a-1, x );
+      const double second_term = ( static_cast<double>( a ) - 1.0 ) * Leg_pol( a-2, x );
+      const double diff = ( first_term - second_term ) / static_cast<double>( a );
   
       return diff;
      }
@@ -48,7 +48,7 @@ namespace SphArmFuncDev
   
   //Function used to calculate Legendre associated functions with indexes "a" and "b" and variable "x".
   //NB: works well until m = l and | m - l | = 1.
-  d_const Leg_func( i_const b, i_const a, d_const x )
+  const double Leg_func( const int b, const int a, const double x )
    {
     if( x < -1 || x > 1 ) throw runtime_thrower( "Legendre associated functions variable should lie in interval [-1,1]!" );
     else
@@ -56,8 +56,8 @@ namespace SphArmFuncDev
       if( a < abs( b ) ) throw runtime_thrower( "Legendre associated function indexes a and b should satisfy the relation: a >= b >= 0" );
       else
        {
-        d_const first_term = pow( ( 1 - pow( x, 2 ) ), static_cast<double>( b ) / 2 );
-        d_const second_term = n_derivative( &Leg_pol, x, a, b );
+        const double first_term = pow( ( 1 - (x * x) ), static_cast<double>( b ) * 0.5 );
+        const double second_term = n_derivative( &Leg_pol, x, a, b );
     
         return pow( -1, b ) * first_term * second_term;
        }
@@ -70,13 +70,13 @@ namespace SphArmFuncDev
   
   //Function used to calculate spherical armonics with indexes "m" and "l" and variables "theta" and "phi".
   //NB: in the calculator, pi = 3.14, theta = 180.
-  cmplx_const sph_arm( i_const m, i_const l, d_const theta, d_const phi )
+  cmplx_const sph_arm( const int m, const int l, const double theta, const double phi )
    {
     if( abs( m ) > l || l < 0 ) throw runtime_thrower( "Quantum numbers l and m should satisfy the relation: l >= abs(m) >= 0" );
     else
      {
-      d_const sign_1 = pow( -1, ( m + abs( m ) ) / 2 );
-      d_const dividedFactorial = [ l, m ]
+      const double sign_1 = pow( -1, ( m + abs( m ) ) * 0.5 );
+      const double dividedFactorial = [ l, m ]
        {
         double result = 1; 
         const int multmin = l - abs( m ) + 1; 
@@ -87,8 +87,8 @@ namespace SphArmFuncDev
          }; 
         return result;
        }(); 
-      d_const sign_2 = reciprocalPi * sqrt( ( 2*l + 1 ) / dividedFactorial );
-      d_const pol = Leg_func( abs( m ), l, cos( theta ) );
+      const double sign_2 = reciprocalPi * sqrt( ( 2*l + 1 ) / dividedFactorial );
+      const double pol = Leg_func( abs( m ), l, cos( theta ) );
       cmplx_const result ( sign_1 * sign_2 * pol * cos( m*( phi + M_PI ) ), sign_1 * sign_2 * pol * sin( m*( phi + M_PI ) ) );
     
       return result;
@@ -100,7 +100,7 @@ namespace SphArmFuncDev
   //============================================
   
   //Function f(theta,phi) obtained with parsing:
-  d_const parsed_f( s_const expr, double theta, double phi )
+  const double parsed_f( const std::string expr, double theta, double phi )
    {
     symbol_table_t symbol_table;
     symbol_table.add_variable( "th", theta );
@@ -123,12 +123,12 @@ namespace SphArmFuncDev
   //============================================
   
   //This function defines: f(theta,phi) * conjugate( sph_arm(m,l,theta,phi) ) * sin(theta).
-  d_const f_theta_phi_real( s_const expr, i_const m, i_const l, d_const theta, d_const phi )
+  const double f_theta_phi_real( const std::string expr, const int m, const int l, const double theta, const double phi )
    { 
     return parsed_f( expr, theta, phi ) * sin( theta ) * sph_arm( m, l, theta, phi ).real();
    }
   
-  d_const f_theta_phi_imag( s_const expr, i_const m, i_const l, d_const theta, d_const phi )
+  const double f_theta_phi_imag( const std::string expr, const int m, const int l, const double theta, const double phi )
    { 
     return parsed_f( expr, theta, phi ) * sin( theta ) * conj( sph_arm( m, l, theta, phi ) ).imag();
    }
@@ -138,10 +138,10 @@ namespace SphArmFuncDev
   //============================================
   
   //This function returns the final f_m_l coefficients.
-  cmplx_const f_m_l( s_const expr, i_const m, i_const l )
+  cmplx_const f_m_l( const std::string expr, const int m, const int l )
    {  
-    d_const real_part = integral( &f_theta_phi_real, expr, m, l );
-    d_const imag_part = integral( &f_theta_phi_imag, expr, m, l );
+    const double real_part = integral( &f_theta_phi_real, expr, m, l );
+    const double imag_part = integral( &f_theta_phi_imag, expr, m, l );
     coefficient.real( real_part );
     coefficient.imag( imag_part );
   

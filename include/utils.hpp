@@ -14,9 +14,9 @@ namespace SphArmFuncDev
   //============================================
   //     Global variables declaration
   //============================================
-  extern d_const STEP_SIZE;
-  extern d_const x_in, x_fin, h_x;
-  extern d_const y_in, y_fin, y_x;
+  extern const double STEP_SIZE;
+  extern const double x_in, x_fin, h_x;
+  extern const double y_in, y_fin, y_x;
   extern double res;
   extern std::array< std::array<double, 50>, 50> tab;
   extern std::array<double, 50> ax;
@@ -25,22 +25,22 @@ namespace SphArmFuncDev
   //     Functions declaration
   //============================================
   //N-th derivative function:
-  extern d_const n_derivative( two_param_func f, d_const x_0, i_const a, i_const n );
+  extern const double n_derivative( two_param_func f, const double x_0, const int a, const int n );
  
   //Step-size function:
-  extern d_const h( i_const n, d_const x_0 );
+  extern const double h( const int n, const double x_0 );
   
   //Function to round double variables:
-  extern d_const round_var( d_const val );
+  extern const double round_var( const double val );
   
   //Function to calculate the 2-dim integral:
-  extern d_const integral( four_param_func f, s_const expr, i_const m, i_const l );
+  extern const double integral( four_param_func f, const std::string expr, const int m, const int l );
 
   //Function used to initialize values of main program input:
   extern void initializer( std::string& equation, int& m, int& l);
 
   //Function to modify an input and return it:
-  extern c_const abort_this( char letter );
+  extern const char abort_this( char letter );
 
   //============================================
   //     Template functions declaration

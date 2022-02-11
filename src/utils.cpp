@@ -20,17 +20,17 @@ namespace SphArmFuncDev
   //============================================
   
   //Derivative constants:
-  d_const STEP_SIZE = 2 * cbrt( __DBL_EPSILON__ );
+  const double STEP_SIZE = 2 * cbrt( __DBL_EPSILON__ );
   
   //Integral constants (x):
-  d_const x_in = 0;
-  d_const x_fin = M_PI;
-  d_const h_x = 0.07;
+  const double x_in = 0;
+  const double x_fin = M_PI;
+  const double h_x = 0.07;
   
   //Integral constants (y):
-  d_const y_in = 0;
-  d_const y_fin = M_PI*2;
-  d_const h_y = 0.15;
+  const double y_in = 0;
+  const double y_fin = M_PI*2;
+  const double h_y = 0.15;
 
   //Integral variables:
   double res;
@@ -48,7 +48,7 @@ namespace SphArmFuncDev
     return std::runtime_error( osm::feat( osm::col, "red" ) + phrase + osm::reset( "color" ) );
    }
   
-  template std::runtime_error runtime_thrower <s_const> ( s_const phrase );
+  template std::runtime_error runtime_thrower <const std::string> ( const std::string phrase );
   template std::runtime_error runtime_thrower <const char*> ( const char* phrase );
 
   //============================================
@@ -56,7 +56,7 @@ namespace SphArmFuncDev
   //============================================
   
   //Function used to return the derivative step-size.
-  d_const h( i_const n, d_const x_0 )
+  const double h( const int n, const double x_0 )
    {
     if ( n < 4 && n > 0 ) return STEP_SIZE * x_0;
     else return n * 0.09;
@@ -68,7 +68,7 @@ namespace SphArmFuncDev
   
   //Function used to calculate the "n"-th derivative of a function "f" in a point "x_0", which depends on an index "a". 
   //NB: Works well until n = 3/4. 
-  d_const n_derivative( two_param_func f, d_const x_0, i_const a, i_const n )
+  const double n_derivative( two_param_func f, const double x_0, const int a, const int n )
    {
     if( n == 0 ) return f( a, x_0 );
     else if( n < 0 ) throw runtime_thrower( "Derivative cannot be calculated for order less than 0!" );
@@ -76,10 +76,10 @@ namespace SphArmFuncDev
      {
       if ( fabs( x_0 ) >= __DBL_MIN__ && std::isfinite( x_0 ) )
        {
-        d_const x_1 = x_0 - h( n, x_0 );
-        d_const x_2 = x_0 + h( n, x_0 );
-        d_const first_term = n_derivative( f, x_2, a, n - 1 );
-        d_const second_term = n_derivative( f, x_1, a, n - 1);
+        const double x_1 = x_0 - h( n, x_0 );
+        const double x_2 = x_0 + h( n, x_0 );
+        const double first_term = n_derivative( f, x_2, a, n - 1 );
+        const double second_term = n_derivative( f, x_1, a, n - 1);
     
         return ( first_term - second_term ) / ( x_2 - x_1 );
        }
@@ -93,7 +93,7 @@ namespace SphArmFuncDev
   
   //Function used to round the value of a double variable.
   //NB: used for testing only.
-  d_const round_var( d_const val )
+  const double round_var( const double val )
    {
     if( val < 0 ) return ceil( val - 0.5 );
     else return floor( val + 0.5 );
@@ -111,18 +111,18 @@ namespace SphArmFuncDev
     return !( value < low ) && ( value < high );
    } 
   
-  template bool IsInBounds <double> ( d_const value, d_const low, d_const high );
+  template bool IsInBounds <double> ( const double value, const double low, const double high );
   
   //============================================
   //     "integral" function definition
   //============================================
   
   //Function used to integrate a function f(x,y), depending on two indexes m and l, in x = theta and y = phi.
-  d_const integral( four_param_func f, s_const expr, i_const m, i_const l )
+  const double integral( four_param_func f, const std::string expr, const int m, const int l )
    {  
     //Calculating the number of points in x and y integral:
-    d_const nx = ( x_fin - x_in ) / h_x + 1;
-    d_const ny = ( y_fin - y_in ) / h_y + 1;
+    const double nx = ( x_fin - x_in ) / h_x + 1;
+    const double ny = ( y_fin - y_in ) / h_y + 1;
   
     //Calculating the values of the table:
     for( int i = 0; i < nx; ++i ) 
@@ -182,7 +182,7 @@ namespace SphArmFuncDev
   
   //Function to modify an input and return it.
   //NB: used in main program only.
-  c_const abort_this( char letter )
+  const char abort_this( char letter )
    {
     std::cout << "Compute another coefficient (enter \"y\" or \"n\")?: ";
     std::cin >> letter;
