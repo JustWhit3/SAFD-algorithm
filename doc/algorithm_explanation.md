@@ -17,7 +17,7 @@ They can construct an orthonormal basis for any other function depending on the 
 
 where the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients can be written as:
 
-<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}(2)&space;\hspace{1cm}&space;f_{m,l}=\int^{2\pi}_{0}\int^{\pi}_{0}f(\theta,&space;\phi)&space;\cdot&space;\bar{Y}^{m}_{l}(\theta,\phi)&space;\cdot&space;\sin(\theta)&space;\&space;d\theta&space;d\phi}" title="{\color{DarkGreen}(2) \hspace{1cm} f_{m,l}=\int^{2\pi}_{0}\int^{\pi}_{0}f(\theta, \phi) \cdot \bar{Y}^{m}_{l}(\theta,\phi) \cdot \sin(\theta) \ d\theta d\phi}" />
+<img src="https://latex.codecogs.com/svg.image?{\color{DarkGreen}(2)&space;\hspace{1cm}&space;f_{m,l}=\int^{2\pi}_{0}\int^{\pi}_{0}f(\theta,&space;\phi)&space;\cdot&space;\bar{Y}^{m}_{l}(\theta,\phi)&space;\cdot&space;\sin(\theta)&space;\&space;d\theta&space;d\phi}" title="\color{DarkGreen}(2) \hspace{1cm} f_{m,l}=\int^{2\pi}_{0}\int^{\pi}_{0}f(\theta, \phi) \cdot \bar{Y}^{m}_{l}(\theta,\phi) \cdot \sin(\theta) \ d\theta d\phi" />
 
 and the spherical harmonics <img src="https://render.githubusercontent.com/render/math?math=\color{green}{Y^{m}_{l}(\theta,\phi)}"> are defined as follows:
 
