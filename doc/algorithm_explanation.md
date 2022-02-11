@@ -7,7 +7,9 @@
 
 ## Phisical background
 
-[Spherical harmonics](https://mathworld.wolfram.com/SphericalHarmonic.html) are simultaneously eigenfunctions of both the module of the angular momentum and of its arbitrary component along an axis. They are used to find the [Schrödinger equation](https://users.aber.ac.uk/ruw/teach/327/hatom.php) solution for the hydrogen atom in quantum mechanics, for example. 
+[Spherical harmonics](https://mathworld.wolfram.com/SphericalHarmonic.html) are simultaneously eigenfunctions of both the module of the angular momentum and of its arbitrary component along an axis. They are used to find the [Schrödinger equation](https://users.aber.ac.uk/ruw/teach/327/hatom.php) solution for the hydrogen atom in quantum mechanics, for example.
+
+> **NOTE**: if equations / images are not correctly displayed, this may be probably caused by Latex equation editor website maintenance. Check [here](https://latex.codecogs.com/): if the website is not displayed, server may be temporarily down for updates, so you can come back here in a few hours / days. Sorry.
 
 They are a family of infinite functions, called <img src="https://render.githubusercontent.com/render/math?math=\color{green}{Y^{m}_{l}(\theta,\phi)}">, which depend only on the two angles (defined in the spherical transformation of coordinates) and in which *l* and *m* are are integers which satisfy this relation: <img src="https://render.githubusercontent.com/render/math?math=\color{green}{l \geq 0}"> and <img src="https://render.githubusercontent.com/render/math?math=\color{green}{\left| m \right| \leq l}">.
 
