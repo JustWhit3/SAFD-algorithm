@@ -6,7 +6,7 @@
 using namespace std;
 
 //Extra headers
-#include <osmanip.h>
+#include <osmanip.hpp>
 using namespace osm;
 
 //My headers

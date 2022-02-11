@@ -8,7 +8,7 @@
 #include <limits>
 
 //Extra headers
-#include <osmanip.h>
+#include <osmanip.hpp>
 
 //My headers
 #include "../include/utils.hpp"
