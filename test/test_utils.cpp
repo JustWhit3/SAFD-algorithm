@@ -7,7 +7,7 @@ using namespace std;
 
 //Extra headers
 #include <doctest.h>
-#include <osmanip.h>
+#include <osmanip.hpp>
 using namespace osm;
 
 //My headers
@@ -43,8 +43,8 @@ TEST_CASE( "Testing the h function" ) // 100% working
 //============================================
 //     "n_derivative" function testing
 //============================================
-inline d_const func( int a, double x ) { return sin( x ) - cos( x ); }
-inline d_const gunc( int a, double x ) { return 5*pow( x, 5 ) + pow( x, 4 ); }
+inline double const func( int a, double x ) { return sin( x ) - cos( x ); }
+inline double const gunc( int a, double x ) { return 5*pow( x, 5 ) + pow( x, 4 ); }
 
 TEST_CASE( "Testing the n_derivative function" )
  {
@@ -94,18 +94,18 @@ TEST_CASE( "Testing the IsInBounds function" ) // 100% working
 //============================================
 //     "integral" function testing
 //============================================
-inline d_const huncx( string s, int m, int l, double x, double y ) { return sin( x ) - cos( x ); }
-inline d_const huncx_2( string s, int m, int l, double x, double y ) { return pow( sin( x ), 2 ) - cos( x ); }
-inline d_const huncx_3( string s, int m, int l, double x, double y ) { return pow( sin( x ), 3 ) - cos( x ); }
+inline double const huncx( string s, int m, int l, double x, double y ) { return sin( x ) - cos( x ); }
+inline double const huncx_2( string s, int m, int l, double x, double y ) { return pow( sin( x ), 2 ) - cos( x ); }
+inline double const huncx_3( string s, int m, int l, double x, double y ) { return pow( sin( x ), 3 ) - cos( x ); }
 
-inline d_const huncy( string s, int m, int l, double x, double y ) { return sin( y ) - cos( y ); }
-inline d_const huncy_2( string s, int m, int l, double x, double y ) { return pow( sin( y ), 2 ) - cos( y ); }
-inline d_const huncy_3( string s, int m, int l, double x, double y ) { return pow( sin( y ), 8 ) - pow( cos( y ), 3 ); }
-inline d_const huncy_4( string s, int m, int l, double x, double y ) { return pow( sin( y ), 4 ) + pow( cos( y ), 9 ) - pow( cos( y ), 3 ); }
+inline double const huncy( string s, int m, int l, double x, double y ) { return sin( y ) - cos( y ); }
+inline double const huncy_2( string s, int m, int l, double x, double y ) { return pow( sin( y ), 2 ) - cos( y ); }
+inline double const huncy_3( string s, int m, int l, double x, double y ) { return pow( sin( y ), 8 ) - pow( cos( y ), 3 ); }
+inline double const huncy_4( string s, int m, int l, double x, double y ) { return pow( sin( y ), 4 ) + pow( cos( y ), 9 ) - pow( cos( y ), 3 ); }
 
-inline d_const hunc( string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ); }
-inline d_const hunc_2( string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ) + pow( cos( x ), 2 ); }
-inline d_const hunc_3( string s, int m, int l, double x, double y ) { return pow( cos( x + y ), 3 ) + cos( x ) * pow( sin( x ), 5 ) + 5 + sin( y - x ); }
+inline double const hunc( string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ); }
+inline double const hunc_2( string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ) + pow( cos( x ), 2 ); }
+inline double const hunc_3( string s, int m, int l, double x, double y ) { return pow( cos( x + y ), 3 ) + cos( x ) * pow( sin( x ), 5 ) + 5 + sin( y - x ); }
 
 TEST_CASE( "Testing the integral function" ) // 100% working
  {
