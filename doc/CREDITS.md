@@ -8,6 +8,8 @@
 <table>
   <tr>
     <td align="center"><a href="https://justwhit3.github.io/"><img src="https://avatars.githubusercontent.com/u/48323961?v=4" width="100px;" alt=""/><br /><sub><b>Gianluca Bianco</b></sub></a></td>
+    <td align="center"><a href="https://github.com/AdamTas"><img src="https://avatars.githubusercontent.com/u/17808974?v=4" width="100px;" alt=""/><br /><sub><b>Adam_T</b></sub></a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
