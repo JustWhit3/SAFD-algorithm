@@ -18,19 +18,6 @@ namespace SphArmFuncDev
   //============================================
   //     Global variables definition
   //============================================
-  
-  //Derivative constants:
-  const double STEP_SIZE = 2 * cbrt( __DBL_EPSILON__ );
-  
-  //Integral constants (x):
-  const double x_in = 0;
-  const double x_fin = M_PI;
-  const double h_x = 0.07;
-  
-  //Integral constants (y):
-  const double y_in = 0;
-  const double y_fin = M_PI*2;
-  const double h_y = 0.15;
 
   //Integral variables:
   double res;
@@ -50,6 +37,7 @@ namespace SphArmFuncDev
   
   template std::runtime_error runtime_thrower <const std::string> ( const std::string phrase );
   template std::runtime_error runtime_thrower <const char*> ( const char* phrase );
+
 
   //============================================
   //     "h" function definition

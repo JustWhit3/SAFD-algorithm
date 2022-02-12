@@ -17,7 +17,7 @@ namespace SphArmFuncDev
   //     Global variables declaration
   //============================================
   extern cmplx coefficient;
-  extern const double reciprocalPi;
+  inline constexpr double reciprocalPi = sqrt(1 / (M_PI*4));
 
   //============================================
   //     Functions declaration

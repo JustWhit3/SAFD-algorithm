@@ -20,7 +20,6 @@ namespace SphArmFuncDev
   //============================================
   exprtk::rtl::io::file::package<double> fileio_package;
   cmplx coefficient;
-  const double reciprocalPi = sqrt(1 / (M_PI*4));
   
   //============================================
   //     "Leg_pol" function definition

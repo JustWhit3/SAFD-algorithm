@@ -14,9 +14,17 @@ namespace SphArmFuncDev
   //============================================
   //     Global variables declaration
   //============================================
-  extern const double STEP_SIZE;
-  extern const double x_in, x_fin, h_x;
-  extern const double y_in, y_fin, y_x;
+
+  //Constants:
+  inline constexpr double STEP_SIZE = 2 * cbrt( __DBL_EPSILON__ );
+  inline constexpr double x_in = 0;
+  inline constexpr double x_fin = M_PI;
+  inline constexpr double h_x = 0.07;
+  inline constexpr double y_in = 0;
+  inline constexpr double y_fin = M_PI*2;
+  inline constexpr double h_y = 0.15;
+
+  //Other variables:
   extern double res;
   extern std::array< std::array<double, 50>, 50> tab;
   extern std::array<double, 50> ax;

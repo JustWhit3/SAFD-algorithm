@@ -24,7 +24,7 @@ DEPS := $(OBJ:.o=.d)
 INC_DIR := $(shell find $(SRC_DIR) -type d)
 LDFLAGS := -L/usr/local/lib -losmanip -static
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
-CPPFLAGS := -std=c++14 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
+CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
 
 #====================================================
 #     ALIASES

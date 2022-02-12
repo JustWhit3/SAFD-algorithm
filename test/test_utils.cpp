@@ -18,17 +18,15 @@ using namespace SphArmFuncDev;
 //============================================
 //     Global variables
 //============================================
-#define rda 3.456234                            \
-
-#define test_string "This is a test string"     \
+inline constexpr double rda = 3.456234;
 
 //============================================
 //     "runtim_thrower" function testing
 //============================================
 TEST_CASE( "Testing the runtime_thrower function" ) // 100% working
  {
-  CHECK_THROWS_AS( throw runtime_thrower( test_string ), runtime_error );
-  CHECK_THROWS_MESSAGE( throw runtime_thrower( test_string ), feat( col, "red" ) + test_string + reset( "color" ) );
+  CHECK_THROWS_AS( throw runtime_thrower( "This is a test string" ), runtime_error );
+  CHECK_THROWS_MESSAGE( throw runtime_thrower( "This is a test string" ), feat( col, "red" ) + "This is a test string" + reset( "color" ) );
  }
 
 //============================================
