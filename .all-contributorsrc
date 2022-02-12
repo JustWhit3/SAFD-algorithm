@@ -25,6 +25,16 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "patlefort",
+      "name": "patlefort",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3423714?v=4",
+      "profile": "https://github.com/patlefort",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "projectName": "SAFD-algorithm",
