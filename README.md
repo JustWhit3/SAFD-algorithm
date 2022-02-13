@@ -19,6 +19,10 @@
 - [Repository structure](#repository-structure)
 - [Documentation](#documentation)
 - [How to use](#how-to-use)
+- [Credits](#credits)
+  - [Project leaders](#project-leaders)
+  - [Other contributors](#other-contributors)
+  - [Other contributors with no GitHub account](Other-contributors-with-no-GitHub-account)
 
 ## Introduction
 
