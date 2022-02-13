@@ -1,8 +1,8 @@
 #====================================================
 #     VARIABLES
 #====================================================
-TARGET_EXEC := main.exe
-TEST_EXEC := tests.exe
+TARGET_EXEC := main
+TEST_EXEC := tests
 CC := g++
 BUILD_DIR := bin
 SRC_DIR := src
@@ -25,6 +25,16 @@ INC_DIR := $(shell find $(SRC_DIR) -type d)
 LDFLAGS := -L/usr/local/lib -losmanip -static
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
 CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
+
+#====================================================
+#     OS DETECTION
+#====================================================
+
+# Windows (Cygwin)
+ifeq ($(OS), Windows_NT)
+	TARGET_EXEC += .exe
+	TEST_EXEC += .exe
+endif
 
 #====================================================
 #     ALIASES

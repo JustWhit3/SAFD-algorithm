@@ -55,7 +55,7 @@ This compilation steps should be performed only once.
 To run the code you can simply enter this command in the shell:
 
 ```shell
-./bin/main.exe
+./bin/main
 ```
 
 Extra information about how to move inside the command line once you have ran the code can be found in the [How to run](#how-to-run) section.
@@ -63,7 +63,7 @@ Extra information about how to move inside the command line once you have ran th
 If you want to run the tests you have to type:
 
 ```shell
-./bin/test.exe
+./bin/test
 ```
 
 There is also an extra script to debug the code using [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck), which can be used with some instructions.
