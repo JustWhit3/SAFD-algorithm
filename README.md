@@ -31,6 +31,7 @@ This program computes the <img src="https://render.githubusercontent.com/render/
 When running the program, you have simply to input the generic shape of the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> equation and the values of m and l and the coefficients will be calculated.
 
 Some program features:
+
  - Can calculate <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients for any generic <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> function, entered by the user during the program running.
  - <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f_{m,l}}"> coefficients are expressed as complex numbers.
  - It works well for each negative or positive value of m, with very good accuracy until m < 5. For higher m values, the accuracy gradually decrease.
@@ -65,8 +66,8 @@ SAFD-agorithm/
 │   ├── test_utils.cpp
 │   ├── test_functions.cpp
 ├── doc/
-│   ├── algorithm_explanation.md
-│   ├── download_and_run.md
+│   ├── Algorithm explanation.md
+│   ├── Download and run.md
 │   ├── CONTRIBUTING.md
 ├── img/
 │── README.md
@@ -82,8 +83,8 @@ SAFD-agorithm/
 
 Extra documentation is available in the [doc](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc) folder:
 
-- [Download, compile and run](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/download_and_run.md): contains documentation about how to download, compile and run the program as well as a complete list of prerequisites.
-- [Algorithm explanation and physical background](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/algorithm_explanation.md): contains information about the mathematical and physical explanation related to the coefficients computation and a detailed description of the used algorithm.
+- [Download, compile and run](https://github.com/JustWhit3/SAFD-algorithm/blob/main/doc/Download%20and%20run.md): contains documentation about how to download, compile and run the program as well as a complete list of prerequisites.
+- [Algorithm explanation and physical background](https://github.com/JustWhit3/SAFD-algorithm/blob/main/doc/Algorithm%20explanation.md): contains information about the mathematical and physical explanation related to the coefficients computation and a detailed description of the used algorithm.
 - [Contributing](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/CONTRIBUTING.md): contains information about how to contribute to this project.
 
 ## How to use
