@@ -67,7 +67,6 @@ SAFD-agorithm/
 ├── doc/
 │   ├── algorithm_explanation.md
 │   ├── download_and_run.md
-│   ├── CREDITS.md
 │   ├── CONTRIBUTING.md
 ├── img/
 │── README.md
@@ -85,7 +84,6 @@ Extra documentation is available in the [doc](https://github.com/JustWhit3/SAFD-
 
 - [Download, compile and run](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/download_and_run.md): contains documentation about how to download, compile and run the program as well as a complete list of prerequisites.
 - [Algorithm explanation and physical background](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/algorithm_explanation.md): contains information about the mathematical and physical explanation related to the coefficients computation and a detailed description of the used algorithm.
-- [Credits](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/CREDITS.md): contains a list of all the people who contributed to this project.
 - [Contributing](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/CONTRIBUTING.md): contains information about how to contribute to this project.
 
 ## How to use
@@ -128,3 +126,35 @@ and the final result is displayed with both real and imaginary parts:
 ```Shell
 f(2,3) = 0.0546019 + -0.00160564i
 ```
+
+## Credits
+
+### Project leaders
+
+<table>
+  <tr>
+    <td align="center"><a href="https://justwhit3.github.io/"><img src="https://avatars.githubusercontent.com/u/48323961?v=4" width="100px;" alt=""/><br /><sub><b>Gianluca Bianco</b></sub></a></td>
+  </tr>
+</table>
+
+### Other contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/AdamTas"><img src="https://avatars.githubusercontent.com/u/17808974?v=4" width="100px;" alt=""/><br /><sub><b>Adam_T</b></sub></a></td>
+    <td align="center"><a href="https://github.com/patlefort"><img src="https://avatars.githubusercontent.com/u/3423714?v=4" width="100px;" alt=""/><br /><sub><b>patlefort</b></sub></a></td>
+    <td align="center"><a href="https://github.com/myermo"><img src="https://avatars.githubusercontent.com/u/93035284?v=4" width="100px;" alt=""/><br /><sub><b>myermo</b></sub></a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+### Other contributors with no GitHub account
+
+- [adnukator](https://www.reddit.com/user/adnukator).
