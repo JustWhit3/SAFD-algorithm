@@ -35,6 +35,15 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "myermo",
+      "name": "myermo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/93035284?v=4",
+      "profile": "https://github.com/myermo",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "projectName": "SAFD-algorithm",
