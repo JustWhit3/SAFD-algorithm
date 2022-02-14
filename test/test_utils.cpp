@@ -25,9 +25,8 @@ inline constexpr double rda = 3.456234;
 //============================================
 TEST_CASE( "Testing the runtime_thrower function" ) // 100% working
  {
-  const char* test_string = "This is a test string";
-  CHECK_THROWS_AS( throw runtime_thrower( test_string ), runtime_error );
-  CHECK_THROWS_MESSAGE( throw runtime_thrower( test_string ), feat( col, "red" ) + test_string + reset( "color" ) );
+  CHECK_THROWS_AS( throw runtime_thrower( "Test string" ), runtime_error );
+  CHECK_THROWS_MESSAGE( throw runtime_thrower( "Test string" ), "\033[31mTest string\033[39m" );
  }
 
 //============================================
