@@ -46,6 +46,8 @@ The software is and will stay **free**, but if you want to support me with a don
 
 <a href="https://www.buymeacoffee.com/JustWhit33" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
+If you want to use this software please cite it following [this](https://github.com/JustWhit3/SAFD-algorithm/tree/main/CITATION.cff) citation template file.
+
 ## Repository structure
 
 Here the diagram structure of the repository:
