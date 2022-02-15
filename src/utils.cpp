@@ -106,14 +106,15 @@ namespace SphArmFuncDev
   const double integral( four_param_func f, const std::string expr, const int m, const int l )
    {  
 
-    //Integral variables:
-    double res;
-    std::array< std::array<double, 50>, 50> tab; //Stores the table.
-    std::array<double, 50> ax;  //Stores the integral wrt y
     
     //Calculating the number of points in x and y integral:
     const double nx = ( x_fin - x_in ) / h_x + 1;
     const double ny = ( y_fin - y_in ) / h_y + 1;
+
+    //Integral variables:
+    double res;
+    std::vector<std::vector<double>> tab(std::ceil(nx), std::vector<double>(std::ceil(ny), 0.0)); //Stores the table.
+    std::vector<double> ax(std::ceil(nx), 0.0);  //Stores the integral wrt y
   
     //Calculating the values of the table:
     for( int i = 0; i < nx; ++i ) 
