@@ -19,10 +19,7 @@ namespace SphArmFuncDev
   //     Global variables definition
   //============================================
 
-  //Integral variables:
-  double res;
-  std::array< std::array<double, 50>, 50> tab; //Stores the table.
-  std::array<double, 50> ax;  //Stores the integral wrt y
+
 
   //============================================
   //     "runtime_thrower" function definition
@@ -108,6 +105,12 @@ namespace SphArmFuncDev
   //Function used to integrate a function f(x,y), depending on two indexes m and l, in x = theta and y = phi.
   const double integral( four_param_func f, const std::string expr, const int m, const int l )
    {  
+
+    //Integral variables:
+    double res;
+    std::array< std::array<double, 50>, 50> tab; //Stores the table.
+    std::array<double, 50> ax;  //Stores the integral wrt y
+    
     //Calculating the number of points in x and y integral:
     const double nx = ( x_fin - x_in ) / h_x + 1;
     const double ny = ( y_fin - y_in ) / h_y + 1;
