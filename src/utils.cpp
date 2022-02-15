@@ -113,7 +113,7 @@ namespace SphArmFuncDev
     const double ny = ( y_fin - y_in ) / h_y + 1;
 
     //Integral variables:
-    double res;
+    double res{};
     std::vector<std::vector<double>> tab(std::ceil(nx), std::vector<double>(std::ceil(ny), 0.0)); //Stores the table.
     std::vector<double> ax(std::ceil(nx), 0.0);  //Stores the integral wrt y
   
@@ -139,7 +139,6 @@ namespace SphArmFuncDev
        }
       ax[i] *= ( h_y / 3 );
      }
-    res = 0;
   
     //Calculating the final integral value using the integral obtained in the above step:
     for ( int i = 0; i < nx; ++i ) 
