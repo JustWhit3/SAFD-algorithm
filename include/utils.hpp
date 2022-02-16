@@ -23,11 +23,6 @@ namespace SphArmFuncDev
   inline constexpr double y_in = 0;
   inline constexpr double y_fin = M_PI*2;
   inline constexpr double h_y = 0.15;
-
-  //Other variables:
-  extern double res;
-  extern std::array< std::array<double, 50>, 50> tab;
-  extern std::array<double, 50> ax;
   
   //============================================
   //     Functions declaration
