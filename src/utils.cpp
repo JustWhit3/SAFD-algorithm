@@ -108,7 +108,6 @@ namespace SphArmFuncDev
 
     
     //Calculating the number of points in x and y integral:
-    // Note: Why are nx and ny of type double?
     const double nx = ( x_fin - x_in ) / h_x + 1;
     const double ny = ( y_fin - y_in ) / h_y + 1;
 
@@ -132,7 +131,6 @@ namespace SphArmFuncDev
       ax[i] = 0;
       for ( int j = 0; j < ny; ++j ) 
        {
-         // Note: j == ny - 1 never evaluates to true, since an integer and a double are being compared
         if ( j == 0 || j == ny - 1 ) ax[i] += tab[i][j];
         else if ( j % 2 == 0 ) ax[i] += 2 * tab[i][j];
         else ax[i] += 4 * tab[i][j];
@@ -143,7 +141,6 @@ namespace SphArmFuncDev
     //Calculating the final integral value using the integral obtained in the above step:
     for ( int i = 0; i < nx; ++i ) 
      {
-       // Note: i == nx - 1 never evaluates to true, since an integer and a double are being compared
       if ( i == 0 || i == nx - 1 ) res += ax[i];
       else if ( i % 2 == 0 ) res += 2 * ax[i];
       else res += 4 * ax[i];
