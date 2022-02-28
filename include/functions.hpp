@@ -4,15 +4,21 @@
 //STD headers
 #include <complex>
 #include <string>
+#include <cmath>
 
 //Extra headers
 #include <exprtk.hpp>
 
-//My headers
-#include "aliases.hpp"
-
 namespace SphArmFuncDev
  {
+  //============================================
+  //     Type aliases definition
+  //============================================
+  using cmplx = std::complex<double>;
+  using cmplx_const = const std::complex<double>;
+  using two_param_func = std::function<const double( int, double )>;
+  using four_param_func = std::function<const double( std::string, int, int, double, double )>;
+
   //============================================
   //     Global variables declaration
   //============================================
@@ -29,7 +35,7 @@ namespace SphArmFuncDev
   //Legendre associated function function:
   extern const double Leg_func( const int b, const int a, const double x );
   
-  //Spherical armonics function:
+  //Spherical harmonics function:
   extern cmplx_const sph_arm( const int m, const int l, const double theta, const double phi );
   
   //Parsed function:

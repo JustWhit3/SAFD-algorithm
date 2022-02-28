@@ -6,11 +6,14 @@
 #include <functional>
 #include <stdexcept>
 
-//My headers
-#include "aliases.hpp"
-
 namespace SphArmFuncDev
  {
+  //============================================
+  //     Type aliases definition
+  //============================================
+  using two_param_func = std::function<const double( int, double )>;
+  using four_param_func = std::function<const double( std::string, int, int, double, double )>;
+
   //============================================
   //     Global variables declaration
   //============================================

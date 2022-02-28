@@ -8,19 +8,13 @@
 #include <limits>
 
 //Extra headers
-#include <osmanip.hpp>
+#include <osmanip/manipulators/csmanip.hpp>
 
 //My headers
 #include "../include/utils.hpp"
 
 namespace SphArmFuncDev
  {
-  //============================================
-  //     Global variables definition
-  //============================================
-
-
-
   //============================================
   //     "runtime_thrower" function definition
   //============================================
@@ -53,7 +47,7 @@ namespace SphArmFuncDev
   
   //Function used to calculate the "n"-th derivative of a function "f" in a point "x_0", which depends on an index "a". 
   //NB: Works well until n = 3/4. 
-  const double n_derivative( two_param_func f, const double x_0, const int a, const int n )
+  const double n_derivative( std::function<const double( int, double )> f, const double x_0, const int a, const int n )
    {
     if( n == 0 ) return f( a, x_0 );
     else if( n < 0 ) throw runtime_thrower( "Derivative cannot be calculated for order less than 0!" );
@@ -103,7 +97,7 @@ namespace SphArmFuncDev
   //============================================
   
   //Function used to integrate a function f(x,y), depending on two indexes m and l, in x = theta and y = phi.
-  const double integral( four_param_func f, const std::string expr, const int m, const int l )
+  const double integral( std::function<const double( std::string, int, int, double, double )> f, const std::string expr, const int m, const int l )
    {  
 
     

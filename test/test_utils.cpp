@@ -7,7 +7,7 @@ using namespace std;
 
 //Extra headers
 #include <doctest.h>
-#include <osmanip.hpp>
+#include <osmanip/manipulators/csmanip.hpp>
 using namespace osm;
 
 //My headers

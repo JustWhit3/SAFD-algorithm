@@ -7,7 +7,7 @@
 
 //Extra headers
 #include <exprtk.hpp>
-#include <osmanip.hpp>
+#include <osmanip/manipulators/csmanip.hpp>
 
 //My headers
 #include "../include/utils.hpp"
@@ -15,6 +15,13 @@
 
 namespace SphArmFuncDev
  {
+  //============================================
+  //     Type aliases definition
+  //============================================
+  typedef exprtk::symbol_table<double> symbol_table_t;
+  typedef exprtk::expression<double>     expression_t;
+  typedef exprtk::parser<double>             parser_t;
+  
   //============================================
   //     Global variables definition
   //============================================

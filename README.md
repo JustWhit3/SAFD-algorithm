@@ -55,7 +55,6 @@ Here the diagram structure of the repository:
 ```txt
 SAFD-agorithm/
 ├── include/
-│   ├── aliases.hpp
 │   ├── utils.hpp
 │   ├── functions.hpp
 ├── src/
