@@ -33,6 +33,7 @@ To correctly compile and run the program you need some prerequisite installed in
 
 - [`doctest`](https://github.com/doctest/doctest) library, to run tests.
 - [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) programs to run the debugging script.
+- [Clang formatter](https://stackoverflow.com/questions/20756924/how-can-i-install-clang-format-in-ubuntu#:~:text=16.04%2C%20simply%20do%3A-,sudo%20apt%20install%20clang%2Dformat,-Share) to format the code for pull requests.
 
 ## Compilation
 

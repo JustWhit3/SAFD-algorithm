@@ -19,8 +19,13 @@ To add your contribution, please follow these guidelines:
 1) Fork your own copy of the repository.
 2) Work on your changes / improvements in the forked repo.
 3) **Test** if your changes / improvements are correctly implemented and all the other features are not compromised. For this latter requirement, please run the main and tests executables and check if you find something different from before.
-4) Optional, but really appreciated: update the [documentation](https://github.com/JustWhit3/SAFD-algorithm/blob/main/doc) or the main [README](https://github.com/JustWhit3/SAFD-algorithm/blob/main/README.md) with the new features you added.
-5) Finally, make the pull request.
+4) Before submitting the code, reformat it using the [`.clang-format`](https://github.com/JustWhit3/arsenalgear/blob/main/cpp/.clang-format.md) file. Simply do:
+
+```bash
+.clang-format -i /path/to/file
+```
+5) Optional, but really appreciated: update the [documentation](https://github.com/JustWhit3/SAFD-algorithm/blob/main/doc) or the main [README](https://github.com/JustWhit3/SAFD-algorithm/blob/main/README.md) with the new features you added.
+6) Finally, make the pull request.
 
 Once your pull request will be submitted, I will carefully review it and, if it will be considered as an improvement, I will confirm it.
 
