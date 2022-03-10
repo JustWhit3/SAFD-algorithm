@@ -12,8 +12,8 @@ namespace safd
   //============================================
   //     Type aliases definition
   //============================================
-  using two_param_func = std::function<const double( int, double )>;
-  using four_param_func = std::function<const double( std::string, int, int, double, double )>;
+  using two_param_func = std::function<double( const int&, const double& )>;
+  using four_param_func = std::function<double( const std::string&, const int&, const int&, const double&, const double& )>;
 
   //============================================
   //     Global variables declaration
@@ -32,19 +32,19 @@ namespace safd
   //     Functions declaration
   //============================================
   //N-th derivative function:
-  extern const double n_derivative( two_param_func f, const double x_0, const int a, const int n );
+  extern double n_derivative( const two_param_func& f, const double& x_0, const int& a, const int& n );
  
   //Step-size function:
-  extern const double h( const int n, const double x_0 );
+  extern double h( const int& n, const double& x_0 );
   
   //Function to calculate the 2-dim integral:
-  extern const double integral( four_param_func f, const std::string expr, const int m, const int l );
+  extern double integral( const four_param_func& f, const std::string& expr, const int& m, const int& l );
 
   //Function used to initialize values of main program input:
   extern void initializer( std::string& equation, int& m, int& l);
 
   //Function to modify an input and return it:
-  extern const char abort_this( char letter );
+  extern char abort_this( char letter );
  }
   
 #endif

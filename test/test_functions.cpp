@@ -75,7 +75,7 @@ TEST_CASE( "Testing the sph_arm function" ) // 100% working
  {
   SUBCASE( "Testing for m == 0 and l == 0" )
    {
-    safd::cmplx c( 0.28, 0 );
+    std::complex<double> c( 0.28, 0 );
     CHECK_EQ( round( safd::sph_arm( 0, 0, M_PI, M_PI ).real() * 100.0 ) / 100.0, c.real() );
     CHECK_EQ( round( safd::sph_arm( 0, 0, M_PI, M_PI ).imag() * 100.0 ) / 100.0, c.imag() );
     CHECK_EQ( round( safd::sph_arm( 0, 0, 2*M_PI, M_PI ).real() * 100.0 ) / 100.0, c.real() );
@@ -83,56 +83,56 @@ TEST_CASE( "Testing the sph_arm function" ) // 100% working
    }
   SUBCASE( "Testing for m == 0, l == 1 and Theta = 180" )
    {
-    safd::cmplx d( -0.49, 0 );
+    std::complex<double> d( -0.49, 0 );
     CHECK_EQ( round( safd::sph_arm( 0, 1, M_PI, M_PI ).real() * 100.0 ) / 100.0, d.real() );
     CHECK_EQ( round( safd::sph_arm( 0, 1, M_PI, M_PI ).imag() * 100.0 ) / 100.0, d.imag() );
    }
   SUBCASE( "Testing for m == 0, l == 2 and Theta = 180" )
    {
-    safd::cmplx e( 0.63, 0 );
+    std::complex<double> e( 0.63, 0 );
     CHECK_EQ( round( safd::sph_arm( 0, 2, M_PI, M_PI ).real() * 100.0 ) / 100.0, e.real() );
     CHECK_EQ( round( safd::sph_arm( 0, 2, M_PI, M_PI ).imag() * 100.0 ) / 100.0, e.imag() );
    }
   SUBCASE( "Testing for m == 0, l == 2 and Theta = 30" )
    {
-    safd::cmplx e_2( 0.39, 0 );
+    std::complex<double> e_2( 0.39, 0 );
     CHECK_EQ( round( safd::sph_arm( 0, 2, M_PI/6, M_PI ).real() * 100.0 ) / 100.0, e_2.real() );
     CHECK_EQ( round( safd::sph_arm( 0, 2, M_PI/6, M_PI ).imag() * 100.0 ) / 100.0, e_2.imag() );
    }
   SUBCASE( "Testing for m == 1, l == 1, Theta = 30 and Phi = 60" )
    {
-    safd::cmplx f( -0.09, -0.15 );
+    std::complex<double> f( -0.09, -0.15 );
     CHECK_EQ( round( safd::sph_arm( 1, 1, M_PI/6, M_PI/3 ).real() * 100.0 ) / 100.0, f.real() );
     CHECK_EQ( round( safd::sph_arm( 1, 1, M_PI/6, M_PI/3 ).imag() * 100.0 ) / 100.0, f.imag() );
    }
   SUBCASE( "Testing for m == -1, l == 1, Theta = 30 and Phi = 60" )
    {
-    safd::cmplx f_n( 0.09, -0.15 );
+    std::complex<double> f_n( 0.09, -0.15 );
     CHECK_EQ( round( safd::sph_arm( -1, 1, M_PI/6, M_PI/3 ).real() * 100.0 ) / 100.0, f_n.real() );
     CHECK_EQ( round( safd::sph_arm( -1, 1, M_PI/6, M_PI/3 ).imag() * 100.0 ) / 100.0, f_n.imag() );
    }
   SUBCASE( "Testing for m == 2, l == 2, Theta = 30 and Phi = 60" )
    {
-    safd::cmplx g( -0.05, 0.08 );
+    std::complex<double> g( -0.05, 0.08 );
     CHECK_EQ( round( safd::sph_arm( 2, 2, M_PI/6, M_PI/3 ).real() * 100.0 ) / 100.0, g.real() );
     CHECK_EQ( round( safd::sph_arm( 2, 2, M_PI/6, M_PI/3 ).imag() * 100.0 ) / 100.0, g.imag() );
    }
   SUBCASE( "Testing for m == 3, l == 4, Theta = 30 and Phi = 60" )
    {
-    safd::cmplx h( 0.14, 0 );
+    std::complex<double> h( 0.14, 0 );
     CHECK_EQ( round( safd::sph_arm( 3, 4, M_PI/6, M_PI/3 ).real() * 100.0 ) / 100.0, h.real() );
     CHECK_EQ( round( safd::sph_arm( 3, 4, M_PI/6, M_PI/3 ).imag() * 100.0 ) / 100.0, h.imag() );
    }
 
   SUBCASE( "Testing for m == 5, l == 5, Theta = 30 and Phi = 60" )
    {
-    safd::cmplx i( -0.01, 0.01 );
+    std::complex<double> i( -0.01, 0.01 );
     CHECK_EQ( round( safd::sph_arm( 5, 5, M_PI/6, M_PI/3 ).real() * 100.0 ) / 100.0, i.real() );
     CHECK_EQ( round( safd::sph_arm( 5, 5, M_PI/6, M_PI/3 ).imag() * 100.0 ) / 100.0, i.imag() );
    }
   SUBCASE( "Testing for m == 4, l == 5, Theta = 30 and Phi = 60" )
    {
-    safd::cmplx j( -0.04, -0.07 );
+    std::complex<double> j( -0.04, -0.07 );
     CHECK_EQ( round( safd::sph_arm( 4, 5, M_PI/6, M_PI/3 ).real() * 100.0 ) / 100.0, j.real() );
     CHECK_EQ( round( safd::sph_arm( 4, 5, M_PI/6, M_PI/3 ).imag() * 100.0 ) / 100.0, j.imag() );
    }

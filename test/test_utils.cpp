@@ -30,8 +30,8 @@ TEST_CASE( "Testing the h function" ) // 100% working
 //============================================
 //     "n_derivative" function testing
 //============================================
-inline double const func( int a, double x ) { return sin( x ) - cos( x ); }
-inline double const gunc( int a, double x ) { return 5*pow( x, 5 ) + pow( x, 4 ); }
+inline double func( const int& a, const double& x ) { return sin( x ) - cos( x ); }
+inline double gunc( const int& a, const double& x ) { return 5*pow( x, 5 ) + pow( x, 4 ); }
 
 TEST_CASE( "Testing the n_derivative function" )
  {
@@ -65,18 +65,18 @@ TEST_CASE( "Testing the n_derivative function" )
 //============================================
 //     "integral" function testing
 //============================================
-inline double huncx( std::string s, int m, int l, double x, double y ) { return sin( x ) - cos( x ); }
-inline double huncx_2( std::string s, int m, int l, double x, double y ) { return pow( sin( x ), 2 ) - cos( x ); }
-inline double huncx_3( std::string s, int m, int l, double x, double y ) { return pow( sin( x ), 3 ) - cos( x ); }
+inline double huncx( const std::string& s, const int& m, const int& l, const double& x, const double& y ) { return sin( x ) - cos( x ); }
+inline double huncx_2( const std::string& s, const int& m, const int& l, const double& x, const double& y ) { return pow( sin( x ), 2 ) - cos( x ); }
+inline double huncx_3( const std::string& s, const int& m, const int& l, const double& x, const double& y ) { return pow( sin( x ), 3 ) - cos( x ); }
 
-inline double huncy( std::string s, int m, int l, double x, double y ) { return sin( y ) - cos( y ); }
-inline double huncy_2( std::string s, int m, int l, double x, double y ) { return pow( sin( y ), 2 ) - cos( y ); }
-inline double huncy_3( std::string s, int m, int l, double x, double y ) { return pow( sin( y ), 8 ) - pow( cos( y ), 3 ); }
-inline double huncy_4( std::string s, int m, int l, double x, double y ) { return pow( sin( y ), 4 ) + pow( cos( y ), 9 ) - pow( cos( y ), 3 ); }
+inline double huncy( const std::string& s, const int& m, const int& l, const double& x, const double& y ) { return sin( y ) - cos( y ); }
+inline double huncy_2( const std::string& s, const int& m, const int& l, const double& x, const double& y ) { return pow( sin( y ), 2 ) - cos( y ); }
+inline double huncy_3( const std::string& s, const int& m, const int& l, const double& x, const double& y ) { return pow( sin( y ), 8 ) - pow( cos( y ), 3 ); }
+inline double huncy_4( const std::string& s, const int& m, const int& l, const double& x, const double& y ) { return pow( sin( y ), 4 ) + pow( cos( y ), 9 ) - pow( cos( y ), 3 ); }
 
-inline double hunc( std::string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ); }
-inline double hunc_2( std::string s, int m, int l, double x, double y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ) + pow( cos( x ), 2 ); }
-inline double hunc_3( std::string s, int m, int l, double x, double y ) { return pow( cos( x + y ), 3 ) + cos( x ) * pow( sin( x ), 5 ) + 5 + sin( y - x ); }
+inline double hunc( const std::string& s, const int& m, const int& l, const double& x, const double& y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ); }
+inline double hunc_2( const std::string& s, const int& m, const int& l, const double& x, const double& y ) { return pow( cos( x ), 5 ) + pow( sin( y ), 4 ) + pow( cos( x ), 2 ); }
+inline double hunc_3( const std::string& s, const int& m, const int& l, const double& x, const double& y ) { return pow( cos( x + y ), 3 ) + cos( x ) * pow( sin( x ), 5 ) + 5 + sin( y - x ); }
 
 TEST_CASE( "Testing the integral function" ) // 100% working
  {

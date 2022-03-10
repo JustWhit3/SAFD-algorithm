@@ -17,7 +17,7 @@ namespace safd
   //============================================
   
   //Function used to return the derivative step-size.
-  const double h( const int n, const double x_0 )
+  double h( const int& n, const double& x_0 )
    {
     if ( n < 4 && n > 0 ) return STEP_SIZE * x_0;
     else return n * 0.09;
@@ -29,7 +29,7 @@ namespace safd
   
   //Function used to calculate the "n"-th derivative of a function "f" in a point "x_0", which depends on an index "a". 
   //NB: Works well until n = 3/4. 
-  const double n_derivative( std::function<const double( int, double )> f, const double x_0, const int a, const int n )
+  double n_derivative( const two_param_func& f, const double& x_0, const int& a, const int& n )
    {
     if( n == 0 ) return f( a, x_0 );
     else if( n < 0 )
@@ -59,7 +59,7 @@ namespace safd
   //============================================
   
   //Function used to integrate a function f(x,y), depending on two indexes m and l, in x = theta and y = phi.
-  const double integral( std::function<const double( std::string, int, int, double, double )> f, const std::string expr, const int m, const int l )
+  double integral( const four_param_func& f, const std::string& expr, const int& m, const int& l )
    {
     //Calculating the number of points in x and y integral:
     const double nx = ( x_fin - x_in ) / h_x + 1;
@@ -67,8 +67,8 @@ namespace safd
 
     //Integral variables:
     double res{};
-    std::vector<std::vector<double>> tab(std::ceil(nx), std::vector<double>(std::ceil(ny), 0.0)); //Stores the table.
-    std::vector<double> ax(std::ceil(nx), 0.0);  //Stores the integral wrt y
+    std::vector<std::vector<double>> tab( std::ceil( nx ), std::vector<double>( std::ceil( ny ), 0.0 ) ); //Stores the table.
+    std::vector<double> ax( std::ceil( nx ), 0.0 );  //Stores the integral wrt y
   
     //Calculating the values of the table:
     for( int i = 0; i < nx; ++i ) 
@@ -127,7 +127,7 @@ namespace safd
   
   //Function to modify an input and return it.
   //NB: used in main program only.
-  const char abort_this( char letter )
+  char abort_this( char letter )
    {
     std::cout << "Compute another coefficient (enter \"y\" or \"n\")?: ";
     std::cin >> letter;
