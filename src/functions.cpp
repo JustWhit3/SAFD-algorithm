@@ -1,3 +1,11 @@
+//My headers
+#include "../include/utils.hpp"
+#include "../include/functions.hpp"
+
+//Extra headers
+#include <osmanip/manipulators/csmanip.hpp>
+#include <exprtk.hpp>
+
 //STD headers
 #include <iostream>
 #include <cmath>
@@ -5,15 +13,7 @@
 #include <complex>
 #include <string>
 
-//Extra headers
-#include <exprtk.hpp>
-#include <osmanip/manipulators/csmanip.hpp>
-
-//My headers
-#include "../include/utils.hpp"
-#include "../include/functions.hpp"
-
-namespace SphArmFuncDev
+namespace safd
  {
   //============================================
   //     Type aliases definition
@@ -21,7 +21,7 @@ namespace SphArmFuncDev
   typedef exprtk::symbol_table<double> symbol_table_t;
   typedef exprtk::expression<double>     expression_t;
   typedef exprtk::parser<double>             parser_t;
-  
+
   //============================================
   //     Global variables definition
   //============================================
@@ -37,7 +37,10 @@ namespace SphArmFuncDev
    {
     if( a == 0 ) return 1.0;
     else if( a == 1 ) return x;
-    else if( a < 0 ) throw runtime_thrower( "Legendre polynomials index should be greater or equal than 0!" );
+    else if( a < 0 )
+     {
+      throw std::runtime_error( "\033[31mLegendre polynomials index should be greater or equal than 0!\033[0m" );
+     }
     else 
      {
       const double first_term = ( 2.0 * static_cast<double>( a ) - 1.0) * x * Leg_pol( a-1, x );
@@ -56,10 +59,10 @@ namespace SphArmFuncDev
   //NB: works well until m = l and | m - l | = 1.
   const double Leg_func( const int b, const int a, const double x )
    {
-    if( x < -1 || x > 1 ) throw runtime_thrower( "Legendre associated functions variable should lie in interval [-1,1]!" );
+    if( x < -1 || x > 1 ) throw std::runtime_error( "\033[31mLegendre associated functions variable should lie in interval [-1,1]!\033[0m" );
     else
      {
-      if( a < abs( b ) ) throw runtime_thrower( "Legendre associated function indexes a and b should satisfy the relation: a >= b >= 0" );
+      if( a < abs( b ) ) throw std::runtime_error( "\033[31mLegendre associated function indexes a and b should satisfy the relation: a >= b >= 0\033[0m" );
       else
        {
         const double first_term = pow( ( 1 - (x * x) ), static_cast<double>( b ) * 0.5 );
@@ -78,7 +81,7 @@ namespace SphArmFuncDev
   //NB: in the calculator, pi = 3.14, theta = 180.
   cmplx_const sph_arm( const int m, const int l, const double theta, const double phi )
    {
-    if( abs( m ) > l || l < 0 ) throw runtime_thrower( "Quantum numbers l and m should satisfy the relation: l >= abs(m) >= 0" );
+    if( abs( m ) > l || l < 0 ) throw std::runtime_error( "\033[31mQuantum numbers l and m should satisfy the relation: l >= abs(m) >= 0\033[0m" );
     else
      {
       const double sign_1 = pow( -1, ( m + abs( m ) ) * 0.5 );
@@ -100,7 +103,7 @@ namespace SphArmFuncDev
       return result;
      }
    }
-  
+
   //============================================
   //     "parsed_f" function definition
   //============================================
@@ -118,7 +121,7 @@ namespace SphArmFuncDev
     parser_t parser;
     if ( !parser.compile( expr, foo ) )
      {
-      throw runtime_thrower( "Error in the inserted expression!" );
+      throw std::runtime_error( "\033[31mError in the inserted expression!\033[0m" );
      }
     
     return foo.value();

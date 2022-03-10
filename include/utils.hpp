@@ -5,8 +5,9 @@
 #include <string>
 #include <functional>
 #include <stdexcept>
+#include <cmath>
 
-namespace SphArmFuncDev
+namespace safd
  {
   //============================================
   //     Type aliases definition
@@ -36,9 +37,6 @@ namespace SphArmFuncDev
   //Step-size function:
   extern const double h( const int n, const double x_0 );
   
-  //Function to round double variables:
-  extern const double round_var( const double val );
-  
   //Function to calculate the 2-dim integral:
   extern const double integral( four_param_func f, const std::string expr, const int m, const int l );
 
@@ -47,18 +45,6 @@ namespace SphArmFuncDev
 
   //Function to modify an input and return it:
   extern const char abort_this( char letter );
-
-  //============================================
-  //     Template functions declaration
-  //============================================
-  
-  //Function to check if a variable is in a bound:
-  template <typename T>
-  extern bool IsInBounds( const T value, const T low, const T high );
-
-  //Function used to return customized runtime error.
-  template <typename T>
-  std::runtime_error runtime_thrower( T phrase );
  }
   
 #endif

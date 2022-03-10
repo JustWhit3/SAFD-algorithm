@@ -4,6 +4,8 @@
 
 - [Download](#download)
 - [Prerequisites](#prerequisites)
+  - [Mandatory](#mandatory)
+  - [Optional](#optional)
 - [Compilation](#compilation)
 - [Run the program](#run-the-program)
 
@@ -17,13 +19,20 @@ Alternatively you can download the latest version of the repository from the ``R
 
 ## Prerequisites
 
-To correclty compile and run the program you need some prerequisite installed in your device:
+To correctly compile and run the program you need some prerequisite installed in your device:
+
+### Mandatory
 
 - A `g++` compiler.
+- C++17 standard.
 - The [`exprtk`](https://github.com/ArashPartow/exprtk) library, to correctly parse the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> function.
 - My [`osmanip`](https://github.com/JustWhit3/osmanip) library, for the output-stream color of the program.
-- Optional: the [`doctest`](https://github.com/doctest/doctest) library, to run tests.
-- Optional: [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) programs to run the debugging script.
+- My [`arsenalgear`](https://github.com/JustWhit3/arsenalgear) library, for some utils.
+
+### Optional
+
+- [`doctest`](https://github.com/doctest/doctest) library, to run tests.
+- [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) programs to run the debugging script.
 
 ## Compilation
 

@@ -1,3 +1,6 @@
+//My headers
+#include "../include/utils.hpp"
+
 //STD headers
 #include <iostream>
 #include <cmath>
@@ -7,29 +10,8 @@
 #include <functional>
 #include <limits>
 
-//Extra headers
-#include <osmanip/manipulators/csmanip.hpp>
-
-//My headers
-#include "../include/utils.hpp"
-
-namespace SphArmFuncDev
+namespace safd
  {
-  //============================================
-  //     "runtime_thrower" function definition
-  //============================================
-  
-  //Function used to return customized runtime error.
-  template <typename T>
-  std::runtime_error runtime_thrower( T phrase )
-   { 
-    return std::runtime_error( osm::feat( osm::col, "red" ) + phrase + osm::reset( "color" ) );
-   }
-  
-  template std::runtime_error runtime_thrower <const std::string> ( const std::string phrase );
-  template std::runtime_error runtime_thrower <const char*> ( const char* phrase );
-
-
   //============================================
   //     "h" function definition
   //============================================
@@ -50,7 +32,10 @@ namespace SphArmFuncDev
   const double n_derivative( std::function<const double( int, double )> f, const double x_0, const int a, const int n )
    {
     if( n == 0 ) return f( a, x_0 );
-    else if( n < 0 ) throw runtime_thrower( "Derivative cannot be calculated for order less than 0!" );
+    else if( n < 0 )
+     {
+      throw std::runtime_error( "\033[31mDerivative cannot be calculated for order less than 0!\033[0m" );
+     }
     else 
      {
       if ( fabs( x_0 ) >= __DBL_MIN__ && std::isfinite( x_0 ) )
@@ -62,35 +47,12 @@ namespace SphArmFuncDev
     
         return ( first_term - second_term ) / ( x_2 - x_1 );
        }
-      else throw runtime_thrower( "Derivative cannot be calculated in this x_0 value (too much small or big)!" );
+      else 
+       {
+        throw std::runtime_error( "\033[31mDerivative cannot be calculated in this x_0 value (too much small or big)!\033[0m" );
+       }
      }
    }
-  
-  //============================================
-  //     "round" function definition
-  //============================================
-  
-  //Function used to round the value of a double variable.
-  //NB: used for testing only.
-  const double round_var( const double val )
-   {
-    if( val < 0 ) return ceil( val - 0.5 );
-    else return floor( val + 0.5 );
-   }
-  
-  //============================================
-  //     "IsInBounds" function definition
-  //============================================
-  
-  //Function to check if a "value" is in bound [low, high].
-  //NB: used for testing only.
-  template <typename T>
-  bool IsInBounds( const T value, const T low, const T high )
-   {
-    return !( value < low ) && ( value < high );
-   } 
-  
-  template bool IsInBounds <double> ( const double value, const double low, const double high );
   
   //============================================
   //     "integral" function definition
@@ -98,9 +60,7 @@ namespace SphArmFuncDev
   
   //Function used to integrate a function f(x,y), depending on two indexes m and l, in x = theta and y = phi.
   const double integral( std::function<const double( std::string, int, int, double, double )> f, const std::string expr, const int m, const int l )
-   {  
-
-    
+   {
     //Calculating the number of points in x and y integral:
     const double nx = ( x_fin - x_in ) / h_x + 1;
     const double ny = ( y_fin - y_in ) / h_y + 1;

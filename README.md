@@ -69,7 +69,7 @@ SAFD-agorithm/
 ├── doc/
 │   ├── Algorithm explanation.md
 │   ├── Download and run.md
-│   ├── CONTRIBUTING.md
+│   ├── Contributing.md
 ├── img/
 │── README.md
 │── LICENSE
@@ -86,7 +86,7 @@ Extra documentation is available in the [doc](https://github.com/JustWhit3/SAFD-
 
 - [Download, compile and run](https://github.com/JustWhit3/SAFD-algorithm/blob/main/doc/Download%20and%20run.md): contains documentation about how to download, compile and run the program as well as a complete list of prerequisites.
 - [Algorithm explanation and physical background](https://github.com/JustWhit3/SAFD-algorithm/blob/main/doc/Algorithm%20explanation.md): contains information about the mathematical and physical explanation related to the coefficients computation and a detailed description of the used algorithm.
-- [Contributing](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/CONTRIBUTING.md): contains information about how to contribute to this project.
+- [Contributing](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/Contributing.md): contains information about how to contribute to this project.
 
 ## How to use
 

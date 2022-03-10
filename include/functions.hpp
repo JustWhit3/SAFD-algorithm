@@ -5,11 +5,10 @@
 #include <complex>
 #include <string>
 #include <cmath>
-
-//Extra headers
+#include <functional>
 #include <exprtk.hpp>
 
-namespace SphArmFuncDev
+namespace safd
  {
   //============================================
   //     Type aliases definition
@@ -23,7 +22,7 @@ namespace SphArmFuncDev
   //     Global variables declaration
   //============================================
   extern cmplx coefficient;
-  inline constexpr double reciprocalPi = sqrt(1 / (M_PI*4));
+  inline constexpr double reciprocalPi = sqrt(1 / ( M_PI*4 ) );
 
   //============================================
   //     Functions declaration
@@ -37,7 +36,7 @@ namespace SphArmFuncDev
   
   //Spherical harmonics function:
   extern cmplx_const sph_arm( const int m, const int l, const double theta, const double phi );
-  
+
   //Parsed function:
   extern const double parsed_f( const std::string expr, double theta, double phi );
   

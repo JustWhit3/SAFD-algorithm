@@ -22,9 +22,9 @@ TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 #====================================================
 DEPS := $(OBJ:.o=.d)
 INC_DIR := $(shell find $(SRC_DIR) -type d)
-LDFLAGS := -L/usr/local/lib -losmanip -static
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
 CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP
+LDFLAGS := -L/usr/local/lib -losmanip -larsenalgear -static
 
 #====================================================
 #     OS DETECTION
@@ -47,6 +47,8 @@ endif
 
 #Building all:
 all: $(BUILD_DIR)/$(TARGET_EXEC) $(BUILD_DIR)/$(TEST_EXEC)
+main: $(BUILD_DIR)/$(TARGET_EXEC)
+tests: $(BUILD_DIR)/$(TEST_EXEC)
 
 #Building main executable:
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJ)
