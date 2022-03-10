@@ -40,10 +40,10 @@ namespace safd
      {
       if ( fabs( x_0 ) >= __DBL_MIN__ && std::isfinite( x_0 ) )
        {
-        const double x_1 = x_0 - h( n, x_0 );
-        const double x_2 = x_0 + h( n, x_0 );
-        const double first_term = n_derivative( f, x_2, a, n - 1 );
-        const double second_term = n_derivative( f, x_1, a, n - 1);
+        static const double x_1 = x_0 - h( n, x_0 );
+        static const double x_2 = x_0 + h( n, x_0 );
+        static const double first_term = n_derivative( f, x_2, a, n - 1 );
+        static const double second_term = n_derivative( f, x_1, a, n - 1);
     
         return ( first_term - second_term ) / ( x_2 - x_1 );
        }
@@ -62,13 +62,13 @@ namespace safd
   double integral( const four_param_func& f, const std::string& expr, const int& m, const int& l )
    {
     //Calculating the number of points in x and y integral:
-    const double nx = ( x_fin - x_in ) / h_x + 1;
-    const double ny = ( y_fin - y_in ) / h_y + 1;
+    static const double nx = ( x_fin - x_in ) / h_x + 1;
+    static const double ny = ( y_fin - y_in ) / h_y + 1;
 
     //Integral variables:
-    double res{};
-    std::vector<std::vector<double>> tab( std::ceil( nx ), std::vector<double>( std::ceil( ny ), 0.0 ) ); //Stores the table.
-    std::vector<double> ax( std::ceil( nx ), 0.0 );  //Stores the integral wrt y
+    static double res{};
+    static std::vector<std::vector<double>> tab( std::ceil( nx ), std::vector<double>( std::ceil( ny ), 0.0 ) );
+    static std::vector<double> ax( std::ceil( nx ), 0.0 );
   
     //Calculating the values of the table:
     for( int i = 0; i < nx; ++i ) 

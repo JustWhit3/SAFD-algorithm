@@ -19,7 +19,6 @@ namespace safd
   //============================================
   //     Global variables declaration
   //============================================
-  extern std::complex<double> coefficient;
   inline constexpr double reciprocalPi = sqrt(1 / ( M_PI*4 ) );
 
   //============================================

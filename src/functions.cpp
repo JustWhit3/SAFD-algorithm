@@ -16,11 +16,6 @@
 namespace safd
  {
   //============================================
-  //     Global variables definition
-  //============================================
-  std::complex<double> coefficient;
-  
-  //============================================
   //     "Leg_pol" function definition
   //============================================
   
@@ -35,9 +30,9 @@ namespace safd
      }
     else 
      {
-      const double first_term = ( 2.0 * static_cast<double>( a ) - 1.0) * x * Leg_pol( a-1, x );
-      const double second_term = ( static_cast<double>( a ) - 1.0 ) * Leg_pol( a-2, x );
-      const double diff = ( first_term - second_term ) / static_cast<double>( a );
+      static const double first_term = ( 2.0 * static_cast<double>( a ) - 1.0) * x * Leg_pol( a-1, x );
+      static const double second_term = ( static_cast<double>( a ) - 1.0 ) * Leg_pol( a-2, x );
+      static const double diff = ( first_term - second_term ) / static_cast<double>( a );
   
       return diff;
      }
@@ -57,8 +52,8 @@ namespace safd
       if( a < abs( b ) ) throw std::runtime_error( "\033[31mLegendre associated function indexes a and b should satisfy the relation: a >= b >= 0\033[0m" );
       else
        {
-        const double first_term = pow( ( 1 - (x * x) ), static_cast<double>( b ) * 0.5 );
-        const double second_term = n_derivative( Leg_pol, x, a, b );
+        static const double first_term = pow( ( 1 - (x * x) ), static_cast<double>( b ) * 0.5 );
+        static const double second_term = n_derivative( Leg_pol, x, a, b );
     
         return pow( -1, b ) * first_term * second_term;
        }
@@ -76,20 +71,20 @@ namespace safd
     if( abs( m ) > l || l < 0 ) throw std::runtime_error( "\033[31mQuantum numbers l and m should satisfy the relation: l >= abs(m) >= 0\033[0m" );
     else
      {
-      const double sign_1 = pow( -1, ( m + abs( m ) ) * 0.5 );
-      const double dividedFactorial = [ l, m ]
+      static const double sign_1 = pow( -1, ( m + abs( m ) ) * 0.5 );
+      static const double dividedFactorial = [ l, m ]
        {
-        double result = 1; 
-        const int multmin = l - abs( m ) + 1; 
-        const int multmax = l + abs( m ); 
+        static double result = 1; 
+        static const int multmin = l - abs( m ) + 1; 
+        static const int multmax = l + abs( m ); 
         for( int currval = multmin; currval <= multmax ; ++currval ) 
          {
           result *= currval; 
          }; 
         return result;
        }(); 
-      const double sign_2 = reciprocalPi * sqrt( ( 2*l + 1 ) / dividedFactorial );
-      const double pol = Leg_func( abs( m ), l, cos( theta ) );
+      static const double sign_2 = reciprocalPi * sqrt( ( 2*l + 1 ) / dividedFactorial );
+      static const double pol = Leg_func( abs( m ), l, cos( theta ) );
       std::complex<double> result ( sign_1 * sign_2 * pol * cos( m*( phi + M_PI ) ), sign_1 * sign_2 * pol * sin( m*( phi + M_PI ) ) );
     
       return result;
@@ -143,8 +138,9 @@ namespace safd
   //This function returns the final f_m_l coefficients.
   std::complex<double> f_m_l( const std::string& expr, const int& m, const int& l )
    {  
-    const double real_part = integral( f_theta_phi_real, expr, m, l );
-    const double imag_part = integral( f_theta_phi_imag, expr, m, l );
+    static const double real_part = integral( f_theta_phi_real, expr, m, l );
+    static const double imag_part = integral( f_theta_phi_imag, expr, m, l );
+    static std::complex<double> coefficient;
     coefficient.real( real_part );
     coefficient.imag( imag_part );
   
