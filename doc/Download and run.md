@@ -19,7 +19,11 @@ Alternatively you can download the latest version of the repository from the ``R
 
 ## Prerequisites
 
-To correctly compile and run the program you need some prerequisite installed in your device:
+To correctly compile and run the program you need some prerequisite installed in your device. It is possible to run, directly from the repository main directory, a script `install_dependencies.sh` to automatically install all the prerequisites, through this command:
+
+```bash
+./script/install_prerequisites.sh
+```
 
 ### Mandatory
 
@@ -28,6 +32,7 @@ To correctly compile and run the program you need some prerequisite installed in
 - The [`exprtk`](https://github.com/ArashPartow/exprtk) library, to correctly parse the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> function.
 - My [`osmanip`](https://github.com/JustWhit3/osmanip) library, for the output-stream color of the program.
 - My [`arsenalgear`](https://github.com/JustWhit3/arsenalgear) library, for some utils.
+>**NOTE**: this latter library is automatically installed during the installation of `osmanip`.
 
 ### Optional
 
