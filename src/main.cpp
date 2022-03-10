@@ -4,6 +4,8 @@
 
 //Extra headers
 #include <osmanip/manipulators/csmanip.hpp>
+#include <arsenalgear/constants.hpp>
+#include <arsenalgear/operators.hpp>
 
 //STD headers
 #include <iostream>
@@ -19,28 +21,24 @@ int main()
   int choice, m, l;
   char letter, letter_r;
   std::string equation;
+  const std::string spaces = agr::empty_space<std::string> * 5;
   
   std::cout << std::endl
-            << "//////////////////////////////////////////////////" << std::endl
-            << "///                                            ///" << std::endl
-            << "///" << osm::feat( osm::col, "green" ) << "         _____         ______ _____         " 
-            << osm::reset( "color" ) << "///" << std::endl
-            << "///" << osm::feat( osm::col, "green" ) << "        / ____|  /\\   |  ____|  __ \\        " 
-            << osm::reset( "color" ) << "///" << std::endl
-            << "///" << osm::feat( osm::col, "green" ) << "       | (___   /  \\  | |__  | |  | |       " 
-            << osm::reset( "color" ) << "///" << std::endl
-            << "///" << osm::feat( osm::col, "green" ) << "        \\___ \\ / /\\ \\ |  __| | |  | |       " 
-            << osm::reset( "color" ) << "///" << std::endl
-            << "///" << osm::feat( osm::col, "green" ) << "        ____) / ____ \\| |    | |__| |       " 
-            << osm::reset( "color" ) << "///" << std::endl
-            << "///" << osm::feat( osm::col, "green" ) << "       |_____/_/    \\_\\_|    |_____/        " 
-            << osm::reset( "color" ) << "///" << std::endl
-            << "///                                            ///" << std::endl
-            << "///                                            ///" << std::endl
-            << "//////////////////////////////////////////////////" << std::endl << std::endl
+            << spaces << osm::feat( osm::col, "green" ) << "         _____         ______ _____         " 
+            << osm::reset( "color" ) << std::endl
+            << spaces  << osm::feat( osm::col, "green" ) << "        / ____|  /\\   |  ____|  __ \\        " 
+            << osm::reset( "color" ) << std::endl
+            << spaces  << osm::feat( osm::col, "green" ) << "       | (___   /  \\  | |__  | |  | |       " 
+            << osm::reset( "color" ) << std::endl
+            << spaces  << osm::feat( osm::col, "green" ) << "        \\___ \\ / /\\ \\ |  __| | |  | |       " 
+            << osm::reset( "color" ) << std::endl
+            << spaces  << osm::feat( osm::col, "green" ) << "        ____) / ____ \\| |    | |__| |       " 
+            << osm::reset( "color" ) << std::endl
+            << spaces  << osm::feat( osm::col, "green" ) << "       |_____/_/    \\_\\_|    |_____/        " 
+            << osm::reset( "color" ) << std::endl << std::endl << std::endl
             << osm::feat( osm::col, "cyan" ) << osm::feat( osm::sty, "italics" ) 
             << "Welcome to SAFD: a program to compute the coefficients f(m,l) of a " 
-            << "function f(th,phi)\ndevelopment in a spherical harmonics convergent series. " 
+            << "\nfunction f(th,phi) development in a spherical harmonics convergent series. " 
             << osm::reset( "all" ) << std::endl << std::endl;
 
   while( true )
