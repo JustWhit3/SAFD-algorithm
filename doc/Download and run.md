@@ -8,6 +8,9 @@
   - [Optional](#optional)
 - [Compilation](#compilation)
 - [Run the program](#run-the-program)
+- [Other scripts](#other-scripts)
+  - [debug.sh](#debugsh)
+  - [update.sh](#updatesh)
 
 ## Download
 
@@ -27,18 +30,30 @@ To correctly compile and run the program you need some prerequisite installed in
 
 ### Mandatory
 
+Tools:
+
 - A `g++` compiler.
 - C++17 standard.
-- The [`exprtk`](https://github.com/ArashPartow/exprtk) library, to correctly parse the <img src="https://render.githubusercontent.com/render/math?math=\color{green}{f(\theta, \phi)}"> function.
-- My [`osmanip`](https://github.com/JustWhit3/osmanip) library, for the output-stream color of the program.
-- My [`arsenalgear`](https://github.com/JustWhit3/arsenalgear) library, for some utils.
+
+Libraries and frameworks:
+
+- [`exprtk`](https://github.com/ArashPartow/exprtk) library.
+- [`osmanip`](https://github.com/JustWhit3/osmanip) library.
+- [`arsenalgear`](https://github.com/JustWhit3/arsenalgear) library.
+
 >**NOTE**: this latter library is automatically installed during the installation of `osmanip`.
 
 ### Optional
 
-- [`doctest`](https://github.com/doctest/doctest) library, to run tests.
+Tools
+
 - [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) programs to run the debugging script.
 - [Clang formatter](https://stackoverflow.com/questions/20756924/how-can-i-install-clang-format-in-ubuntu#:~:text=16.04%2C%20simply%20do%3A-,sudo%20apt%20install%20clang%2Dformat,-Share) to format the code for pull requests.
+- A terminal supporting ANSI escape sequences.
+
+Libraries and frameworks:
+
+- [`doctest`](https://github.com/doctest/doctest) for testing.
 
 ## Compilation
 
@@ -81,32 +96,40 @@ If you want to run the tests you have to type:
 ./bin/test
 ```
 
-There is also an extra script to debug the code using [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck), which can be used with some instructions.
+## Other scripts
+
+Other scripts have been provided into the [**scripts**](https://github.com/JustWhit3/osmanip/blob/main/scripts) folder. After compiling the source code, they can be run from the repository home directory.
+
+### debug.sh
+
+This script is used to run [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck) debugging tools on the whole code.
 
 You can run Valgrind debugging tools with a specific executable:
-
 ```shell
 ./scripts/debug.sh [valgrind-tool-name] [executable-name]
 ```
-
 > **NOTE**: where `[tool-name]` is the Valgrind tool name and `[executable-name]` is the executable name (you have to indicate also the path to it).
 
 Or you can run them for all the executables of the repository:
-
 ```shell
 ./scripts/debug.sh [valgrind-tool-name] all
 ```
-
 You can also run Cppcheck tool for a specific source code directory:
-
 ```shell
 ./scripts/debug.sh cppcheck [source-code-dir]
 ```
-
 Or for a .cpp file only:
-
 ```shell
 ./scripts/debug.sh cppcheck [file.cpp]
 ```
 
 > **NOTE**: pay attention when running this script with `memcheck` tool, since it may produce fake errors related to the included libraries. In this case you should prepare a suppression file before running it.
+
+### update.sh
+
+In case you want to update the source code from the latest improvements of the repository, you can use the updater script, called [update.sh](https://github.com/JustWhit3/SAFD-algorithm/blob/main/scripts/update.sh).
+
+From the repository folder type this command on the shell:
+```shell
+./scripts/update.sh
+```
