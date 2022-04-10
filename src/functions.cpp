@@ -160,12 +160,12 @@ namespace safd
       std::cout << "f(" << m << "," << l << ") = "
                 << osm::feat( osm::col, "green" ) << f_m_l( equation, m, l ).real() << osm::reset( "color" ) << " + "
                 << osm::feat( osm::col, "green" ) << f_m_l( equation, m, l ).imag() << osm::reset( "color" )
-                << osm::feat( osm::col, "lt blue" ) << "i" << osm::reset( "color" ) << std::endl;
+                << osm::feat( osm::col, "lt blue" ) << "i" << osm::reset( "color" ) << "\n";
      }
     catch( std::runtime_error const & exception )
      {
       std::cerr << osm::feat( osm::sty, "italics" ) << osm::feat( osm::col, "red" ) << "not computable!" 
-                << osm::reset( "all" ) << std::endl << std::endl << exception.what() << std::endl;
+                << osm::reset( "all" ) << "\n\n" << exception.what() << "\n";
      }
    }
  }

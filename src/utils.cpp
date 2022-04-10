@@ -118,7 +118,7 @@ namespace safd
     std::cin >> m;
     std::cout << "Enter the value of l: ";
     std::cin >> l;
-    std::cout << std::endl;
+    std::cout << "\n";
    }
 
   //============================================
@@ -131,7 +131,7 @@ namespace safd
    {
     std::cout << "Compute another coefficient (enter \"y\" or \"n\")?: ";
     std::cin >> letter;
-    std::cout << std::endl;
+    std::cout << "\n";
     return letter;
    }
  }
