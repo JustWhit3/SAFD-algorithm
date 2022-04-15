@@ -30,9 +30,9 @@ namespace safd
      }
     else 
      {
-      static const double first_term = ( 2.0 * static_cast<double>( a ) - 1.0) * x * Leg_pol( a-1, x );
-      static const double second_term = ( static_cast<double>( a ) - 1.0 ) * Leg_pol( a-2, x );
-      static const double diff = ( first_term - second_term ) / static_cast<double>( a );
+      const double first_term = ( 2.0 * static_cast<double>( a ) - 1.0) * x * Leg_pol( a-1, x );
+      const double second_term = ( static_cast<double>( a ) - 1.0 ) * Leg_pol( a-2, x );
+      const double diff = ( first_term - second_term ) / static_cast<double>( a );
   
       return diff;
      }
@@ -52,8 +52,8 @@ namespace safd
       if( a < abs( b ) ) throw std::runtime_error( "\033[31mLegendre associated function indexes a and b should satisfy the relation: a >= b >= 0\033[0m" );
       else
        {
-        static const double first_term = pow( ( 1 - (x * x) ), static_cast<double>( b ) * 0.5 );
-        static const double second_term = n_derivative( Leg_pol, x, a, b );
+        const double first_term = pow( ( 1 - (x * x) ), static_cast<double>( b ) * 0.5 );
+        const double second_term = n_derivative( Leg_pol, x, a, b );
     
         return pow( -1, b ) * first_term * second_term;
        }
@@ -64,27 +64,27 @@ namespace safd
   //     "sph_arm" function definition
   //============================================
   
-  //Function used to calculate spherical armonics with indexes "m" and "l" and variables "theta" and "phi".
+  //Function used to calculate spherical harmonics with indexes "m" and "l" and variables "theta" and "phi".
   //NB: in the calculator, pi = 3.14, theta = 180.
   std::complex<double> sph_arm( const int& m, const int& l, const double& theta, const double& phi )
    {
     if( abs( m ) > l || l < 0 ) throw std::runtime_error( "\033[31mQuantum numbers l and m should satisfy the relation: l >= abs(m) >= 0\033[0m" );
     else
      {
-      static const double sign_1 = pow( -1, ( m + abs( m ) ) * 0.5 );
-      static const double dividedFactorial = [ l, m ]
+      const double sign_1 = pow( -1, ( m + abs( m ) ) * 0.5 );
+      const double dividedFactorial = [ l, m ]
        {
-        static double result = 1; 
-        static const int multmin = l - abs( m ) + 1; 
-        static const int multmax = l + abs( m ); 
+        double result = 1; 
+        const int multmin = l - abs( m ) + 1; 
+        const int multmax = l + abs( m ); 
         for( int currval = multmin; currval <= multmax ; ++currval ) 
          {
           result *= currval; 
          }; 
         return result;
        }(); 
-      static const double sign_2 = reciprocalPi * sqrt( ( 2*l + 1 ) / dividedFactorial );
-      static const double pol = Leg_func( abs( m ), l, cos( theta ) );
+      const double sign_2 = reciprocalPi * sqrt( ( 2*l + 1 ) / dividedFactorial );
+      const double pol = Leg_func( abs( m ), l, cos( theta ) );
       std::complex<double> result ( sign_1 * sign_2 * pol * cos( m*( phi + M_PI ) ), sign_1 * sign_2 * pol * sin( m*( phi + M_PI ) ) );
     
       return result;
@@ -100,14 +100,14 @@ namespace safd
    {
     exprtk::rtl::io::file::package<double> fileio_package;
 
-    static exprtk::symbol_table<double> symbol_table;
+    exprtk::symbol_table<double> symbol_table;
     symbol_table.add_variable( "th", theta );
     symbol_table.add_variable( "phi",phi );
   
-    static exprtk::expression<double> expression;
+    exprtk::expression<double> expression;
     expression.register_symbol_table( symbol_table );
   
-    static exprtk::parser<double> parser;
+    exprtk::parser<double> parser;
     if ( !parser.compile( expr, expression ) )
      {
       throw std::runtime_error( "\033[31mError in the inserted expression!\033[0m" );
@@ -138,9 +138,9 @@ namespace safd
   //This function returns the final f_m_l coefficients.
   std::complex<double> f_m_l( const std::string& expr, const int& m, const int& l )
    {  
-    static const double real_part = integral( f_theta_phi_real, expr, m, l );
-    static const double imag_part = integral( f_theta_phi_imag, expr, m, l );
-    static std::complex<double> coefficient;
+    const double real_part = integral( f_theta_phi_real, expr, m, l );
+    const double imag_part = integral( f_theta_phi_imag, expr, m, l );
+    std::complex<double> coefficient;
     coefficient.real( real_part );
     coefficient.imag( imag_part );
   
