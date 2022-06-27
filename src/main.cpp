@@ -3,7 +3,7 @@
 #include "../include/utils.hpp"
 
 //Extra headers
-#include <osmanip/manipulators/csmanip.hpp>
+#include <osmanip/manipulators/colsty.hpp>
 #include <arsenalgear/constants.hpp>
 #include <arsenalgear/operators.hpp>
 

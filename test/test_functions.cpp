@@ -6,7 +6,7 @@
 #include "../include/utils.hpp"
 
 //Extra headers
-#include <doctest.h>
+#include <doctest/doctest.h>
 #include <arsenalgear/math.hpp>
 
 //STD headers

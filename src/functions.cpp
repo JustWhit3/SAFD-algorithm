@@ -3,7 +3,7 @@
 #include "../include/functions.hpp"
 
 //Extra headers
-#include <osmanip/manipulators/csmanip.hpp>
+#include <osmanip/manipulators/colsty.hpp>
 #include <exprtk.hpp>
 
 //STD headers
