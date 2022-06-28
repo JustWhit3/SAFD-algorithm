@@ -80,6 +80,7 @@ make
 ```
 
 This compilation steps should be performed only once.
+
 ## Run the program
 
 To run the code you can simply enter this command in the shell:
