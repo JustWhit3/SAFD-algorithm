@@ -95,9 +95,9 @@ jobs:
        unzip osmanip-main.zip
        cd osmanip-main || exit
        make
-       sudo mkdir -p /usr/include/osmanip
-       sudo cp -r include/* /usr/include/osmanip
-       sudo cp lib/* /usr/lib
+       sudo mkdir -p /usr/local/include/osmanip
+       sudo cp -r include/* /usr/local/include/osmanip
+       sudo cp lib/* /usr/local/lib
        cd ..
        rm -rf osmanip-*
 
