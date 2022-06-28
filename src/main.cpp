@@ -19,7 +19,7 @@
 int main()
  {
   int choice, m, l;
-  char letter, letter_r;
+  char letter = ' ', letter_r;
   std::string equation;
   const std::string spaces = agr::empty_space<std::string> * 5;
   

@@ -17,6 +17,7 @@
 
 - [Introduction](#introduction)
 - [Repository structure](#repository-structure)
+- [Supported operating systems](#supported-operating-systems)
 - [Documentation](#documentation)
 - [How to use](#how-to-use)
 - [Credits](#credits)
@@ -79,6 +80,12 @@ SAFD-agorithm/
 │── .all-contributorsrc
 │── makefile
 ```
+
+## Supported operating systems
+
+- **Linux**
+  - *Ubuntu* (tested)
+- **MacOS**
 
 ## Documentation
 
