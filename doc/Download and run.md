@@ -25,7 +25,7 @@ Alternatively you can download the latest version of the repository from the ``R
 To correctly compile and run the program you need some prerequisite installed in your device. It is possible to run, directly from the repository main directory, a script `install_dependencies.sh` to automatically install all the prerequisites, through this command:
 
 ```bash
-./script/install_prerequisites.sh
+./script/install_dependencies.sh
 ```
 
 ### Mandatory
