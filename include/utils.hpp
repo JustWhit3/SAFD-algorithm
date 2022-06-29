@@ -20,7 +20,7 @@ namespace safd
   //============================================
 
   //Constants:
-  inline constexpr double STEP_SIZE = 2 * cbrt( __DBL_EPSILON__ );
+  inline const double STEP_SIZE = 2 * cbrt( __DBL_EPSILON__ );
   inline constexpr double x_in = 0;
   inline constexpr double x_fin = M_PI;
   inline constexpr double h_x = 0.07;

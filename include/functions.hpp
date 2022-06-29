@@ -19,7 +19,7 @@ namespace safd
   //============================================
   //     Global variables declaration
   //============================================
-  inline constexpr double reciprocalPi = sqrt(1 / ( M_PI*4 ) );
+  inline const double reciprocalPi = sqrt(1 / ( M_PI*4 ) );
 
   //============================================
   //     Functions declaration
