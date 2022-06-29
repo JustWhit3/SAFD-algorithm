@@ -1,5 +1,5 @@
 #====================================================
-#     VARIABLES
+#     Variables
 #====================================================
 TARGET_EXEC := main
 TEST_EXEC := tests
@@ -10,7 +10,7 @@ TEST_DIR := test
 OBJ_DIR := obj
 
 #====================================================
-#     SOURCE FILES
+#     Source files
 #====================================================
 SRC := $(shell find $(SRC_DIR) -name '*.cpp')
 TEST := $(shell find $(SRC_DIR) -type f | grep -v 'main.cpp') $(shell find $(TEST_DIR) -name '*.cpp')
@@ -18,32 +18,22 @@ OBJ := $(SRC:%=$(OBJ_DIR)/%.o)
 TEST_OBJ := $(TEST:%=$(OBJ_DIR)/%.o)
 
 #====================================================
-#     DEPENDENCIES AND FLAGS
+#     Dependencies and flags
 #====================================================
 DEPS := $(OBJ:.o=.d)
 INC_DIR := $(shell find $(SRC_DIR) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIR))
 WFLAGS := -Wall -Wextra -Wno-unused
 CPPFLAGS := -std=c++17 -g $(LDFLAGS) $(INC_FLAGS) -MMD -MP $(WFLAGS)
-LDFLAGS := -L/usr/local/lib -losmanip -larsenalgear -static
+LDFLAGS := -losmanip -larsenalgear
 
 #====================================================
-#     OS DETECTION
-#====================================================
-
-# Windows (Cygwin)
-ifeq ($(OS), Windows_NT)
-	TARGET_EXEC += .exe
-	TEST_EXEC += .exe
-endif
-
-#====================================================
-#     ALIASES
+#     Aliases
 #====================================================
 .PHONY: clean all
 
 #====================================================
-#     BUILDING
+#     Building
 #====================================================
 
 #Building all:
@@ -67,12 +57,12 @@ $(OBJ_DIR)/%.cpp.o: %.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
 #====================================================
-#     CLEAN
+#     Clean
 #====================================================
 clean:
 	rm -r $(OBJ_DIR) $(BUILD_DIR)
 
 #====================================================
-#     INCLUDE
+#     Include
 #====================================================
 -include $(DEPS)
