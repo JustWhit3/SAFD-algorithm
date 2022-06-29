@@ -104,6 +104,8 @@ Extra documentation is available in the [doc](https://github.com/JustWhit3/SAFD-
 - [Algorithm explanation and physical background](https://github.com/JustWhit3/SAFD-algorithm/blob/main/doc/Algorithm-explanation.md): contains information about the mathematical and physical explanation related to the coefficients computation and a detailed description of the used algorithm.
 - [Contributing](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/Contributing.md): contains information about how to contribute to this project.
 
+Code documentation is generated using Doxygen and can be accessed [here](https://justwhit3.github.io/SAFD-algorithm/index.html).
+
 ## How to use
 
 When running the program, some options are displayed:
