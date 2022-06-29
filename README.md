@@ -10,7 +10,9 @@
     </a></br>
 	<img title="Code size" alt="code size" src="https://img.shields.io/github/languages/code-size/JustWhit3/SAFD-algorithm?color=red">
 	<img title="Repo size" alt="repo size" src="https://img.shields.io/github/repo-size/JustWhit3/SAFD-algorithm?color=red">
-	<img title="Lines of code" alt="total lines" src="https://img.shields.io/tokei/lines/github/JustWhit3/SAFD-algorithm?color=red">
+	<img title="Lines of code" alt="total lines" src="https://img.shields.io/tokei/lines/github/JustWhit3/SAFD-algorithm?color=red"></br>
+  <img title="codeq" alt="codeq" src="https://github.com/JustWhit3/SAFD-algorithm/actions/workflows/codeql-analysis.yml/badge.svg">
+  <img title="doc" alt="doc" src="https://github.com/JustWhit3/SAFD-algorithm/actions/workflows/DocGenerator.yml/badge.svg">
 </p>
 
 ## Table of contents
