@@ -1,5 +1,12 @@
+//============================================
+//     Preprocessor directives
+//============================================
 #ifndef UTILS_HPP
 #define UTILS_HPP
+
+//============================================
+//     Headers
+//============================================
 
 //STD headers
 #include <string>
@@ -31,6 +38,7 @@ namespace safd
   //============================================
   //     Functions declaration
   //============================================
+  
   //N-th derivative function:
   extern double n_derivative( const two_param_func& f, const double& x_0, const int& a, const int& n );
  

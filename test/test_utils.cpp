@@ -1,4 +1,11 @@
+//============================================
+//     Preprocessor directives
+//============================================
 #define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
+
+//============================================
+//     Headers
+//============================================
 
 //My headers
 #include "../include/functions.hpp"

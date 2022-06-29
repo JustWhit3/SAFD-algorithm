@@ -1,3 +1,7 @@
+//============================================
+//     Headers
+//============================================
+
 //My headers
 #include "../include/utils.hpp"
 
@@ -14,10 +18,15 @@
 namespace safd
  {
   //============================================
-  //     "h" function definition
+  //     h step size
   //============================================
-  
-  //Function used to return the derivative step-size.
+  /**
+   * @brief Function used to return the derivative step-size.
+   * 
+   * @param n The derivative order.
+   * @param x_0 The point in which the derivative is computed.
+   * @return double The step size.
+   */
   double h( const int& n, const double& x_0 )
    {
     if ( n < 4 && n > 0 ) return STEP_SIZE * x_0;
@@ -25,11 +34,17 @@ namespace safd
    }
   
   //============================================
-  //     "n_derivative" function definition
+  //     n_derivative
   //============================================
-  
-  //Function used to calculate the "n"-th derivative of a function "f" in a point "x_0", which depends on an index "a". 
-  //NB: Works well until n = 3/4. 
+  /**
+   * @brief Function used to compute the "n"-th derivative of a function "f" in a point "x_0", which depends on an index "a". NB: Works well until n = 3/4. 
+   * 
+   * @param f The given function.
+   * @param x_0 The point in which the derivative is computed.
+   * @param a An index used in the function operations.
+   * @param n The derivative order.
+   * @return double 
+   */ 
   double n_derivative( const two_param_func& f, const double& x_0, const int& a, const int& n )
    {
     if( n == 0 ) return f( a, x_0 );
@@ -56,10 +71,17 @@ namespace safd
    }
   
   //============================================
-  //     "integral" function definition
+  //     integral
   //============================================
-  
-  //Function used to integrate a function f(x,y), depending on two indexes m and l, in x = theta and y = phi.
+  /**
+   * @brief Function used to integrate a function f(x,y), depending on two indexes m and l, in x = theta and y = phi.
+   * 
+   * @param f The function to be integrated.
+   * @param expr The expression used for the function.
+   * @param m A function parameter.
+   * @param l A function parameter.
+   * @return double The integrated function
+   */
   double integral( const four_param_func& f, const std::string& expr, const int& m, const int& l )
    {
     //Calculating the number of points in x and y integral:
@@ -107,10 +129,14 @@ namespace safd
 
   //============================================
   //     "initializer" function definition
-  //============================================
-  
-  //Function used to initialize values of main program input.
-  //NB: used in main program only.
+  //============================================  
+  /**
+   * @brief Function used to initialize values of main program input. NB: used in main program only.
+   * 
+   * @param equation The equation parsed by the user.
+   * @param m A constant value.
+   * @param l A constant value.
+   */
   void initializer( std::string& equation, int& m, int& l)
    {
     std::cout << "Enter the f(th,phi) equation shape (avoid backspaces): ";
@@ -125,9 +151,12 @@ namespace safd
   //============================================
   //     "letter" function definition
   //============================================
-  
-  //Function to modify an input and return it.
-  //NB: used in main program only.
+  /**
+   * @brief Function used to modify an input and return it. NB: used in main program only.
+   * 
+   * @param letter A letter for option choosing.
+   * @return char Return the chosen option.
+   */
   char abort_this( char letter )
    {
     std::cout << "Compute another coefficient (enter \"y\" or \"n\")?: ";

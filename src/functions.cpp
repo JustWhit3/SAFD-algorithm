@@ -1,3 +1,7 @@
+//============================================
+//     Headers
+//============================================
+
 //My headers
 #include "../include/utils.hpp"
 #include "../include/functions.hpp"
@@ -18,8 +22,13 @@ namespace safd
   //============================================
   //     "Leg_pol" function definition
   //============================================
-  
-  //Function used to calculate Legendre polynomials with index "a" and variable "x".  
+  /**
+   * @brief Function used to calculate Legendre polynomials with index "a" and variable "x".  
+   * 
+   * @param a Index of Legendre polynomials.
+   * @param x The variable of the polynomials.
+   * @return double The Legendre polynomial value in point x for an index a.
+   */
   double Leg_pol( const int& a, const double& x ) 
    {
     if( a == 0 ) return 1.0;
@@ -41,9 +50,14 @@ namespace safd
   //============================================
   //     "Leg_func" function definition
   //============================================
-  
-  //Function used to calculate Legendre associated functions with indexes "a" and "b" and variable "x".
-  //NB: works well until m = l and | m - l | = 1.
+  /**
+   * @brief Function used to calculate Legendre associated functions with indexes "a" and "b" and variable "x". NB: works well until m = l and | m - l | = 1.
+   * 
+   * @param b Index of Legendre function.
+   * @param a Index of Legendre function.
+   * @param x Variable value of Legendre function.
+   * @return double Legendre function for indexes a and b in a point x.
+   */
   double Leg_func( const int& b, const int& a, const double& x )
    {
     if( x < -1 || x > 1 ) throw std::runtime_error( "\033[31mLegendre associated functions variable should lie in interval [-1,1]!\033[0m" );
@@ -63,9 +77,15 @@ namespace safd
   //============================================
   //     "sph_arm" function definition
   //============================================
-  
-  //Function used to calculate spherical harmonics with indexes "m" and "l" and variables "theta" and "phi".
-  //NB: in the calculator, pi = 3.14, theta = 180.
+  /**
+   * @brief Function used to calculate spherical harmonics functions with indexes "m" and "l" and variables "theta" and "phi". NB: in the calculator, pi = 3.14, theta = 180.
+   * 
+   * @param m Function index.
+   * @param l Function index.
+   * @param theta Angular variable.
+   * @param phi Angular variable.
+   * @return std::complex<double> Spherical harmonics value for m and l coefficients in theta and phi values.
+   */
   std::complex<double> sph_arm( const int& m, const int& l, const double& theta, const double& phi )
    {
     if( abs( m ) > l || l < 0 ) throw std::runtime_error( "\033[31mQuantum numbers l and m should satisfy the relation: l >= abs(m) >= 0\033[0m" );
@@ -94,8 +114,14 @@ namespace safd
   //============================================
   //     "parsed_f" function definition
   //============================================
-  
-  //Function f(theta,phi) obtained with parsing:
+  /**
+   * @brief Function f(theta,phi) obtained with parsing.
+   * 
+   * @param expr Expression to be parsed into a function.
+   * @param theta Variable of the function.
+   * @param phi Variable of the function.
+   * @return double Parsed function.
+   */
   double parsed_f( const std::string& expr, double theta, double phi )
    {
     exprtk::rtl::io::file::package<double> fileio_package;
@@ -119,8 +145,16 @@ namespace safd
   //============================================
   //     "f_theta_phi" function definition
   //============================================
-  
-  //This function defines: f(theta,phi) * conjugate( sph_arm(m,l,theta,phi) ) * sin(theta).
+  /**
+   * @brief This function defines: f(theta,phi) * conjugate( sph_arm(m,l,theta,phi) ) * sin(theta).
+   * 
+   * @param expr Expression to be parsed.
+   * @param m Coefficient of the function.
+   * @param l Coefficient of the function.
+   * @param theta Angular variable of the function.
+   * @param phi Angular variable of the function.
+   * @return double Expression value.
+   */
   double f_theta_phi_real( const std::string& expr, const int& m, const int& l, const double& theta, const double& phi )
    { 
     return parsed_f( expr, theta, phi ) * sin( theta ) * sph_arm( m, l, theta, phi ).real();
@@ -134,8 +168,14 @@ namespace safd
   //============================================
   //     "f_m_l" function definition
   //============================================
-  
-  //This function returns the final f_m_l coefficients.
+  /**
+   * @brief This function returns the final f_m_l coefficients.
+   * 
+   * @param expr Expression to be parsed.
+   * @param m Coefficient of the expression.
+   * @param l Coefficient of the expression.
+   * @return std::complex<double> Coefficient f_m_l value.
+   */
   std::complex<double> f_m_l( const std::string& expr, const int& m, const int& l )
    {  
     const double real_part = integral( f_theta_phi_real, expr, m, l );
@@ -150,9 +190,13 @@ namespace safd
   //============================================
   //     "displayer" function definition
   //============================================
-  
-  //Function used to display the final result of the main program.
-  //NB: used in main program only.
+  /**
+   * @brief Function used to display the final result of the main program. NB: used in main program only.
+   * 
+   * @param equation Mathematical equation.
+   * @param m Equation coefficient.
+   * @param l Equation coefficient.
+   */
   void displayer( const std::string& equation, const int& m, const int& l )
    {
     try 
