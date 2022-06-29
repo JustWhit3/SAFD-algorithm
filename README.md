@@ -55,6 +55,10 @@ Here the diagram structure of the repository:
 
 ```txt
 SAFD-agorithm/
+├── .github/
+│   ├── workflows
+│   │   ├── codeql-analysis.yml
+│   │   ├── cDocGenerator.yml
 ├── include/
 │   ├── utils.hpp
 │   ├── functions.hpp
@@ -64,6 +68,8 @@ SAFD-agorithm/
 │   ├── main.cpp
 ├── scripts/
 │   ├── debug.sh
+│   ├── install_dependencies.sh
+│   ├── update.sh
 ├── test/
 │   ├── test_utils.cpp
 │   ├── test_functions.cpp
@@ -75,6 +81,7 @@ SAFD-agorithm/
 │── README.md
 │── LICENSE
 │── CITATION.cff
+│── Doxyfile
 │── .gitignore
 │── .valgrindrc
 │── .all-contributorsrc
