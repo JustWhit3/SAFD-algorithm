@@ -9,6 +9,7 @@
 #include <string>
 #include <functional>
 #include <limits>
+#include <vector>
 
 namespace safd
  {
