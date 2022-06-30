@@ -77,6 +77,8 @@ $(function() {
 <div class="textblock"><code>#include &quot;<a class="el" href="utils_8hpp_source.html">../include/utils.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="functions_8hpp_source.html">../include/functions.hpp</a>&quot;</code><br />
 <code>#include &lt;osmanip/manipulators/colsty.hpp&gt;</code><br />
+<code>#include &lt;osmanip/graphics/canvas.hpp&gt;</code><br />
+<code>#include &lt;osmanip/graphics/plot_2D.hpp&gt;</code><br />
 <code>#include &lt;exprtk.hpp&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
@@ -88,7 +90,7 @@ Include dependency graph for functions.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="functions_8cpp__incl.png" border="0" usemap="#asrc_2functions_8cpp" alt=""/></div>
 <map name="asrc_2functions_8cpp" id="asrc_2functions_8cpp">
-<area shape="rect" title=" " alt="" coords="332,5,453,32"/>
+<area shape="rect" title=" " alt="" coords="447,5,568,32"/>
 <area shape="rect" href="utils_8hpp.html" title=" " alt="" coords="115,87,241,114"/>
 <area shape="rect" title=" " alt="" coords="108,169,163,196"/>
 <area shape="rect" title=" " alt="" coords="5,169,84,196"/>
@@ -97,7 +99,9 @@ Include dependency graph for functions.cpp:</div>
 <area shape="rect" title=" " alt="" coords="373,169,444,196"/>
 <area shape="rect" title=" " alt="" coords="500,169,581,196"/>
 <area shape="rect" title=" " alt="" coords="595,80,745,121"/>
-<area shape="rect" title=" " alt="" coords="769,87,841,114"/>
+<area shape="rect" title=" " alt="" coords="769,87,963,114"/>
+<area shape="rect" title=" " alt="" coords="987,80,1137,121"/>
+<area shape="rect" title=" " alt="" coords="1161,87,1233,114"/>
 <area shape="rect" title=" " alt="" coords="187,169,265,196"/>
 </map>
 </div>
@@ -130,6 +134,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ace60dba2a96a269cbb84dbec8b9fc807"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesafd.html#ace60dba2a96a269cbb84dbec8b9fc807">safd::f_m_l</a> (const std::string &amp;expr, const int &amp;m, const int &amp;l)</td></tr>
 <tr class="memdesc:ace60dba2a96a269cbb84dbec8b9fc807"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the final f_m_l coefficients.  <a href="namespacesafd.html#ace60dba2a96a269cbb84dbec8b9fc807">More...</a><br /></td></tr>
 <tr class="separator:ace60dba2a96a269cbb84dbec8b9fc807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a762715ddd8cf72aead6b344b3645d9f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesafd.html#a762715ddd8cf72aead6b344b3645d9f1">safd::plotter</a> (const std::string &amp;func)</td></tr>
+<tr class="memdesc:a762715ddd8cf72aead6b344b3645d9f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to plot the user-inserted function, which development coefficients are computed.  <a href="namespacesafd.html#a762715ddd8cf72aead6b344b3645d9f1">More...</a><br /></td></tr>
+<tr class="separator:a762715ddd8cf72aead6b344b3645d9f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ea02ed9632434f9dfbc7ac0e33e38d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesafd.html#a5ea02ed9632434f9dfbc7ac0e33e38d7">safd::displayer</a> (const std::string &amp;equation, const int &amp;m, const int &amp;l)</td></tr>
 <tr class="memdesc:a5ea02ed9632434f9dfbc7ac0e33e38d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to display the final result of the main program. NB: used in main program only.  <a href="namespacesafd.html#a5ea02ed9632434f9dfbc7ac0e33e38d7">More...</a><br /></td></tr>
 <tr class="separator:a5ea02ed9632434f9dfbc7ac0e33e38d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
