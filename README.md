@@ -1,6 +1,6 @@
 <p align="center"><img src="https://github.com/JustWhit3/SAFD-algorithm/blob/main/img/logo.svg" height=220></p>
 
-<h3 align="center">An algorithm to compute the coefficients of a function development in a spherical harmonics convergent series</h3>
+<h3 align="center">An app to compute the coefficients of a function development in a spherical harmonics convergent series</h3>
 <p align="center">
     <img title="v1.1" alt="v1.1" src="https://img.shields.io/badge/version-v1.1-informational?style=flat-square"
     <a href="LICENSE">
