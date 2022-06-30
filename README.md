@@ -44,7 +44,7 @@ Some program features:
 
 Output example (terminal graphics has been produced using [`osmanip`](https://github.com/JustWhit3/osmanip)):
 
-<img src="https://github.com/JustWhit3/SAFD-algorithm/blob/main/img/SAFD.gif" width = "500">
+<img src="https://github.com/JustWhit3/SAFD-algorithm/blob/main/img/SAFD.gif" width = "700">
 
 > **NOTE**: inserted functions are plotted only in the case in which they are 1D (i.e. only one of the two angles is present in their expression) since the [`osmanip`](https://github.com/JustWhit3/osmanip) library at the moment doesn't feature 2D plotting.
 
