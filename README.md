@@ -103,11 +103,11 @@ SAFD-agorithm/
 
 Steps to be reproduced:
 
-1) Download one of the releases of the repository or clone the main branch.
+**1)** Download one of the releases of the repository or clone the main branch.
 
-2) Unzip and enter the downloaded repository directory.
+**2)** Unzip and enter the downloaded repository directory.
 
-3) Install all the prerequisites:
+**3)** Install all the prerequisites:
 
 ```bash
 ./script/install_dependencies.sh
@@ -127,7 +127,7 @@ Optional (only for developers)
 - [Clang formatter](https://stackoverflow.com/questions/20756924/how-can-i-install-clang-format-in-ubuntu#:~:text=16.04%2C%20simply%20do%3A-,sudo%20apt%20install%20clang%2Dformat,-Share).
 - A terminal supporting ANSI escape sequences.
 
-4) Compile:
+**4)** Compile:
 
 ```bash
 make main
@@ -135,7 +135,7 @@ make main
 
 > **NOTE**: to compile test code run `make tests`.
 
-5) Run the main program:
+**5)** Run the main program:
 
 ```bash
 ./bin/main
