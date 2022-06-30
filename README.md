@@ -20,7 +20,8 @@
 - [Introduction](#introduction)
 - [Repository structure](#repository-structure)
 - [Supported operating systems](#supported-operating-systems)
-- [Documentation](#documentation)
+- [Install and run](#install-and-run)
+- [Extra documentation](#documentation)
 - [How to use](#how-to-use)
 - [Credits](#credits)
   - [Project leaders](#project-leaders)
@@ -98,13 +99,55 @@ SAFD-agorithm/
   - *Ubuntu* (tested)
 - **MacOS**
 
-## Documentation
+## Install an run
+
+Steps to be reproduced:
+
+1) Download one of the releases of the repository or clone the main branch.
+
+2) Unzip and enter the downloaded repository directory.
+
+3) Install all the prerequisites:
+
+```bash
+./script/install_dependencies.sh
+```
+
+Prerequisites list:
+
+- A `g++` compiler.
+- C++17 standard.
+- [`exprtk`](https://github.com/ArashPartow/exprtk) library.
+- [`osmanip`](https://github.com/JustWhit3/osmanip) library.
+- [`arsenalgear`](https://github.com/JustWhit3/arsenalgear) library.
+
+Optional (only for developers)
+
+- [Valgrind](https://valgrind.org/) and [Cppcheck](https://github.com/danmar/cppcheck).
+- [Clang formatter](https://stackoverflow.com/questions/20756924/how-can-i-install-clang-format-in-ubuntu#:~:text=16.04%2C%20simply%20do%3A-,sudo%20apt%20install%20clang%2Dformat,-Share).
+- A terminal supporting ANSI escape sequences.
+
+4) Compile:
+
+```bash
+make main
+```
+
+> **NOTE**: to compile test code run `make tests`.
+
+5) Run the main program:
+
+```bash
+./bin/main
+```
+
+## Extra documentation
 
 Extra documentation is available in the [doc](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc) folder:
 
-- [Download, compile and run](https://github.com/JustWhit3/SAFD-algorithm/blob/main/doc/Download-compile-run.md): contains documentation about how to download, compile and run the program as well as a complete list of prerequisites.
 - [Algorithm explanation and physical background](https://github.com/JustWhit3/SAFD-algorithm/blob/main/doc/Algorithm-explanation.md): contains information about the mathematical and physical explanation related to the coefficients computation and a detailed description of the used algorithm.
 - [Contributing](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc/Contributing.md): contains information about how to contribute to this project.
+- [Extra scripts](https://github.com/JustWhit3/SAFD-algorithm/blob/main/doc/Extra-scripts.md): contains extra documentation about the other scripts.
 
 Code documentation is generated using Doxygen and can be accessed [here](https://justwhit3.github.io/SAFD-algorithm/index.html).
 
