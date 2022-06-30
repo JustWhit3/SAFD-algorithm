@@ -22,7 +22,6 @@
 //============================================
 int main()
  {
-  std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
   int choice, m, l;
   char letter = ' ', letter_r;
   std::string equation;

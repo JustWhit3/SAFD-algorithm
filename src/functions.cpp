@@ -130,7 +130,7 @@ namespace safd
 
     exprtk::symbol_table<double> symbol_table;
     symbol_table.add_variable( "th", theta );
-    symbol_table.add_variable( "phi",phi );
+    symbol_table.add_variable( "phi", phi );
   
     exprtk::expression<double> expression;
     expression.register_symbol_table( symbol_table );

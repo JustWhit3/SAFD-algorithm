@@ -13,7 +13,6 @@
 #include <string>
 #include <cmath>
 #include <functional>
-#include <exprtk.hpp>
 
 namespace safd
  {
