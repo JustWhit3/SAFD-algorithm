@@ -41,9 +41,11 @@ Some program features:
 
 > **NOTE**: equations are displayed in green color in order to be correctly visualized in both normal and dark mode.
 
-Output example:
+Output example (terminal graphics has been produced using [`osmanip`](https://github.com/JustWhit3/osmanip)):
 
 <img src="https://github.com/JustWhit3/SAFD-algorithm/blob/main/img/SAFD.gif">
+
+> **NOTE**: inserted functions are plotted only in the case in which they are 1D (i.e. only one of the two angles is present in their expression) since the [`osmanip`](https://github.com/JustWhit3/osmanip) library at the moment doesn't feature 2D plotting.
 
 The software is and will stay **free**, but if you want to support me with a donation it would be really appreciated!
 

@@ -22,6 +22,7 @@
 //============================================
 int main()
  {
+  std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
   int choice, m, l;
   char letter = ' ', letter_r;
   std::string equation;
@@ -65,7 +66,9 @@ int main()
     else if( choice == 1 )
      {
       safd::initializer( equation, m, l );
-      std::cout << "Value of the coefficient is (real + imaginary part):" << "\n\n";
+      std::cout << "Chosen function is: " << osm::feat( osm::col, "orange" ) << "f(th,phi) = " << equation << osm::reset( "color" ) << "\n";
+      safd::plotter( equation );
+      std::cout << "\nValue of the coefficient is (real + imaginary part):" << "\n\n";
       safd::displayer( equation, m, l );
       std::cout << "\n";
 
@@ -87,7 +90,9 @@ int main()
     else if( choice == 2 )
      {
       safd::initializer( equation, m, l );
-      std::cout << "Value of the coefficients is (real + imaginary part):" << "\n\n";
+      std::cout << "Chosen function is: " << osm::feat( osm::col, "orange" ) << "f(th,phi) = " << equation << osm::reset( "color" ) << "\n\n";
+      safd::plotter( equation );
+      std::cout << "\nValue of the coefficients is (real + imaginary part):" << "\n\n";
       for( int a = 0; a < m + 1; a++ )
        {
         for( int b = 0; b < l + 1; b++ )

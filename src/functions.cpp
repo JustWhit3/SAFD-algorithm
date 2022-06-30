@@ -8,6 +8,8 @@
 
 //Extra headers
 #include <osmanip/manipulators/colsty.hpp>
+#include <osmanip/graphics/canvas.hpp>
+#include <osmanip/graphics/plot_2D.hpp>
 #include <exprtk.hpp>
 
 //STD headers
@@ -185,6 +187,52 @@ namespace safd
     coefficient.imag( imag_part );
   
     return coefficient;
+   }
+
+  //============================================
+  //     "plotter" function definition
+  //============================================
+  /**
+   * @brief Function used to plot the user-inserted function, which development coefficients are computed.
+   * 
+   * @param func The expression representing the function.
+   */
+  void plotter( const std::string& func )
+   {
+    bool is_th = func.find( "th" ) != std::string::npos && func.find( "phi" ) == std::string::npos;
+    bool is_phi = func.find( "phi" ) != std::string::npos && func.find( "th" ) == std::string::npos;
+    
+    if ( is_th || is_phi )
+     {
+      std::cout << "\n";
+      
+      // Preparing the canvas     
+      osm::Plot2DCanvas plot_2d_canvas( 60, 20 );
+      plot_2d_canvas.setBackground( ' ', osm::feat( osm::col, "bg white" ) );
+      plot_2d_canvas.enableFrame( true );
+      plot_2d_canvas.setFrame( osm::FrameStyle::BOX, osm::feat( osm::col, "bg white" ) + osm::feat( osm::col, "black" ) );
+      plot_2d_canvas.enableFrame( true );
+      plot_2d_canvas.setFrame( osm::FrameStyle::BOX, osm::feat( osm::col, "bg white" ) + osm::feat( osm::col, "black" ) );
+      plot_2d_canvas.setScale( 1/3.14, 0.2 );
+  
+      //Functions settings
+      std::string func_th_style = osm::feat( osm::col, "bg white" ) + osm::feat( osm::col, "bd red" );
+      std::string func_phi_style = osm::feat( osm::col, "bg white" ) + osm::feat( osm::col, "bd blue" );
+      char func_th_marker = 'X';
+      char func_phi_marker = 'O';
+      std::function <double( double )> func_th = [ &func ]( double th ) -> double{ return parsed_f( func, th, M_PI ); };
+      std::function <double( double )> func_phi = [ &func ]( double phi ) -> double{ return parsed_f( func, M_PI, phi ); };
+  
+      //Drawing the functions
+      for( float i = 0; i < 70; i++ )
+       {
+        plot_2d_canvas.setOffset( i/3.14/1.8, -2 );
+        plot_2d_canvas.clear();
+        if ( is_th ) plot_2d_canvas.draw( func_th, func_th_marker, func_th_style );
+        else if ( is_phi ) plot_2d_canvas.draw( func_phi, func_phi_marker, func_phi_style );
+        plot_2d_canvas.refresh();
+       }
+     }
    }
 
   //============================================

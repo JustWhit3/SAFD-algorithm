@@ -55,6 +55,9 @@ namespace safd
 
   //Function used to display the final result of the main program:
   extern void displayer( const std::string& equation, const int& m, const int& l );
+
+  // Function used to plot the user-inserted function is input:
+  extern void plotter( const std::string& func );
  }
   
 #endif
