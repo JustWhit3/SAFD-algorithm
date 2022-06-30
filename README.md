@@ -141,6 +141,8 @@ make main
 ./bin/main
 ```
 
+> **NOTE**: to run test code run `./bin/tests`.
+
 ## Extra documentation
 
 Extra documentation is available in the [doc](https://github.com/JustWhit3/SAFD-algorithm/tree/main/doc) folder:
