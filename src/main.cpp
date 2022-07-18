@@ -29,21 +29,21 @@ int main()
   
   std::cout << "\n"
             << spaces << osm::feat( osm::col, "green" ) << "         _____         ______ _____         " 
-            << osm::reset( "color" ) << "\n"
+            << osm::feat( osm::rst, "color" ) << "\n"
             << spaces  << osm::feat( osm::col, "green" ) << "        / ____|  /\\   |  ____|  __ \\        " 
-            << osm::reset( "color" ) << "\n"
+            << osm::feat( osm::rst, "color" ) << "\n"
             << spaces  << osm::feat( osm::col, "green" ) << "       | (___   /  \\  | |__  | |  | |       " 
-            << osm::reset( "color" ) << "\n"
+            << osm::feat( osm::rst, "color" ) << "\n"
             << spaces  << osm::feat( osm::col, "green" ) << "        \\___ \\ / /\\ \\ |  __| | |  | |       " 
-            << osm::reset( "color" ) << "\n"
+            << osm::feat( osm::rst, "color" ) << "\n"
             << spaces  << osm::feat( osm::col, "green" ) << "        ____) / ____ \\| |    | |__| |       " 
-            << osm::reset( "color" ) << "\n"
+            << osm::feat( osm::rst, "color" ) << "\n"
             << spaces  << osm::feat( osm::col, "green" ) << "       |_____/_/    \\_\\_|    |_____/        " 
-            << osm::reset( "color" ) << "\n\n\n"
+            << osm::feat( osm::rst, "color" ) << "\n\n\n"
             << osm::feat( osm::col, "cyan" ) << osm::feat( osm::sty, "italics" ) 
             << "Welcome to SAFD: a program to compute the coefficients f(m,l) of a " 
             << "\nfunction f(th,phi) development in a spherical harmonics convergent series. " 
-            << osm::reset( "all" ) << "\n\n";
+            << osm::feat( osm::rst, "all" ) << "\n\n";
 
   while( true )
    {
@@ -58,14 +58,14 @@ int main()
   
     if( choice == 3 ) 
      {
-      std::cout << osm::feat( osm::col, "green" ) << "Program exited successfully." << osm::reset( "color" ) 
+      std::cout << osm::feat( osm::col, "green" ) << "Program exited successfully." << osm::feat( osm::rst, "color" ) 
                 << "\n\n";
       break;
      }
     else if( choice == 1 )
      {
       safd::initializer( equation, m, l );
-      std::cout << "Chosen function is: " << osm::feat( osm::col, "orange" ) << "f(th,phi) = " << equation << osm::reset( "color" ) << "\n";
+      std::cout << "Chosen function is: " << osm::feat( osm::col, "orange" ) << "f(th,phi) = " << equation << osm::feat( osm::rst, "color" ) << "\n";
       safd::plotter( equation );
       std::cout << "\nValue of the coefficient is (real + imaginary part):" << "\n\n";
       safd::displayer( equation, m, l );
@@ -74,7 +74,7 @@ int main()
       letter_r = safd::abort_this( letter );
       if ( letter_r == 'n' )
        {
-        std::cout << osm::feat( osm::col, "green" ) << "Program exited successfully." << osm::reset( "color" ) 
+        std::cout << osm::feat( osm::col, "green" ) << "Program exited successfully." << osm::feat( osm::rst, "color" ) 
                   << "\n\n";
         break;
        }
@@ -82,14 +82,14 @@ int main()
       else
        {
         std::cerr << osm::feat( osm::col, "red" ) << "Inserted answer is not correct. Automatically aborting the program!" 
-                  << osm::reset( "color" ) << "\n\n"; 
+                  << osm::feat( osm::rst, "color" ) << "\n\n"; 
         break;
        }
      }
     else if( choice == 2 )
      {
       safd::initializer( equation, m, l );
-      std::cout << "Chosen function is: " << osm::feat( osm::col, "orange" ) << "f(th,phi) = " << equation << osm::reset( "color" ) << "\n\n";
+      std::cout << "Chosen function is: " << osm::feat( osm::col, "orange" ) << "f(th,phi) = " << equation << osm::feat( osm::rst, "color" ) << "\n\n";
       safd::plotter( equation );
       std::cout << "\nValue of the coefficients is (real + imaginary part):" << "\n\n";
       for( int a = 0; a < m + 1; a++ )
@@ -104,7 +104,7 @@ int main()
       letter_r = safd::abort_this( letter );
       if ( letter_r == 'n' )
        {
-        std::cout << osm::feat( osm::col, "green" ) << "Program exited successfully." << osm::reset( "color" ) 
+        std::cout << osm::feat( osm::col, "green" ) << "Program exited successfully." << osm::feat( osm::rst, "color" ) 
                   << "\n\n";
         break;
        }
@@ -112,7 +112,7 @@ int main()
       else
        {
         std::cerr << osm::feat( osm::col, "red" ) << "Inserted answer is not correct. Automatically aborting the program!" 
-                  << osm::reset( "color" ) << "\n\n"; 
+                  << osm::feat( osm::rst, "color" ) << "\n\n"; 
         break;
        }
      }
@@ -121,7 +121,7 @@ int main()
       std::cin.clear();
       std::cin.ignore( std::numeric_limits<std::streamsize>::max(), '\n');
       
-      std::cerr << osm::feat( osm::col, "red" ) << "Invalid option!" << osm::reset( "color" ) 
+      std::cerr << osm::feat( osm::col, "red" ) << "Invalid option!" << osm::feat( osm::rst, "color" ) 
                 << "\n\n";
      }
     }
